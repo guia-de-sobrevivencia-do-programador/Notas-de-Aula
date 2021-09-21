@@ -1,0 +1,9 @@
+#!/bin/env /bin/bash
+
+inatorizar() {
+	INVENCAO=$1
+	echo $INVENCAO virou o ${INVENCAO}inator
+}
+
+read INPUT
+inatorizar $INPUT
