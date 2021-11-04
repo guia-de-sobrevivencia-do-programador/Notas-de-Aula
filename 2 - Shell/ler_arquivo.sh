@@ -1,4 +1,4 @@
-#!/bin/env /bin/bash
+#!/bin/bash
 
 echo $1:
 cat $1
