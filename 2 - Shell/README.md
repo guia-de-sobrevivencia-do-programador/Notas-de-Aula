@@ -6,29 +6,43 @@ O que é scripting
 
 Para que serve?
 
-## Shell Scripting
+## Bash
 
-A extensão `.sh` (ex.: `script.sh`, `banana.sh` e `exemplo.sh`) é usada para identificar scripts em bash, mas não é obrigatório seu uso.
+## Bash Script
 
-Se você for usar um script como um executável qualquer (invocar ele através da linha de comando com `./script.sh`), vai ser necessário colocar um shebang (`#!`) na primeira linha para definir qual programa ira interpretar o arquivo. No nosso caso vai ser o `/bin/bash`, mas poderia ser `/bin/python3` por exemplo.
+A extensão `.sh` (ex.: `script.sh`, `banana.sh` e `exemplo.sh`) é usada para identificar scripts em bash, mas seu uso não é obrigatório.
 
-A gente pode também definir funções nos nossos scripts. Funções podem ser definidas dentro de scripts assim:
+Se você for usar um script como um executável qualquer (invocar ele através da linha de comando com `./script.sh`), vai ser necessário colocar um shebang (`#!`) na primeira linha para definir qual programa ira interpretá-lo. No nosso caso vai ser o programa `/bin/bash`, mas poderia ser `/bin/python3` por exemplo.
+
+### Funções
+
+A gente pode definir funções nos nossos scripts. Elas podem ser definidas assim:
 
 ```bash
+function fun() {
+	echo "Estou imprimindo de dentro de outra funcao"
+}
+
+# Ou
+
 fun() {
 	echo "Estou imprimindo de dentro de uma funcao"
 }
 ```
 
-Essas funções podem ser chamadas como qualquer outro programa. Elas também podem receber argumentos, mas a gente vai falar sobre isso mais para frente (ainda nessa aula).
+Essas podem ser chamadas como qualquer outro programa (é só digitar o nome). Elas também podem receber argumentos, mas a gente vai falar sobre isso mais para frente.
 
-É possível retornar de funções usando o comando `return`. E também é possível sair do script usando o comando `exit`. Como argumento opcional você pode passar um inteiro para definir o código de saída.
+É possível retornar de funções usando o comando `return`, e sair do script usando o comando `exit`. Como argumento opcional, você pode passar um inteiro para definir o código de saída.
 
-Códigos de saída servem para verificar se seu programa retornou com sucesso ou houve alguma falha no processo. Um código 0 indica sucesso e qualquer outro valor indica falha. Alguns programas usam valores diferentes para indicar qual foi o erro. A gente vai falar como acessar esse código de saída ainda nessa aula.
+Códigos de saída servem para verificar se seu programa retornou com sucesso ou se houve alguma falha. Um código de saída 0 indica sucesso e qualquer outro valor indica falha. Alguns programas usam valores diferentes para indicar qual foi o erro.
 
 ### Controles de fluxo
 
-Existem vários controles de fluxo que podem te ajudar em um script. A maioria deles (como `if`, `while` e `for`) são bem parecidas com as vistas em linguagens de programações já vistas na graduação como C e Java. Outras são mais incomuns, como o `select`.
+Existem vários controles de fluxo que podem te ajudar em um script em bash. A maioria deles são bem parecidas com as vistas em outras linguagens de programação como o `if/else`, `while`, `for` e `switch/case`. Outras são mais incomuns, como o `select` e o `until`.
+
+As condições são testadas rodando um comando e pegando seu código de saída. Ao contrário de C, 0 indica verdadeiro e qualquer outro valor indica falso.
+
+Para fazer as condicionais que você normalmente faria (ex.: `1 < 3`, `"esse" != "aquele"` ou `verdadeiro || falso`) e outras mais focadas para scripting (ex.: `arquivo_existe("exemplo.txt")` ou `executavel("outro_script.sh")`), você pode usar o comando `test` e passar esses testes como argumento. O manual do comando `test` (`man test`) tem mais informações de como fazer essas condicionais.
 
 ```bash
 if [ ${VAL} -eq 0 ]
@@ -76,15 +90,13 @@ do
 done
 ```
 
-As condições são testadas rodando um comando (definido na hora) e pegando seu código saída. Ao contrário de C, 0 indica verdadeiro e qualquer outro valor indica falso. Para fazer os testes que você normalmente faria em um programa normal (ex.: `1 < 3`, `"esse" != "aquele"` ou `verdadeiro || falso`) e outros mais focados para scripting (ex.: `arquivo_existe("exemplo.txt")` ou `executavel("outro_script.sh")`), você pode usar o comando `test` (que também pode ser chamado usando um par de colchetes `[` e `]`) e passando alguns testes como argumento. Abra o manual do comando (`man test`) para saber mais.
-
-Você também pode usar os comandos `continue` e `break`.
-
 ## Ambiente e Variáveis de ambiente
 
-É possível ver as variáveis de ambiente atuais com o comando `printenv`, rodar um programa em um ambiente novo com `env` e remover uma variável do ambiente atual com `unset`.
+Um ambiente é análogo a um escopo em outras linguagens de programação. As variáveis de ambiente são somente as variáveis alcançáveis a partir daquele escopo.
 
-Para definir ou atribuir novos valores a variáveis de ambiente você coloca o nome da variável, um sinal de igual (`=`) (sem espaço entre o nome e o símbolo de igual) e o valor que quer dar para a variável (ex.: `VAR=algumvalor`). As variáveis de ambiente tem nomes em caixa alta por padrão (assim como queries de MySQL ou macros em C), mas pode colocar tanto letras minúscula quanto maiúscula (cuidado que o bash é *case sensitive*). Para usar essas variáveis: nome dela com um cifrão na frente; o nome pode ou não estar envolto de chaves (`{}`) (ex.: `$VAR` ou `${VAR}`).
+É possível ver as variáveis com o comando `printenv`, rodar um programa em um ambiente separado com `env` e remover variáveis do ambiente atual com `unset`.
+
+Para definir ou atribuir novos valores a variáveis de ambiente você coloca o nome da variável, um sinal de igual (`=`) (sem espaço entre o nome e o símbolo de igual) e o valor que quer dar para a variável (ex.: `VAR=algumvalor`). As variáveis de ambiente tem nomes em caixa alta por costume, mas pode colocar tanto letras minúscula quanto maiúscula (cuidado que o bash é *case sensitive*). Para usar essas variáveis: nome dela com um cifrão na frente; o nome pode ou não estar envolto de chaves (`{}`) (ex.: `$VAR` ou `${VAR}`).
 
 Você também pode pegar variáveis do usuário com o comando `read`. É só invocar ele passando o nome da variável como argumento.
 
@@ -92,17 +104,13 @@ Um exemplo de variáveis pode ser visto no arquivo [`inatorinator`](inatorinator
 
 Existem alguns outros tipos de variáveis que podem ser utilizadas; uma delas é o arranjo, mas a gente não vai falar de arranjos.
 
-<!--TODO: Referências para variáveis em bash-->
-
-### Export e Define
+### Export e outros modificadores
 
 Você pode definir modificadores quando for criar variáveis para modificar seu funcionamento. Esses são colocados antes das variáveis (ex.: `export VAR=outrovalor`).
 
 O modificador `export` automaticamente exporta os valores para os ambientes que forem gerados dentro desse contexto.  Por último, o `local` .
 
 Também existe o comando `declare` que atribui tipos às variáveis e configura outros atributos (como `readonly` ou até mesmo o próprio `export`), mas não vai ser falado em sala.
-
-<!--TODO: Referências para modificadores de variáveis-->
 
 ### Variáveis especiais
 
@@ -113,13 +121,7 @@ Existem algumas variáveis que são bem úteis para scripts em bash. Essas são 
 * `$#` - Número de argumentos passados para o script ou alguma função. Contagem a partir do segundo argumento.
 * `$*` - Todos os argumentos como uma única string
 * `$@` - Todos os argumentos devidamente separados em strings
-
-Outras variáveis interessantes:
-
-* `$$` - PID do processo atual
 * `$_` - Último argumento do último comando executado
-
-<!--TODO: Referências para variáveis built-in-->
 
 ## Rodar múltiplos comandos
 
@@ -143,7 +145,7 @@ Entradas e saídas de comandos no Linux funciona como arquivos (pipes e streams)
 * `1` - A saída padrão
 * `2` - A saída de erros
 
-### Redirecionar com arquivos:
+### Redirecionar com arquivos
 
 O primeiro redirecionamento de entradas e saídas é redirecionar de e para um arquivo. Para isso você pode utilizar os comandos menor (`<`) e maior (`>`) no final do comando.
 
@@ -173,20 +175,20 @@ De um argumento você passa três sinais de menor (`<<<`) e um argumento depois.
 
 O de multilinha é um pouco mais difícil. Você passa dois sinais de menor (`<<`) seguidos de um identificador de fim de entrada (normalmente `EOF`, mas pode ser o que você quiser). Então você pode escrever o quanto quiser. Para terminar, basta escrever o identificador de fim de entrada na última linha.
 
-## Ficar mais rápido no terminal
+## Comandos avançados
 
-### Rodar comandos no histórico
+### Rodar comandos do histórico
 
 Você pode rodar comandos que já foram executados previamente (e até corrigir os erros) com facilidade.
 
-Aqui é como executar...
+Tem como executar...
 
 * `!!` - o último comando
 * `!vim` - o último comando que começa com `vim`
 * `!?main` - o último comando que contém `main` em algum lugar
 * `^ti^it^` - o último comando, substituindo todos os `ti` por `it`
 
-### Glob
+### Globbing
 
 Globs são muito úteis para definir um padrão de arquivos para usar como entrada. Eles trocam o padrão que foi escrito por uma lista de argumentos que bate com a especificação antes de rodar o programa.
 
@@ -202,13 +204,17 @@ Essas listas e sequências também podem estar juntas e até dentro uma da outra
 
 E por último mas não menos importante a gente tem a customização do seu bash.
 
-Os arquivos de configuração normalmente começam com um ponto (`.`), que indica um arquivo escondido, daí o nome de arquivos de configuração de *dotfiles*. Existem pessoas que compartilham seus *dotfiles* em sites como o GitHub ou GitLab. Eu recomendo dar uma olhada no *dotfiles* dos professores ou de outras pessoas para ver o que elas fazem para talvez roubar uma ideia ou outra delas.
+Os arquivos de configuração normalmente começam com um ponto (`.`), que indica um arquivo escondido, daí o nome de arquivos de configuração de *dotfiles*. Existem pessoas que compartilham seus *dotfiles* em sites como o GitHub ou GitLab. Eu recomendo dar uma olhada no *dotfiles* dos professores ou de outras pessoas para ver o que elas fazem e talvez roubar uma configuração ou outra.
 
 As configurações do bash ficam no arquivo `.bashrc`, na `home` (`~`) do seu usuário. Nesse arquivo você pode configurar tudo o que quiser, inclusive definir funções que você pode usar como se fossem comandos no seu bash. Eu vou falar de algumas coisas que se pode fazer para aumentar a produtividade.
+
+### Alias
 
 Muitas vezes você vê que precisa de um comando extra ou que está rodando um comando muito grande várias vezes; para esses casos você pode fazer um `alias`. Um alias troca o que foi digitado por outra coisa. Um exemplo pode ser fazer um alias `gs` para `git status`, `repos` para `cd ~/repos/` ou até mesmo `gti` para `git`.
 
 Para fazer um alias, basta executar o comando `alias` e defini-lo do mesmo jeito que se define uma variável (ex.: `alias gs='git status'`).
+
+### A variável `PATH`
 
 Por último, você também pode configurar outros diretórios onde o seu terminal vai checar por comandos. Você pode criar uma pasta com scripts e colocá-la nessa lista para poder usar seus scripts em qualquer lugar. Para isso, basta adicionar um novo diretório na variável `PATH`.
 
@@ -216,8 +222,11 @@ Os diretórios são separados por ponto e vírgula (`;`). Basta exportar a vari�
 
 ## Recursos externos
 
-* `man 1 bash`
-* `man 3 history`
+* Manual/Info do bash (`man 1 bash`)
+* Manual/Info do comando `test` (`man 1 test`)
+* Manual/Info do histórico do bash (`man 3 history`)
+* Partes II e III do livro `Linux Command Line and Shell Scripting Bible` de Richard Blum e Christine Bresnahan
+* Livro `Shell Scripting` de Jason Cannon.
 
 ## Responsáveis
 * [Fukuda](https://github.com/JoaoFukuda)
