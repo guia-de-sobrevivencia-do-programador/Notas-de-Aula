@@ -1,14 +1,20 @@
 # 2 - Shell
 
-O que é bash?
-
-O que é scripting
-
-Para que serve?
-
 ## Bash
 
-## Bash Script
+Bash (ou Bourne-Again SHell) é uma de várias shells disponíveis hoje em dia (dentre várias outras como a ksh, zsh, fish e dash). Dentre elas, definitivamente a mais popular, bash é encontrada na maioria dos sistemas que rodam Linux.
+
+Uma shell, ou um interpretador de linguagem de comandos, é o que usamos para interagir com o sistema operacional através de um terminal. É ela que recebe o que digitamos, interpreta e executa programas.
+
+Sendo um dos principais meios de interação entre o computador e o usuário, as shells tem evoluído bastante durante os anos e hoje em dia fazem muito mais do que só executar comandos.
+
+O bash pode ser usado de maneira interativa e não interativa. De maneira interativa a shell aceita entrada vinda do teclado (que o usuário está digitando). Já o modo não interativo aceita comandos vindos de outros programas ou de arquivos.
+
+Scripts são programas interpretados (sem a necessidade de traduzir para código de máquina). Normalmente utilizados para automatizar algum processo ou tarefa repetitiva onde a implementação de uma solução é fácil e não é preciso muita performance.
+
+Com um conhecimento bom de bash e da suite de programas GNU você consegue automatizar ou simplificar praticamente qualquer aspecto da sua interação com o computador. Desde uma [configurar os seus monitores](https://github.com/JoaoFukuda/dotfiles/blob/main/scripts/monsetup) até uma [implementação de docker](https://github.com/p8952/bocker): tudo é possível.
+
+## Bash Scripting
 
 A extensão `.sh` (ex.: `script.sh`, `banana.sh` e `exemplo.sh`) é usada para identificar scripts em bash, mas seu uso não é obrigatório.
 
