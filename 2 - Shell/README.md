@@ -1,6 +1,8 @@
 # 2 - Shell
 
-## Bash
+## Introdução
+
+### Bash
 
 Bash (ou Bourne-Again SHell) é uma de várias shells disponíveis hoje em dia (dentre várias outras como a ksh, zsh, fish e dash). Dentre elas, definitivamente a mais popular, bash é encontrada na maioria dos sistemas que rodam Linux.
 
@@ -9,6 +11,8 @@ Uma shell, ou um interpretador de linguagem de comandos, é o que usamos para in
 Sendo um dos principais meios de interação entre o computador e o usuário, as shells tem evoluído bastante durante os anos e hoje em dia fazem muito mais do que só executar comandos.
 
 O bash pode ser usado de maneira interativa e não interativa. De maneira interativa a shell aceita entrada vinda do teclado (que o usuário está digitando). Já o modo não interativo aceita comandos vindos de outros programas ou de arquivos.
+
+### Scripts
 
 Scripts são programas interpretados (sem a necessidade de traduzir para código de máquina). Normalmente utilizados para automatizar algum processo ou tarefa repetitiva onde a implementação de uma solução é fácil e não é preciso muita performance.
 
