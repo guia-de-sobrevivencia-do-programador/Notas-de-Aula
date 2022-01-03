@@ -87,9 +87,11 @@ Escolha uma linguagem de programação. A que você quiser, não faz diferença.
 A primeira coisa é usar o botão de extensões e instalar um pacote de realce de sintaxe. Isso é extremamente importante para ajudar literalmente qualquer programador a não se perder no código.
 
 ![Imgur](https://i.imgur.com/nwB5jeM.png)
+
 Sem realce
 
 ![Imgur](https://i.imgur.com/xqCkOJC.png)
+
 Com realce
 
 No caso, eu estou usando Python. O pacote que possui realce é o recomendado, ou seja:
