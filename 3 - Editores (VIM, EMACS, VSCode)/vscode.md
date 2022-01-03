@@ -44,7 +44,7 @@ O sexto botão é o próprio Live Share! Ele está na imagem para mostrar o quã
 
 Olhando para a parte mais principal do VSCODE, podemos ver algo como isso: 
 
-![image]()
+![Imgur](https://i.imgur.com/V18urSu.png)
 
 Em vermelho temos as abas. Usadas para trocar rapidamente entre códigos abertos.
 Em azul temos o botão de rodar o código, similar ao de outras IDEs. Contanto que a língua esteja corretamente instalada (talvez o VSCODE precise de extensões para tal), ao apertar o botão, um script rodará, que executará o código atualmente sendo visto pelo editor.
