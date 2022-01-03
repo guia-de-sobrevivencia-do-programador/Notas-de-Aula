@@ -52,7 +52,7 @@ Em verde temos o editor. Tão bom como qualquer editor de texto. E coloridinho t
 Em rosa temos os consoles. No caso do meu print, temos a aba de Problems (relativo ao Workspace, talvez nem precise ser explicado), o de Output (preciso pesquisar o que isso faz, mesmo que o nome diga Output, normalmente sai no terminal.), o console de Debug, que fica ativo em sessões de debug, e o glorioso terminal, aquilo que é o seu melhor aliado.
 Primeiro explorando a visão do editor, mostre como e possível dividir telas dentro do próprio contexto, tipo assim: 
 
-![image]()
+![Imgur](https://i.imgur.com/ye6ftWu.png)
 
 
 Tanto pelo botão circulado em rosa, quanto por View > Editor Layout > Split Right (ou down, sei lá, use todas as opções). Útil para ver várias partes do código ao mesmo tempo.
