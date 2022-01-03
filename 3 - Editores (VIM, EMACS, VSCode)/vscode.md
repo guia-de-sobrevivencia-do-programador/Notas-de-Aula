@@ -59,7 +59,7 @@ Tanto pelo botão circulado em rosa, quanto por View > Editor Layout > Split Rig
 
 Ou LITERALMENTE só arrasta pra onde você quer. O negócio é flexível. 
 
-![image]()
+![Imgur](https://i.imgur.com/zeQ9AA8.png)
 
 Agora, o terminal.
 
