@@ -9,7 +9,7 @@ Depois disso, mostre como o arquivo será aberto na janela principal. Escreva qu
 
 A partir daqui, mostraremos as utilidades da barra lateral:
 
-[Imgur](https://i.imgur.com/2dWwM2D.png)
+![Imgur](https://i.imgur.com/2dWwM2D.png)
 
 O primeiro é o Explorer. Intuitivo como o Windows Explorer, mostra a organização dos arquivos no seu projeto, e permite operações como criar um arquivo, renomear um arquivo, etc. através do botão esquerdo nele.
 
