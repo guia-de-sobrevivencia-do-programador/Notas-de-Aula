@@ -192,7 +192,8 @@ Essas opções se encontram na aba de Terminal (ou Ctrl + ‘).
    E agora, estamos basicamente dentro do Ubuntu. Um dos principais motivos pelos quais você pode querer fazer isso, é usar bibliotecas únicas do Linux e, especialmente, instalá-las usando o gerenciador de pacotes.
 
    Isso foi abordado já, na aula de Linux, mas, somente para provar, vamos instalar o Make, e rodar na pasta de testes:
-(MUITA IMAGEM)
+![Imgur](https://i.imgur.com/gEAkcHR.png)
+![Imgur](https://i.imgur.com/T51o5Dh.png)
 
 ## Integração com Git
 
