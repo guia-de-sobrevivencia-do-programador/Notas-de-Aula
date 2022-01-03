@@ -31,7 +31,7 @@ O quinto é o botão de extensões, uma das mais principais características do 
 
 Abra, e mostre a parte principal. Vai parecer mais ou menos como isso:
 
-![image]()
+![Imgur](https://i.imgur.com/Nrn0Ngo.png)
 
 As extensões tem coisas como: Servidores para hostear sites localmente (O Live Server), debuggers para linguagens específicas, corretores automáticos específicos de linguagem, debuggers especializados, WSL, integração com containers, uma extensão que permite duas ou mais pessoas editarem um código local (O Live Share, o meu favorito) e basicamente qualquer coisa já concebida pela psyche humana.
 
