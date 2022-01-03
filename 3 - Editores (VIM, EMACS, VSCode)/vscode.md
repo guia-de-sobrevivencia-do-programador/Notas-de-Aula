@@ -63,10 +63,10 @@ Ou LITERALMENTE só arrasta pra onde você quer. O negócio é flexível.
 
 Agora, o terminal.
 
-![image]()
+![Imgur](https://i.imgur.com/gitPGsZ.png)
 
 Através de Terminal > New Terminal ou Ctrl+Shift+’, nós abrimos um terminal.
-![image]()
+![Imgur](https://i.imgur.com/OpQcYft.png)
 
 Ele será útil por vários motivos. Mesmo que o VSCODE tenha um botão de rodar, ele, na verdade, roda um script pré-montado e estático no terminal. Pelo terminal, você pode rodar os seus programas com parâmetros na linha de comando. Além disso, você pode executar comandos bash, ou comandos específicos do framework.
 
@@ -74,7 +74,7 @@ Um exemplo seria NODE (sim, eu sei, Javascript, eca), onde o Run não funciona, 
 
 Ou, no nosso caso, o melhor uso é para, claro, rodar Linux. Caso você já tenha o WSL apropriadamente configurado, você pode fazer:
 
-![image]()
+![Imgur](https://i.imgur.com/7MJIgCX.png)
 
 E voilá, estamos agora rodando os programas no subsistema de Linux (que, no meu caso, é o Kali). Isso vai se provar extremamente útil quando nós quisermos usar comandos como apt-get, para rapidamente instalar outras livrarias (ou linguagens até) em nosso projeto.
 
@@ -86,28 +86,30 @@ Escolha uma linguagem de programação. A que você quiser, não faz diferença.
 
 A primeira coisa é usar o botão de extensões e instalar um pacote de realce de sintaxe. Isso é extremamente importante para ajudar literalmente qualquer programador a não se perder no código.
 
-![image]()
+![Imgur](https://i.imgur.com/nwB5jeM.png)
+Sem realce
 
-![image]()
+![Imgur](https://i.imgur.com/xqCkOJC.png)
+Com realce
 
 No caso, eu estou usando Python. O pacote que possui realce é o recomendado, ou seja:
 
-![image]()
+![Imgur](https://i.imgur.com/yFNWt4d.png)
 
 Quando o VSCODE detectar que você tenha algo de relevante para desenvolvimento instalado no computador, ele trará um desses pop-ups:
 
-![image]()
+![Imgur](https://i.imgur.com/jBKTqcv.png)
 
 Então, esses pacotes recomendados serão de alta ajuda para o seu desenvolvimento, a não ser que você esteja fazendo algo muito específico.
 
 
 Tá, como exemplo, eu escrevi este código:
 
-![image]()
+![Imgur](https://i.imgur.com/c9he7X7.png)
 
 Este código pega arquivos compactados em .tar.gz de uma pasta, e descompacta em outra pasta, tudo usando comandos de terminal, importados através de “import os”.
 
-![image]()
+![Imgur](https://i.imgur.com/OpUGH5Q.png)
 
 Podemos ver que ao errar a sintaxe, as cores e os highlights apontam onde os erros estão.
 
@@ -117,7 +119,7 @@ Aqui a coisa fica interessante.
 
 Para um exemplo simples, eu arrumei o seguinte código:
 
-![image]()
+![Imgur](https://i.imgur.com/WJ1aUBE.png)
 
 A ideia é simples: Eu fiz uma função que fala: Usando a função lambda de Python, retorne através de um for uma array de valores definido por uma função que, no caso, deveria ser:
 
@@ -129,21 +131,21 @@ Quando eu chamo multiplier(2), eu defino todos os X como 2. Portanto, a nossa sa
 
 Porém, quando rodamos o programa, temos:
 
-![image]()
+![Imgur](https://i.imgur.com/GvrxMEb.png)
 
 Impresso no terminal.
 
 Mas por que? Vamos nos utilizar do debugger do VSCODE:
 
-![image]()
+![Imgur](https://i.imgur.com/WoCKazU.png)
 
 Na parte esquerda das linhas, você pode adicionar pausas. Enquanto você estiver no modo de debug, a execução do código para, para que você consiga ver o estado atual do programa sem que ele termine muito rápido sua execução.
 
 Portanto, vamos rodar em debug, apertando 
-![image]()
+![Imgur](https://i.imgur.com/W8ZcxaS.png)
 ou usando Ctrl+Shift+D
 
-![image]()
+![Imgur](https://i.imgur.com/rwnzlq9.png)
 Durante a declaração da função create_multipliers, podemos ver que, de fato, i está indo de 0 a 4, como esperado. Mas, quando chegamos na linha do print, podemos ver:
 
 ![image]()
