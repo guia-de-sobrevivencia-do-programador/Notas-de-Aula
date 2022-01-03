@@ -142,10 +142,13 @@ Mas por que? Vamos nos utilizar do debugger do VSCODE:
 Na parte esquerda das linhas, você pode adicionar pausas. Enquanto você estiver no modo de debug, a execução do código para, para que você consiga ver o estado atual do programa sem que ele termine muito rápido sua execução.
 
 Portanto, vamos rodar em debug, apertando 
+
 ![Imgur](https://i.imgur.com/W8ZcxaS.png)
+
 ou usando Ctrl+Shift+D
 
 ![Imgur](https://i.imgur.com/rwnzlq9.png)
+
 Durante a declaração da função create_multipliers, podemos ver que, de fato, i está indo de 0 a 4, como esperado. Mas, quando chegamos na linha do print, podemos ver:
 
 ![image]()
