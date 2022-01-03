@@ -151,7 +151,7 @@ ou usando Ctrl+Shift+D
 
 Durante a declaração da função create_multipliers, podemos ver que, de fato, i está indo de 0 a 4, como esperado. Mas, quando chegamos na linha do print, podemos ver:
 
-![image]()
+![Imgur](https://i.imgur.com/1vl92w6.png)
 Em todos os prints, o i está valendo 4.
 
 Se você explorar o suficiente, você descobrirá que por motivos de Programação Orientada a Objetos, por causa de Ligação Dinâmica, o valor utilizado em i é o resultado da função interna. Ou seja, na verdade temos uma array de:
