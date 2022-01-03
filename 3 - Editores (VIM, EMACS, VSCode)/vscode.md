@@ -162,17 +162,17 @@ i in range(5)
 
 , que no caso é 4. Com esse conhecimento, podemos consertar a função. Declarando-a dessa forma:
 
-![image]()
+![Imgur](https://i.imgur.com/R1TUjov.png)
 
 Agora, cada valor de i é salvo.
 
 Podemos abrir o debugger, agora nessa função, e podemos ver:
 
-![image]()
+![Imgur](https://i.imgur.com/x9wqqkN.png)
 
 Os valores de i estão corretos e, ainda mais importante:
 
-![image]()
+![Imgur](https://i.imgur.com/lqKQIuL.png)
 
 O valor da saída está correto.
 
@@ -183,7 +183,7 @@ O valor da saída está correto.
 
    Por exemplo, eu possuo o Ubuntu e Kali para WSL instalados no meu computador. Ao apertar o botão de fazer um novo terminal, eu tenho as alternativas:
    
-![image]()
+![Imgur](https://i.imgur.com/NkQS4Aa.png)
 
 Essas opções se encontram na aba de Terminal (ou Ctrl + ‘).
 
@@ -198,11 +198,11 @@ Essas opções se encontram na aba de Terminal (ou Ctrl + ‘).
 
   Na aba de Source Control, caso a pasta que esteja selecionada, seja um repositório vinculado do Git, você pode ver todas as alterações atuais nos arquivos do repositório, e pode, através desta barra:
   
-![image]()
+![Imgur](https://i.imgur.com/yn5YB95.png)
  
  Fazer commits com comentários para a branch atual. Além disso, ao clicar nos três pontos ao lado:
 
-![image]()
+![Imgur](https://i.imgur.com/h36hHEw.png)
 
 Podemos ver todas as ações possíveis do Git, e podemos somente clicar nelas, ao invés de digitar no terminal os comandos.
     A explicação destes comandos é feita na aula de Git.
