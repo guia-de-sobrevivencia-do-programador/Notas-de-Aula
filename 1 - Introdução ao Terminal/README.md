@@ -28,6 +28,8 @@ Para o shell entender os comandos que o usuário quer digitar é usado uma vari�
 
 Nada mais que um programa que roda programas.
 
+![User](./assets/User.png)
+
 Em sua shell é provável que a tenha um texto como o da imagem acima, esse texto representa o nome do seu usuário e o nome de sua máquina separados por um @ e onde você se encontra atualmente.
 
 Na imagem acima é possível ver que o usuário é o azz e o computador é o doom, atualmente o usuário se encontra em seu diretório HOME representada por uma variável `~`.
