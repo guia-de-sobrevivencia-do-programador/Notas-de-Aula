@@ -26,7 +26,7 @@ Sendo praticamente uma linguagem de programação existe o conceito de variávei
 
 Para o shell entender os comandos que o usuário quer digitar é usado uma variável especial chamada PATH, essa variável define quais programas estão no escopo da shell, ou seja todos os programas na variável PATH podem ser executados independentemente de onde o usuário estiver.
 
-Nada mais que um programa que roda programas. (Aqui dá pra falar de variáveis de ambiente)
+Nada mais que um programa que roda programas.
 
 Em sua shell é provável que a tenha um texto como o da imagem acima, esse texto representa o nome do seu usuário e o nome de sua máquina separados por um @ e onde você se encontra atualmente.
 
@@ -46,25 +46,31 @@ echo Olá mundo!
 
 ### cd (change directory)
 
-O cd é um comando para mudar de diretório e navegar em seu computador, caso queira entrar/sair de um diretório. "cd /etc/passwd" indica a mudança de contexto para o caminho global "etc/passwd". "cd -" indica que o diretório a ser carregado é o último diretório acessado pelo usuário. Já "cd" (sem argumentos) e "cd ~" ambos retornam para a pasta home do usuário.
+O cd é um comando para mudar de diretório e navegar em seu computador, caso queira entrar/sair de um diretório. `cd /etc/passwd` indica a mudança de contexto para o caminho global `etc/passwd`. `cd -` indica que o diretório a ser carregado é o último diretório acessado pelo usuário. Já `cd` (sem argumentos) e `cd ~` ambos retornam para a pasta home do usuário.
 
 #### Caminho Relativo
 
-Existe uma notação em unix que representa o próprio diretório ao qual o usuário se encontra presente: "." . Nada mais é que um atalho utilizado para escrever caminhos relativos ao diretório atual.
+Existe uma notação em unix que representa o próprio diretório ao qual o usuário se encontra presente: `.`. Nada mais é que um atalho utilizado para escrever caminhos relativos ao diretório atual.
 
-Se o resultado de um pwd é "/Users/enrique.silva/Desktop", então podemos representar um arquivo chamado "oi.txt", armazenado nesta pasta, da seguinte maneira: "./oi.txt". Exceto em casos específicos, esse ponto pode ser omitido sem perda do contexto de caminho relativo.
+Se o resultado de um pwd é `/Users/enrique.silva/Desktop`, então podemos representar um arquivo chamado `oi.txt`, armazenado nesta pasta, da seguinte maneira: `./oi.txt`. Exceto em casos específicos, esse ponto pode ser omitido sem perda do contexto de caminho relativo.
 
-É possível se referir também ao diretório parente ao que nosso usuário se encontra, utilizando o símbolo "..". Utilizando-se do exemplo acima, "../ola.txt" se refere a um arquivo "olar.txt", contido na pasta "enrique.silva", que também contém "Desktop".
+É possível se referir também ao diretório parente ao que nosso usuário se encontra, utilizando o símbolo `..`. Utilizando-se do exemplo acima, `../ola.txt` se refere a um arquivo `olar.txt`, contido na pasta `enrique.silva`, que também contém `Desktop`.
 
-Caminhos relativos poupam caracteres de maneira elegante: Por exemplo, "./../../" em nosso exemplo indicaria o diretório "/Users".
+Caminhos relativos poupam caracteres de maneira elegante: Por exemplo, `./../../` em nosso exemplo indicaria o diretório `/Users`.
 
 #### Caminho Global
 
-Todo arquivo ou diretório em um sistema unix possui um caminho global que indica como acessar o arquivo a partir da base do sistema. Chamamos essa base do sistema de raiz, ou root, e não existem diretórios que a contenham. Existe um símbolo reservado para essa raiz, e é "/".
+Todo arquivo ou diretório em um sistema unix possui um caminho global que indica como acessar o arquivo a partir da base do sistema. Chamamos essa base do sistema de raiz, ou root, e não existem diretórios que a contenham. Existe um símbolo reservado para essa raiz, e é `/`.
 
-Portanto, caso haja uma pasta chamada "users" dentro da raiz, seu caminho global é "/users". Caso exista um diretório "emanuel" contido em "users", representamos seu caminho global como: "/users/emanuel" Reparem que enquanto é o primeiro caractere da string, a barra indica a raiz do sistema e enquanto está contida no meio da string, a barra é um separador de diretórios.
+Portanto, caso haja uma pasta chamada `users` dentro da raiz, seu caminho global é `/users`. Caso exista um diretório `emanuel` contido em `users`, representamos seu caminho global como:
 
-Existe também o símbolo "~", indicador do caminho global até a pasta "/home/USUARIO" (ou "/users/USUARIO" no MacOS), onde USUARIO é o nome do usuário que está usando a shell.
+```
+/users/emanuel
+```
+
+Reparem que enquanto é o primeiro caractere da string, a barra indica a raiz do sistema e enquanto está contida no meio da string, a barra é um separador de diretórios.
+
+Existe também o símbolo `~`, indicador do caminho global até a pasta `/home/USUARIO` (ou `/users/USUARIO` no MacOS), onde USUARIO é o nome do usuário que está usando a shell.
 
 ### ls (list)
 
@@ -82,19 +88,26 @@ Algumas flags importantes podem ser:
 
 ### RWX (Read Write Execute)
 
-Cada arquivo tem permissões de read ("r"), write ("w") e execute ("x"), essas permissões são aplicadas para 3 tipos de usuários: dono do arquivo, usuário do mesmo grupo do dono do arquivo e quaisquer outros usuários. Essas permissões podem ser vistas com o comando ls e a flag -l.
+Cada arquivo tem permissões de read (`r`), write (`w`) e execute (`x`), essas permissões são aplicadas para 3 tipos de usuários: dono do arquivo, usuário do mesmo grupo do dono do arquivo e quaisquer outros usuários. Essas permissões podem ser vistas com o comando `ls` e a flag `-l`.
+
 Ex:
 ```
-    drwxr--r-x
+drwxr--r-x
 ```
 
-Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um char e as demais de 3 chars. Em nosso exemplo, eis as partes: 1a: "d"  2a: "rwx"  3a: "r--"  4a: "r-x".
+Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um char e as demais de 3 chars. Em nosso exemplo, eis as partes:
+
+* 1a: `d`
+* 2a: `rwx`
+* 3a: `r--`
+* 4a: `r-x`
+
 * A primeira parte indica se aquele nome se refere a um diretório ou não.
 * A segunda parte indica as permissões de acesso para usuário ao arquivo ou diretório.
 * A terceira, as permissões para o grupo de usuários ao qual o atual pertence.
 * A quarta, as permissões para todos os outros usuários não contidos na regra anterior.
 
-Vale lembrar que o símbolo  "-" em uma posição indica a ausência daquela característica.
+Vale lembrar que o símbolo  `-` em uma posição indica a ausência daquela característica.
 
 ### Usuários e Grupos
 
@@ -108,29 +121,37 @@ O comando groups é o comando utilizado para mostrar os grupos que o usuário at
 
 ### id
 
-Análogo ao "groups", mostra o número de identificação de cada grupo que o usuário atual pertence
+Análogo ao `groups`, mostra o número de identificação de cada grupo que o usuário atual pertence
 
 ## Ajuda
 
 ### `–help` ou `-h`
 
-Normalmente para cada comando existe uma flag "-h" ou a flag "–-help" que imprime no terminal instruções de como usar o programa. Apesar de não ser regra, muitos programas utilizam da boa prática de incluir tais flags.
+Normalmente para cada comando existe uma flag `-h` ou a flag `–-help` que imprime no terminal instruções de como usar o programa. Apesar de não ser regra, muitos programas utilizam da boa prática de incluir tais flags.
 
 ### man
 
-Comando que procura por uma página de instruções de um programa específico nas páginas de manual do sistema operacional. Entende-se como o manual uma coleção de textos chamados de páginas, cada uma documentando uma característica específica do sistema. Geralmente quando um programa novo é baixado através de um package manager, baixa-se em conjunto suas páginas para serem adicionadas ao manual. Para aprendermos a como utilizar o "man", basta digitar o comando "man man".
+Comando que procura por uma página de instruções de um programa específico nas páginas de manual do sistema operacional. Entende-se como o manual uma coleção de textos chamados de páginas, cada uma documentando uma característica específica do sistema. Geralmente quando um programa novo é baixado através de um package manager, baixa-se em conjunto suas páginas para serem adicionadas ao manual. Para aprendermos a como utilizar o `man`, basta digitar o comando:
+```bash
+man man
+```
 
 ### tldr
 
 O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso -h ou —-help de um programa específico.
 
+Para saber como usar o comando ls:
+```bash
+tldr ls
+```
+
 ## Arquivos
 
 ### cat
 
-Permite concatenar arquivos, exibindo o resultado final na tela do terminal. Apesar disso, também é muito utilizado apenas para exibir os conteúdos de um arquivo. Outro detalhe importante de se mencionar é que não necessariamente o programa precisa ler um arquivo, pois ele também pode ler texto digitado como entrada pelo terminal ao receber o símbolo "-" ao invés do nome de algum arquivo.
+Permite concatenar arquivos, exibindo o resultado final na tela do terminal. Apesar disso, também é muito utilizado apenas para exibir os conteúdos de um arquivo. Outro detalhe importante de se mencionar é que não necessariamente o programa precisa ler um arquivo, pois ele também pode ler texto digitado como entrada pelo terminal ao receber o símbolo `-` ao invés do nome de algum arquivo.
 
-Para imprimir o conteúdo de um arquivo chamado "archive-name":
+Para imprimir o conteúdo de um arquivo chamado `archive-name`:
 ```bash
 cat archive-name
 ```
@@ -142,19 +163,51 @@ cat file1 file2 file4 file4
 
 ### less/more
 
+Os comandos `less` e `more` são usados para ler textos grandes e múltiplos textos.
+
+Comando `more`:
+
+* `spaço`: vai para a próxima página
+* `b`: volta uma página
+* `enter`: desce uma linha
+* `=`: mostra a linha atual
+
+Comando `less`:
+
+* `k`: move para cima
+* `j`: move para baixo
+
+Obs 1: No comando `less` é possível marcar pontos no texto para voltar depois, para marcar um ponto no texto basta clicar a tecla `m` e escolher algum caractere por exemplo `a`. Quando quiser voltar ao ponto marcado basta clicar `'` seguido da tecla escolhida `a`.
+
+Obs 2: É possível ler o conteúdo de um arquivo enquanto ele é atualizado para isso basta clicar as teclas `Shift` e `F` ou na hora de abrir o arquivo adicionar a flag `+F`
+
+Exemplo abrir um arquivo `texto` com `more`:
+
+```bash
+more ./texto
+```
+
+Exemplo abrir um arquivo `texto` com `less` enquanto ele é atualizado:
+
+```bash
+less +F ./texto
+```
+
 ### head/tail
 
-O comando head exibe por padrão as primeiras 10 linhas de um arquivo, é possível também especificar o número de linhas ou o número de bytes a ser imprimido. Para imprimir as 3 primeiras linhas de um arquivos chamado "texto":
+O comando head exibe por padrão as primeiras 10 linhas de um arquivo, é possível também especificar o número de linhas ou o número de bytes a ser imprimido. Para imprimir as 3 primeiras linhas de um arquivos chamado `texto`:
 ```bash
 head -n 3 texto
 ```
 
-O comando tail exibe por padrão as últimas 10 linhas de um arquivo, é possível, assim como o comando head, especificar o número de linhas ou bytes a ser imprimido. Para imprimir os 10 últimos bytes de um arquivo chamado “texto”:
+O comando tail exibe por padrão as últimas 10 linhas de um arquivo, é possível, assim como o comando head, especificar o número de linhas ou bytes a ser imprimido. Para imprimir os 10 últimos bytes de um arquivo chamado `texto`:
 ```bash
 tail -c 10 texto
 ```
 
 ### strings
+
+
 
 ## Modificar
 
@@ -162,48 +215,71 @@ tail -c 10 texto
 
 Permite com que o usuário possa mover arquivos ou diretórios em seu computador.
 
-Para mover um arquivo chamado “Tarefa 2” para uma pasta chamada “~/Tarefas”:
+Para mover um arquivo chamado `Tarefa 2` para uma pasta chamada `~/Tarefas`:
 ```bash
 mv ‘Tarefa 2’ ./Tarefas/
 ```
-Obs: Lembre-se de usar as aspas em arquivos com espaços no nome, caso o contrário o comando mv vai considerar “Tarefa” e “2” como dois aquivos separados
+Obs: Lembre-se de usar as aspas em arquivos com espaços no nome, caso o contrário o comando mv vai considerar `Tarefa` e `2` como dois aquivos separados
 
-Também é utilizado para renomear aquivos em seu computador, para renomear um arquivo “novo documento” para “trabalho final”: 
+Também é utilizado para renomear aquivos em seu computador, para renomear um arquivo `novo documento` para `trabalho final`:
 ```bash
 mv ‘novo documento’ ‘trabalho final’.
 ``
 
-Caso seja especificado mais de dois argumentos, por padrão, todos os arquivos especificados com exceção do último serão enviados para a localização do último argumento. Caso o usuário queira enviar os arquivos “Tarefa_Redes.pdf”, “Tarefa_OAC.pdf” e “Tarefa_IP.pdf” para o diretório “./Tarefas”:
+Caso seja especificado mais de dois argumentos, por padrão, todos os arquivos especificados com exceção do último serão enviados para a localização do último argumento. Caso o usuário queira enviar os arquivos `Tarefa_Redes.pdf`, `Tarefa_OAC.pdf` e `Tarefa_IP.pdf` para o diretório `./Tarefas`:
 ```bash
 mv Tarefa_Redes.pdf Tarefa_OAC.pdf Tarefa_IP.pdf ./Tarefas
+```
 
 ### cp
+
+Permite que o usuário copie arquivos ou diretórios em seu computador.
+
+Para copiar um arquivo chamado `tarefa.pdf` para o diretório `backup`:
+```bash
+cp tarefa.pdf backup/
+
+# ou
+
+cp tarefa.pdf backup/tarefa_backup.pdf
+```
+
+Caso queira copiar uma pasta `Filmes` para o diretório `Vídeos`:
+
+```bash
+cp Filmes ./Vídeos -r
+```
+
+Obs: Caso a flag `-r` não seja utilizada apenas será copiada a pasta Filmes sem nenhum conteúdo dentro dela.
+
+Caso queira copiar os arquivos `video.mp4`, `tarefa.pdf` e `enunciado.pdf` para uma pasta chamada `entrega`:
+```bash
+cp video.mp4 tarefa.pdf enunciado.pdf ./entrega
+```
 
 ## Criar
 
 ### mkdir
 
-Permite com que o usuário crie diretórios. Para criar um diretório chamado “Downloads”:
+Permite com que o usuário crie diretórios. Para criar um diretório chamado `Downloads`:
 ```bash
 mkdir  Downloads
 ```
-É possível também criar vários diretórios colocando mais argumentos. Para criar 3 diretórios “Fotos”, “Vídeos” e “Arquivos”:
+É possível também criar vários diretórios colocando mais argumentos. Para criar 3 diretórios `Fotos`, `Vídeos` e `Arquivos`:
 ```bash
 mkdir Fotos Vídeos Arquivos
 ```
-Caso queira criar uma hierarquia de pastas é possível usar a flag `-p` ou `–parents`, assim diretórios inexistentes serão criados. Por exemplo criar uma pasta “Vídeos de gato” dentro de uma pasta “Vídeos”:
+Caso queira criar uma hierarquia de pastas é possível usar a flag `-p` ou `–parents`, assim diretórios inexistentes serão criados. Por exemplo criar uma pasta `Vídeos de gato` dentro de uma pasta `Vídeos`:
 ```bash
 mkdir Vídeos/Vídeos\ de\ gato -p
 ```
 
 ### touch
 
-Permite que o usuário mude a data de modificação de um arquivo e caso o arquivo não exista ele cria um arquivo vazio. Para modificar um arquivo “redação” para o horário atual:
+Permite que o usuário mude a data de modificação de um arquivo e caso o arquivo não exista ele cria um arquivo vazio. Para modificar um arquivo `redação` para o horário atual:
 ```bash
 touch redação
 ```
-
-## Editando
 
 ## Achar coisas
 
@@ -211,12 +287,12 @@ touch redação
 
 Permite que o usuário possa pesquisar por arquivos em seu diretório, recebendo o diretório para procurar o arquivo e a expressão em seguida.
 
-Arquivos com a extensão “.cpp” no diretório atual:
+Arquivos com a extensão `.cpp` no diretório atual:
 ```bash
 find ./ -name ‘*.cpp’
 ```
 
-Arquivos que foram modificados nos últimos 7 dias no diretório “tarefas”:
+Arquivos que foram modificados nos últimos 7 dias no diretório `tarefas`:
 ```bash
 find ./tarefas -daystart -mtime -7
 ```
@@ -230,12 +306,12 @@ find ./ -size +500k -size 10M
 
 Permite que o usuário procure por strings dentro de um arquivo. O primeiro argumento é a expressão que o usuário quer encontrar e os próximos argumentos são os arquivos que o usuário vai procurar pela expressão.
 
-Para encontrar a palavra “urgente” no arquivo “tarefas”:
+Para encontrar a palavra `urgente` no arquivo `tarefas`:
 ```bash
 grep urgente ./tarefas
 ```
 
-Para encontrar a palavra “trabalho_final.cpp” em todas as pastas dentro de “Downloads”:
+Para encontrar a palavra `trabalho_final.cpp` em todas as pastas dentro de `Downloads`:
 ```bash
 grep –recursive trabalho_final.cpp ./Downloads
 ```
