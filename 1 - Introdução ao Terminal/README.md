@@ -39,7 +39,7 @@ Na imagem acima é possível ver que o usuário é o azz e o computador é o doo
 O comando echo é um simples programa que repete o argumento digitado pelo usuário.
 
 Ex:
-```bash
+```sh
 echo Olá mundo!
 ```
 
@@ -64,7 +64,7 @@ Todo arquivo ou diretório em um sistema unix possui um caminho global que indic
 
 Portanto, caso haja uma pasta chamada `users` dentro da raiz, seu caminho global é `/users`. Caso exista um diretório `emanuel` contido em `users`, representamos seu caminho global como:
 
-```
+```sh
 /users/emanuel
 ```
 
@@ -91,7 +91,7 @@ Algumas flags importantes podem ser:
 Cada arquivo tem permissões de read (`r`), write (`w`) e execute (`x`), essas permissões são aplicadas para 3 tipos de usuários: dono do arquivo, usuário do mesmo grupo do dono do arquivo e quaisquer outros usuários. Essas permissões podem ser vistas com o comando `ls` e a flag `-l`.
 
 Ex:
-```
+```sh
 drwxr--r-x
 ```
 
@@ -132,7 +132,7 @@ Normalmente para cada comando existe uma flag `-h` ou a flag `–-help` que impr
 ### man
 
 Comando que procura por uma página de instruções de um programa específico nas páginas de manual do sistema operacional. Entende-se como o manual uma coleção de textos chamados de páginas, cada uma documentando uma característica específica do sistema. Geralmente quando um programa novo é baixado através de um package manager, baixa-se em conjunto suas páginas para serem adicionadas ao manual. Para aprendermos a como utilizar o `man`, basta digitar o comando:
-```bash
+```sh
 man man
 ```
 
@@ -141,7 +141,7 @@ man man
 O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso -h ou —-help de um programa específico.
 
 Para saber como usar o comando ls:
-```bash
+```sh
 tldr ls
 ```
 
@@ -152,12 +152,12 @@ tldr ls
 Permite concatenar arquivos, exibindo o resultado final na tela do terminal. Apesar disso, também é muito utilizado apenas para exibir os conteúdos de um arquivo. Outro detalhe importante de se mencionar é que não necessariamente o programa precisa ler um arquivo, pois ele também pode ler texto digitado como entrada pelo terminal ao receber o símbolo `-` ao invés do nome de algum arquivo.
 
 Para imprimir o conteúdo de um arquivo chamado `archive-name`:
-```bash
+```sh
 cat archive-name
 ```
 
 Para concatenar dois ou mais arquivos, basta adicionar os nomes de cada arquivo separados por espaço ao final do comando, como por exemplo:
-```bash
+```sh
 cat file1 file2 file4 file4
 ```
 
@@ -182,26 +182,24 @@ Obs 1: No comando `less` é possível marcar pontos no texto para voltar depois,
 Obs 2: É possível ler o conteúdo de um arquivo enquanto ele é atualizado para isso basta clicar as teclas `Shift` e `F` ou na hora de abrir o arquivo adicionar a flag `+F`
 
 Exemplo abrir um arquivo `texto` com `more`:
-
-```bash
+```sh
 more ./texto
 ```
 
 Exemplo abrir um arquivo `texto` com `less` enquanto ele é atualizado:
-
-```bash
+```sh
 less +F ./texto
 ```
 
 ### head/tail
 
 O comando head exibe por padrão as primeiras 10 linhas de um arquivo, é possível também especificar o número de linhas ou o número de bytes a ser imprimido. Para imprimir as 3 primeiras linhas de um arquivos chamado `texto`:
-```bash
+```sh
 head -n 3 texto
 ```
 
 O comando tail exibe por padrão as últimas 10 linhas de um arquivo, é possível, assim como o comando head, especificar o número de linhas ou bytes a ser imprimido. Para imprimir os 10 últimos bytes de um arquivo chamado `texto`:
-```bash
+```sh
 tail -c 10 texto
 ```
 
@@ -216,18 +214,18 @@ tail -c 10 texto
 Permite com que o usuário possa mover arquivos ou diretórios em seu computador.
 
 Para mover um arquivo chamado `Tarefa 2` para uma pasta chamada `~/Tarefas`:
-```bash
+```sh
 mv ‘Tarefa 2’ ./Tarefas/
 ```
 Obs: Lembre-se de usar as aspas em arquivos com espaços no nome, caso o contrário o comando mv vai considerar `Tarefa` e `2` como dois aquivos separados
 
 Também é utilizado para renomear aquivos em seu computador, para renomear um arquivo `novo documento` para `trabalho final`:
-```bash
+```sh
 mv ‘novo documento’ ‘trabalho final’.
-``
+```
 
 Caso seja especificado mais de dois argumentos, por padrão, todos os arquivos especificados com exceção do último serão enviados para a localização do último argumento. Caso o usuário queira enviar os arquivos `Tarefa_Redes.pdf`, `Tarefa_OAC.pdf` e `Tarefa_IP.pdf` para o diretório `./Tarefas`:
-```bash
+```sh
 mv Tarefa_Redes.pdf Tarefa_OAC.pdf Tarefa_IP.pdf ./Tarefas
 ```
 
@@ -236,7 +234,7 @@ mv Tarefa_Redes.pdf Tarefa_OAC.pdf Tarefa_IP.pdf ./Tarefas
 Permite que o usuário copie arquivos ou diretórios em seu computador.
 
 Para copiar um arquivo chamado `tarefa.pdf` para o diretório `backup`:
-```bash
+```sh
 cp tarefa.pdf backup/
 
 # ou
@@ -246,14 +244,14 @@ cp tarefa.pdf backup/tarefa_backup.pdf
 
 Caso queira copiar uma pasta `Filmes` para o diretório `Vídeos`:
 
-```bash
+```sh
 cp Filmes ./Vídeos -r
 ```
 
 Obs: Caso a flag `-r` não seja utilizada apenas será copiada a pasta Filmes sem nenhum conteúdo dentro dela.
 
 Caso queira copiar os arquivos `video.mp4`, `tarefa.pdf` e `enunciado.pdf` para uma pasta chamada `entrega`:
-```bash
+```sh
 cp video.mp4 tarefa.pdf enunciado.pdf ./entrega
 ```
 
@@ -262,22 +260,22 @@ cp video.mp4 tarefa.pdf enunciado.pdf ./entrega
 ### mkdir
 
 Permite com que o usuário crie diretórios. Para criar um diretório chamado `Downloads`:
-```bash
+```sh
 mkdir  Downloads
 ```
 É possível também criar vários diretórios colocando mais argumentos. Para criar 3 diretórios `Fotos`, `Vídeos` e `Arquivos`:
-```bash
+```sh
 mkdir Fotos Vídeos Arquivos
 ```
 Caso queira criar uma hierarquia de pastas é possível usar a flag `-p` ou `–parents`, assim diretórios inexistentes serão criados. Por exemplo criar uma pasta `Vídeos de gato` dentro de uma pasta `Vídeos`:
-```bash
+```sh
 mkdir Vídeos/Vídeos\ de\ gato -p
 ```
 
 ### touch
 
 Permite que o usuário mude a data de modificação de um arquivo e caso o arquivo não exista ele cria um arquivo vazio. Para modificar um arquivo `redação` para o horário atual:
-```bash
+```sh
 touch redação
 ```
 
@@ -288,17 +286,17 @@ touch redação
 Permite que o usuário possa pesquisar por arquivos em seu diretório, recebendo o diretório para procurar o arquivo e a expressão em seguida.
 
 Arquivos com a extensão `.cpp` no diretório atual:
-```bash
+```sh
 find ./ -name ‘*.cpp’
 ```
 
 Arquivos que foram modificados nos últimos 7 dias no diretório `tarefas`:
-```bash
+```sh
 find ./tarefas -daystart -mtime -7
 ```
 
 Arquivos entre 500Kb e 10Mb no diretório atual:
-```bash
+```sh
 find ./ -size +500k -size 10M
 ```
 
@@ -307,12 +305,12 @@ find ./ -size +500k -size 10M
 Permite que o usuário procure por strings dentro de um arquivo. O primeiro argumento é a expressão que o usuário quer encontrar e os próximos argumentos são os arquivos que o usuário vai procurar pela expressão.
 
 Para encontrar a palavra `urgente` no arquivo `tarefas`:
-```bash
+```sh
 grep urgente ./tarefas
 ```
 
 Para encontrar a palavra `trabalho_final.cpp` em todas as pastas dentro de `Downloads`:
-```bash
+```sh
 grep –recursive trabalho_final.cpp ./Downloads
 ```
 
