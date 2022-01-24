@@ -44,6 +44,15 @@ Ex:
 ```sh
 echo Olá mundo!
 ```
+### pwd (Print Working Directory)
+
+O `pwd` permite que o usuário possa ver em qual diretório ele se encontra.
+
+Ex:
+```sh
+pwd
+```
+
 ### ls (list)
 
 O comando ls tem o objetivo de mostrar os arquivos e diretórios contidos em um diretório, caso não receba argumentos ele vai mostrar os arquivos do diretório atual.
