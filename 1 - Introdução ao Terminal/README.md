@@ -48,7 +48,11 @@ echo Olá mundo!
 
 ### cd (change directory)
 
-O cd é um comando para mudar de diretório e navegar em seu computador, caso queira entrar/sair de um diretório. `cd /etc/passwd` indica a mudança de contexto para o caminho global `etc/passwd`. `cd -` indica que o diretório a ser carregado é o último diretório acessado pelo usuário. Já `cd` (sem argumentos) e `cd ~` ambos retornam para a pasta home do usuário.
+OBR
+9+
+ BR
+9+
+cd é um comando para mudar de diretório e navegar em seu computador, caso queira entrar/sair de um diretório. `cd /etc/passwd` indica a mudança de contexto para o caminho global `etc/passwd`. `cd -` indica que o diretório a ser carregado é o último diretório acessado pelo usuário. Já `cd` (sem argumentos) e `cd ~` ambos retornam para a pasta home do usuário.
 
 #### Caminho Relativo
 
@@ -109,7 +113,7 @@ Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um c
 * A terceira, as permissões para o grupo de usuários ao qual o atual pertence.
 * A quarta, as permissões para todos os outros usuários não contidos na regra anterior.
 
-Vale lembrar que o símbolo  `-` em uma posição indica a ausência daquela característica.
+Vale lembrar que o símbolo `-` em uma posição indica a ausência daquela característica.
 
 ### Usuários e Grupos
 
@@ -195,18 +199,29 @@ less +F ./texto
 
 ### head/tail
 
-O comando head exibe por padrão as primeiras 10 linhas de um arquivo, é possível também especificar o número de linhas ou o número de bytes a ser imprimido. Para imprimir as 3 primeiras linhas de um arquivos chamado `texto`:
+O comando `head` exibe por padrão as primeiras 10 linhas de um arquivo, é possível também especificar o número de linhas ou o número de bytes a ser imprimido. Para imprimir as 3 primeiras linhas de um arquivos chamado `texto`:
 ```sh
 head -n 3 texto
 ```
 
-O comando tail exibe por padrão as últimas 10 linhas de um arquivo, é possível, assim como o comando head, especificar o número de linhas ou bytes a ser imprimido. Para imprimir os 10 últimos bytes de um arquivo chamado `texto`:
+O comando `tail` exibe por padrão as últimas 10 linhas de um arquivo, é possível, assim como o comando head, especificar o número de linhas ou bytes a ser imprimido. Para imprimir os 10 últimos bytes de um arquivo chamado `texto`:
 ```sh
 tail -c 10 texto
 ```
 
 ### strings
 
+Permite que o usuário encontre strings dentro de arquivos binários.
+
+Por padrão o comando `strings` mostra apenas strings com 4 caracteres legíveis seguidos ou mais, um exemplo do seu uso é:
+```sh
+strings ./executavel
+```
+
+É possível especificar um mínimo de caracteres para aparecer usando o comando `strings`, para mostrar strings com mais de 8 caracteres:
+```sh
+strings -n 8 ./executavel
+```
 
 
 ## Modificar
