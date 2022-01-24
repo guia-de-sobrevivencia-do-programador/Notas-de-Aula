@@ -44,7 +44,15 @@ Ex:
 ```sh
 echo Olá mundo!
 ```
+### ls (list)
 
+O comando ls tem o objetivo de mostrar os arquivos e diretórios contidos em um diretório, caso não receba argumentos ele vai mostrar os arquivos do diretório atual.
+
+Por ser um programa de linha de comando ele pode receber argumentos (Flags). Assim dando mais detalhes sobre os arquivos do diretório especificado.
+
+Algumas flags importantes podem ser:
+* `-l` ou `–long`: Mostra a permissão do arquivo, tamanho do arquivo, última vez em que o arquivo foi modificado e o nome do arquivo em uma lista.
+* `-a`: No linux existem arquivos que não são exibidos normalmente chamados de dotfiles (Começam com um ponto, vamos abordar mais adiante), esses arquivos podem ser vistos usando a flag `-a`.
 
 ### cd (change directory)
 
@@ -78,15 +86,6 @@ Reparem que enquanto é o primeiro caractere da string, a barra indica a raiz do
 
 Existe também o símbolo `~`, indicador do caminho global até a pasta `/home/USUARIO` (ou `/users/USUARIO` no MacOS), onde USUARIO é o nome do usuário que está usando a shell.
 
-### ls (list)
-
-O comando ls tem o objetivo de mostrar os arquivos e diretórios contidos em um diretório, caso não receba argumentos ele vai mostrar os arquivos do diretório atual.
-
-Por ser um programa de linha de comando ele pode receber argumentos (Flags). Assim dando mais detalhes sobre os arquivos do diretório especificado.
-
-Algumas flags importantes podem ser:
-* `-l` ou `–long`: Mostra a permissão do arquivo, tamanho do arquivo, última vez em que o arquivo foi modificado e o nome do arquivo em uma lista.
-* `-a`: No linux existem arquivos que não são exibidos normalmente chamados de dotfiles (Começam com um ponto, vamos abordar mais adiante), esses arquivos podem ser vistos usando a flag `-a`.
 
 ## Permissões
 
