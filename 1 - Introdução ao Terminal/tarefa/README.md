@@ -33,6 +33,8 @@ Resposta 2: Posso descompactar usando o comando `#############`
 
 ## [Seção 3](./Secao_3) - Achar coisas
 
+Para os dois primeiros exercícios primeiro extraia o arquivo `muitas_pastas.zip`
+
 * Usando o comando `find` encontre o arquivo nomeado `anotacoes_perdidas.txt`, qual foi o comando usado para encontrar o arquivo?
 
 * Usando o comando `find` você não lembra o nome do arquivo que perdeu, mas sabe que o arquivo tem mais de 100K, qual foi o comando usado para encontrar o arquivo?
