@@ -40,3 +40,15 @@ Para os dois primeiros exercícios primeiro extraia o arquivo `muitas_pastas.zip
 * Usando o comando `find` você não lembra o nome do arquivo que perdeu, mas sabe que o arquivo tem mais de 100K, qual foi o comando usado para encontrar o arquivo?
 
 * Usando o comando `grep` procure na pasta `./muitos_textos` e responda quais arquivos tem a string `guia de sobrevivencia do programador` com os arquivos separados por vírgula
+
+## Opcional
+
+Nós recomendamos alguns programas para a melhor experiência do usuário no mundo linux, segue uma lista:
+
+* cmatrix
+* cowsay
+* edex-ui
+* gti
+* lolcat
+* uwufetch
+* sl
