@@ -11,18 +11,7 @@
 
 LTTNG_UST_TRACEPOINT_EVENT(
 	httpservertp,
-	file_read_start,
-	LTTNG_UST_TP_ARGS(
-		const char *, filepath
-	),
-	LTTNG_UST_TP_FIELDS(
-		lttng_ust_field_string(filepath, filepath)
-	)
-)
-
-LTTNG_UST_TRACEPOINT_EVENT(
-	httpservertp,
-	file_read_end,
+	file_read,
 	LTTNG_UST_TP_ARGS(
 		const char *, filepath,
 		size_t, filesize
@@ -35,18 +24,7 @@ LTTNG_UST_TRACEPOINT_EVENT(
 
 LTTNG_UST_TRACEPOINT_EVENT(
 	httpservertp,
-	file_write_start,
-	LTTNG_UST_TP_ARGS(
-		const char *, filepath
-	),
-	LTTNG_UST_TP_FIELDS(
-		lttng_ust_field_string(filepath, filepath)
-	)
-)
-
-LTTNG_UST_TRACEPOINT_EVENT(
-	httpservertp,
-	file_write_end,
+	file_write,
 	LTTNG_UST_TP_ARGS(
 		const char *, filepath,
 		size_t, filesize
@@ -59,14 +37,7 @@ LTTNG_UST_TRACEPOINT_EVENT(
 
 LTTNG_UST_TRACEPOINT_EVENT(
 	httpservertp,
-	network_recv_start,
-	LTTNG_UST_TP_ARGS(),
-	LTTNG_UST_TP_FIELDS()
-)
-
-LTTNG_UST_TRACEPOINT_EVENT(
-	httpservertp,
-	network_recv_end,
+	network_recv,
 	LTTNG_UST_TP_ARGS(
 		size_t, size
 	),
@@ -77,14 +48,7 @@ LTTNG_UST_TRACEPOINT_EVENT(
 
 LTTNG_UST_TRACEPOINT_EVENT(
 	httpservertp,
-	network_send_start,
-	LTTNG_UST_TP_ARGS(),
-	LTTNG_UST_TP_FIELDS()
-)
-
-LTTNG_UST_TRACEPOINT_EVENT(
-	httpservertp,
-	network_send_end,
+	network_send,
 	LTTNG_UST_TP_ARGS(
 		size_t, size
 	),
