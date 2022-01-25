@@ -32,7 +32,7 @@ Nada mais que um programa que roda programas.
 
 Em sua shell é provável que a tenha um texto como o da imagem acima, esse texto representa o nome do seu usuário e o nome de sua máquina separados por um @ e onde você se encontra atualmente.
 
-Na imagem acima é possível ver que o usuário é o azz e o computador é o doom, atualmente o usuário se encontra em seu diretório HOME representada por uma variável `~`.
+Na imagem acima é possível ver que o usuário é o azz e o computador é o doom, atualmente o usuário se encontra em seu diretório `HOME` representada por uma variável `~`.
 
 ## Comandos
 
@@ -112,10 +112,10 @@ Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um c
 * 3: `r--`
 * 4: `r-x`
 
-* A primeira parte indica se aquele nome se refere a um (d)iretório ou (l)ink simbólico ou (n)etwork file ou (p) fifo ou (s)ocket.
-* A segunda parte indica as permissões de acesso para usuário ao arquivo ou diretório.
-* A terceira, as permissões para o grupo de usuários ao qual o atual pertence.
-* A quarta, as permissões para todos os outros usuários não contidos na regra anterior.
+* A primeira parte indica se aquele nome se refere a um `d`iretório ou `l`ink simbólico ou `n`etwork file ou `p` fifo ou `s`ocket.
+* A segunda parte indica as permissões de acesso para `usuário` dono do arquivo ou diretório.
+* A terceira, as permissões para o `grupo de usuários` ao qual o atual pertence.
+* A quarta, as permissões para todos os `outros usuários` não contidos na regra anterior.
 
 Vale lembrar que o símbolo `-` em uma posição indica a ausência daquela característica.
 
@@ -123,15 +123,15 @@ Vale lembrar que o símbolo `-` em uma posição indica a ausência daquela cara
 
 ### whoami
 
-O comando whoami é um comando utilizado para mostrar o usuário atual.
+O comando whoami é um comando utilizado para mostrar o `usuário` atual.
 
 ### groups
 
-O comando groups é o comando utilizado para mostrar os grupos que o usuário atual pertence.
+O comando groups é o comando utilizado para mostrar os `grupos` que o usuário atual pertence.
 
 ### id
 
-Análogo ao `groups`, mostra o número de identificação de cada grupo que o usuário atual pertence
+Análogo ao `groups`, mostra o número de `identificação` de cada grupo que o usuário atual pertence
 
 ## Ajuda
 
@@ -148,7 +148,7 @@ man man
 
 ### tldr
 
-O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso -h ou —-help de um programa específico.
+O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso `-h` ou `—-help` de um programa específico.
 
 Para saber como usar o comando ls:
 ```sh
