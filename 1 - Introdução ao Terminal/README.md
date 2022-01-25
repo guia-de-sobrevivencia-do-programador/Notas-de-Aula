@@ -65,10 +65,6 @@ Algumas flags importantes podem ser:
 
 ### cd (change directory)
 
-OBR
-9+
- BR
-9+
 cd é um comando para mudar de diretório e navegar em seu computador, caso queira entrar/sair de um diretório. `cd /etc/passwd` indica a mudança de contexto para o caminho global `etc/passwd`. `cd -` indica que o diretório a ser carregado é o último diretório acessado pelo usuário. Já `cd` (sem argumentos) e `cd ~` ambos retornam para a pasta home do usuário.
 
 #### Caminho Relativo
@@ -111,12 +107,12 @@ drwxr--r-x
 
 Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um char e as demais de 3 chars. Em nosso exemplo, eis as partes:
 
-* 1a: `d`
-* 2a: `rwx`
-* 3a: `r--`
-* 4a: `r-x`
+* 1: `d`
+* 2: `rwx`
+* 3: `r--`
+* 4: `r-x`
 
-* A primeira parte indica se aquele nome se refere a um diretório ou não.
+* A primeira parte indica se aquele nome se refere a um (d)iretório ou (l)ink simbólico ou (n)etwork file ou (p) fifo ou (s)ocket.
 * A segunda parte indica as permissões de acesso para usuário ao arquivo ou diretório.
 * A terceira, as permissões para o grupo de usuários ao qual o atual pertence.
 * A quarta, as permissões para todos os outros usuários não contidos na regra anterior.
