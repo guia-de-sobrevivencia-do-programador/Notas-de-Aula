@@ -10,13 +10,13 @@ Um shell é um interpretador de linguagem de comandos; o que usamos para interag
 
 Sendo um dos principais meios de interação entre o computador e o usuário, os shells tem evoluído bastante durante os anos e hoje em dia fazem muito mais do que só executar comandos.
 
-O bash pode ser usado de maneira interativa e não interativa. De maneira interativa a shell aceita entrada vinda do teclado. Já o modo não interativo, aceita comandos vindos de outros programas ou de arquivos. Conseguir rodar programas de arquivos é uma das funcionalidades mais poderosas do bash, e iremos explorar ela aqui.
+O bash pode ser usado de maneira interativa e não interativa. De maneira interativa, a shell aceita entrada vinda do teclado. Já o modo não interativo, aceita comandos vindos de outros programas ou de arquivos. Conseguir rodar programas de arquivos é uma das funcionalidades mais poderosas do bash, e iremos explorar ela aqui.
 
 ### Scripts
 
 Scripts são programas interpretados (sem a necessidade de serem traduzidos diretamente para código de máquina). Normalmente utilizados para automatizar processos ou tarefa repetitivas onde a implementação de uma solução é fácil e rápida.
 
-Com um conhecimento bom de bash e de alguns dos programas mais famosos do Linux você consegue automatizar ou simplificar praticamente qualquer aspecto da sua interação com o computador. Esses scripts podem ir desde [configurar os seus monitores](https://github.com/JoaoFukuda/dotfiles/blob/main/scripts/monsetup) até [uma implementação de docker](https://github.com/p8952/bocker): tudo é possível.
+Com um conhecimento bom de bash e de alguns dos programas mais famosos do Linux, você consegue automatizar ou simplificar praticamente qualquer aspecto da sua interação com o computador. Esses scripts podem ir desde [configurar os seus monitores](https://github.com/JoaoFukuda/dotfiles/blob/main/scripts/monsetup) até [uma implementação de docker](https://github.com/p8952/bocker): tudo é possível.
 
 ## Breve Introdução ao Bash Scripting
 
@@ -32,7 +32,7 @@ Uma analogia com outras linguagens: o ambiente em bash é o escopo e as variáve
 
 É possível ver as variáveis com o comando `printenv`, rodar um programa em um ambiente separado com o comando `env` e remover variáveis do ambiente atual com `unset`.
 
-Para definir ou atribuir novos valores a variáveis de ambiente você coloca o nome da variável, um sinal de igual (`=`) (sem espaço entre o nome e o símbolo de igual) e o valor que quer dar para a variável (ex.: `VAR=algumvalor`). As variáveis de ambiente tem nomes em caixa alta por costume, mas pode colocar tanto letras minúscula quanto maiúscula (cuidado que o bash é sensível à caixa da letra). Para usar essas variáveis é só colocar nome dela com um cifrão na frente; o nome pode ou não estar envolto de chaves (`{}`) (ex.: `$VAR` ou `${VAR}`).
+Para definir ou atribuir novos valores a variáveis de ambiente você coloca o nome da variável, um sinal de igual (`=`) (sem espaço entre o nome e o símbolo de igual) e o valor que quer dar para a variável (ex.: `VAR=algumvalor`). As variáveis de ambiente tem nomes em caixa alta por convenção, mas pode colocar tanto letras minúscula quanto maiúscula (cuidado que o bash é sensível à caixa da letra). Para usar essas variáveis é só colocar nome dela com um cifrão na frente; o nome pode ou não estar envolto de chaves (`{}`) (ex.: `$VAR` ou `${VAR}`).
 
 Você também pode pegar variáveis do usuário com o comando `read`. É só invocar ele passando o nome da variável como argumento.
 
@@ -74,7 +74,9 @@ Códigos de saída servem para verificar se seu programa retornou com sucesso ou
 
 Existem vários controles de fluxo que podem te ajudar em um script em bash. A maioria deles são bem parecidas com as vistas em outras linguagens de programação como o `if/else`, `while`, `for` e `switch`. Outras são mais incomuns, como o `select` e o `until`.
 
-As condições são testadas rodando um comando e pegando seu código de saída. Ao contrário de linguagens como o C, 0 indica verdadeiro e qualquer outro valor indica falso.
+O `select` funciona como um loop, mas em vez de andar por valores predeterminados, ele pede para o usuário escolher uma opção toda a iteração, já o `until` é o mesmo que um `while` com a sua condição negada.
+
+As condições são testadas rodando um comando e pegando seu código de saída. Em Bash, 0 indica verdadeiro e qualquer outro valor indica falso.
 
 Para fazer as condicionais que você faria em outras linguagens (com operações lógicas e aritméticas ex.: `1 < 3`, `"esse" != "aquele"` ou `verdadeiro || falso`) e outras mais focadas para scripting (ex.: `arquivo_existe("exemplo.txt")` ou `executavel("script.sh")`), você pode usar o programa `test` e passar esses testes como argumento. O manual do comando `test` (`man test`) tem mais informações de como são feitas essas condicionais.
 
@@ -147,13 +149,13 @@ Os *Es comerciais* indicam que você só continua executando se o comando anteri
 
 Você pode também agrupar comandos com parênteses (`()`) para controlar a precedência da execução.
 
-Uma última coisa que você pode fazer é executar um comando no plano de fundo e voltar ao terminal sem esperar o comando terminar de executar simplesmente colocando um *E comercial* no final do comando (ex.: `(sleep 3; echo Olá) &`).
+Uma última coisa que você pode fazer é executar um comando no plano de fundo e voltar ao terminal sem esperar o comando terminar de executar simplesmente colocando um *E comercial* no final do comando (ex.: `(sleep 3; echo Olá) &`). Desse jeito é possível voltar a ter controle do terminal para poder rodar outros comandos assincronamente. Cuidado que as saídas do programa ainda aparecem no terminal!
 
 Tem um outro jeito de executar vários comandos ao mesmo tempo, mas eu vou falar sobre ele daqui a pouco.
 
 ## Entradas e Saídas
 
-Entradas e saídas de comandos no Linux funcionam como arquivos (pipes e streams), e todos os arquivos abertos em um programa tem números identificadores associados a eles (file descriptors). Existem três principais que você deve saber (eles são normalmente abertos por padrão no começo da execução):
+Entradas e saídas de comandos no Linux funcionam como arquivos, e todos os arquivos abertos em um programa tem números identificadores associados a eles (file descriptors). Existem três principais que você deve saber (eles são normalmente abertos por padrão no começo da execução):
 
 * `0` - A entrada padrão (`stdin`)
 * `1` - A saída padrão (`stdout`)
@@ -179,15 +181,36 @@ Também é possível usar a saída de um comando como argumento de outro colocan
 
 Por último, você pode também substituir arquivos que seriam passados como argumentos por um comando. A saída ou entrada desse comando é associada a um arquivo. Para isso você pode passar um comando envolto de parênteses com um sinal de maior ou menor antes para um arquivo com permissões de somente saída ou entrada respectivamente (ex.: `./a.out <(echo Eu sou um arquivo)` ou `echo Não sei porquê você faria isso > >(cat -)`(ex.: `./a.out <(echo Eu sou um arquivo)` ou `echo Não sei porquê você faria isso > >(cat -)`)); não é possível ter um arquivo de entrada e saída ao mesmo tempo utilizando essa funcionalidade.
 
-Da para ver um exemplo com o script [ler\_arquivo](ler_arquivo)
+Podemos ver um exemplo disso utilizando o script [ler\_arquivo](ler_arquivo).
 
 ### Redirecionar com outras coisas
 
-Você também pode redirecionar outras coisas, como por exemplo escrever a entrada inteira antes de rodar um programa. Há duas opções para isso: redirecionamento de um argumento ou redirecionamento multilinha.
+Você também pode redirecionar outras coisas como, por exemplo, escrever a entrada inteira antes de rodar um programa. Há duas opções para isso: redirecionamento de um argumento ou redirecionamento multilinha.
 
-Para o redirecionamento de um argumento , é preciso passar três sinais de menor (`<<<`) e a entrada depois. Esse argumento pode estar dentro de aspas também.
+#### Redirecionamento de um argumento
+
+Para o redirecionamento de um argumento, é preciso passar três sinais de menor (`<<<`) e a entrada depois. Esse argumento pode estar dentro de aspas também. Segue um exemplo:
+
+```bash
+programa_que_recebe_entrada <<<argumento
+```
+
+Para utilizar espaços na sua entrada, basta colocar aspas no argumento:
+
+```bash
+programa_que_recebe_entrada <<<"argumento com espaços"
+```
+
+#### Redirecionamento multilinha
 
 O redirecionamento multilinha é um pouco mais difícil. É preciso passa dois sinais de menor (`<<`) seguidos por um identificador de fim de entrada (normalmente `EOF`, mas pode ser qualquer coisa). Então você pode escrever o quanto quiser. Para terminar, basta escrever o identificador de fim de entrada sozinho na última linha.
+
+```bash
+programa_que_recebe_entrada <<EOF
+Entrada multilinha
+para esse programa
+EOF
+```
 
 ## Comandos avançados
 
