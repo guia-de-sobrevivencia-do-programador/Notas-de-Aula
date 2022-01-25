@@ -50,5 +50,6 @@ Nós recomendamos alguns programas para a melhor experiência do usuário no mun
 * edex-ui
 * gti
 * lolcat
+* neofetch
 * uwufetch
 * sl
