@@ -1,3 +1,6 @@
+#define LTTNG_UST_TRACEPOINT_DEFINE
+#include "tp.h"
+
 #include <arpa/inet.h>
 #include <memory.h>
 #include <pthread.h>
@@ -43,7 +46,9 @@ void send_404(int sock)
 	int buffer_len;
 	snprintf(buffer, MB(8), response_header, "404 Not found",
 	         strlen(response_content), response_content, &buffer_len);
+	lttng_ust_tracepoint(httpservertp, network_send_start);
 	send(sock, buffer, buffer_len, 0);
+	lttng_ust_tracepoint(httpservertp, network_send_end, buffer_len);
 	free(buffer);
 }
 
@@ -62,7 +67,9 @@ void send_501(int sock)
 	int buffer_len;
 	snprintf(buffer, MB(8), response_header, "501 Not implemented",
 	         strlen(response_content), response_content, &buffer_len);
+	lttng_ust_tracepoint(httpservertp, network_send_start);
 	send(sock, buffer, buffer_len, 0);
+	lttng_ust_tracepoint(httpservertp, network_send_end, buffer_len);
 	free(buffer);
 }
 
@@ -79,7 +86,10 @@ void get_file(int sock, const char* filepath)
 	fseek(f, 0, SEEK_SET);
 
 	char* file_content = (char*)calloc(1, file_size + 1);
+	lttng_ust_tracepoint(httpservertp, file_read_start, filepath);
 	fread(file_content, 1, file_size, f);
+	lttng_ust_tracepoint(httpservertp, file_read_end, filepath, file_size);
+	fclose(f);
 
 	int response_size;
 	char* buffer = (char*)calloc(1, strlen(response_header) + file_size + 128);
@@ -87,10 +97,11 @@ void get_file(int sock, const char* filepath)
 	        &response_size);
 	free(file_content);
 
+	lttng_ust_tracepoint(httpservertp, network_send_start);
 	send(sock, buffer, response_size, 0);
+	lttng_ust_tracepoint(httpservertp, network_send_end, response_size);
 
 	free(buffer);
-	fclose(f);
 }
 
 void put_file(int sock, const char* filepath, const char* content)
@@ -111,13 +122,18 @@ void put_file(int sock, const char* filepath, const char* content)
 		return;
 	}
 
-	fwrite(content, 1, strlen(content), f);
+	size_t content_len = strlen(content);
+	lttng_ust_tracepoint(httpservertp, file_write_start, filepath);
+	fwrite(content, 1, content_len, f);
+	lttng_ust_tracepoint(httpservertp, file_write_end, filepath, content_len);
 
 	int response_size;
 	char* buffer = (char*)calloc(1, strlen(response_header) + 1024);
 	sprintf(buffer, response_header, "200 Ok", strlen(response_body),
 	        response_body, &response_size);
+	lttng_ust_tracepoint(httpservertp, network_send_start);
 	send(sock, buffer, response_size, 0);
+	lttng_ust_tracepoint(httpservertp, network_send_end, response_size);
 	free(buffer);
 
 	fclose(f);
@@ -126,7 +142,9 @@ void put_file(int sock, const char* filepath, const char* content)
 struct http_request parse_request(int sock)
 {
 	char* buffer = (char*)calloc(1, MB(8));
-	recv(sock, buffer, MB(8), 0);
+	lttng_ust_tracepoint(httpservertp, network_recv_start);
+	int datalen = recv(sock, buffer, MB(8), 0);
+	lttng_ust_tracepoint(httpservertp, network_recv_end, datalen);
 
 	struct http_request request;
 	request.method = (char*)calloc(1, 6);
