@@ -1,3 +1,6 @@
+#define LTTNG_UST_TRACEPOINT_DEFINE
+#include "tp.h"
+
 #include <stdio.h>
 
 int fib(int v)

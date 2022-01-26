@@ -5,9 +5,11 @@
 #include <memory.h>
 #include <pthread.h>
 #include <signal.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/socket.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #define KB(x) (1024 * x)
@@ -71,8 +73,20 @@ void send_501(int sock)
 	free(buffer);
 }
 
+bool is_file(const char* path)
+{
+	struct stat path_stat;
+	stat(path, &path_stat);
+	return S_ISREG(path_stat.st_mode);
+}
+
 void get_file(int sock, const char* filepath)
 {
+	if (!is_file(filepath)) {
+		send_404(sock);
+		return;
+	}
+
 	FILE* f = fopen(filepath, "rb");
 	if (f == NULL) {
 		send_404(sock);
@@ -89,9 +103,10 @@ void get_file(int sock, const char* filepath)
 	fclose(f);
 
 	int response_size;
-	char* buffer = (char*)calloc(1, strlen(response_header) + file_size + 128);
-	sprintf(buffer, response_header, "200 Ok", file_size, file_content,
-	        &response_size);
+	int buffer_size = strlen(response_header) + file_size + 128;
+	char* buffer = (char*)calloc(1, buffer_size);
+	snprintf(buffer, buffer_size, response_header, "200 Ok", file_size,
+	         file_content, &response_size);
 	free(file_content);
 
 	send(sock, buffer, response_size, 0);
@@ -209,6 +224,7 @@ int main()
 	}
 
 	listen(sock, 16);
+	puts("Listening on 0.0.0.0:8080...");
 
 	signal(SIGINT, sighand);
 	while (1) {

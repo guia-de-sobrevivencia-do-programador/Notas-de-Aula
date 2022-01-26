@@ -1,5 +1,5 @@
-fib: fib.c
-	gcc -o $@ $^ -Og -ggdb3
+fib: fib.c tpp.c
+	gcc -o $@ -I. $^ -Og -ggdb3 -llttng-ust -ldl
 
 .PHONY: clean
 clean:
