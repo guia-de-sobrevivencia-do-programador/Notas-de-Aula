@@ -1,20 +1,7 @@
-.PHONY: all clean
-all: fib memleak
+SRC_FILES=fib addvec httpserver
 
-memleak: memleak.c
-	gcc -o $@ $^
-
-fib: obj/tp.o obj/fib.o
-	gcc -o $@ $^ -llttng-ust -ldl
-
-obj/:
-	mkdir $@
-
-obj/fib.o: fib.c tp.h obj/
-	gcc -o $@ -c $<
-
-obj/tp.o: tp.c tp.h obj/
-	gcc -o $@ -c -I. $<
+all:
+	echo $(SRC_FILES) | xargs -n 1 -- make -C
 
 clean:
-	rm -rf obj/ fib memleak
+	echo $(SRC_FILES) | tr ' ' '\n' | xargs -I ARG -- make -C ARG clean

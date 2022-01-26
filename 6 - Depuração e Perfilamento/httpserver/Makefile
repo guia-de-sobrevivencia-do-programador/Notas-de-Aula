@@ -1,11 +1,9 @@
-.PHONY: all clean
-all: server simulate_traffic
-
-clean:
-	rm -f server simulate_traffic
-
-server: main.c tpp.c
+httpserver: server.c tpp.c
 	gcc -o $@ -I. $^ -g -Og -llttng-ust -ldl -lpthread
 
 simulate_traffic: simulate_traffic.cpp
 	g++ -o $@ $^ -g -lpthread
+
+.PHONY: clean
+clean:
+	rm -f httpserver simulate_traffic
