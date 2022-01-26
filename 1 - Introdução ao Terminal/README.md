@@ -110,7 +110,7 @@ Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um c
 * 3: `r--`
 * 4: `r-x`
 
-* A primeira parte indica se aquele nome se refere a um `d`iretório ou `l`ink simbólico ou `n`etwork file ou `p` fifo ou `s`ocket, ou `-` para arquivos.
+* A primeira parte indica se aquele nome se refere a um `d`iretório ou `l`ink simbólico ou `n`etwork file ou `p`ipe ou `s`ocket, ou `-` para arquivos.
 * A segunda parte indica as permissões de acesso para `usuário` dono do arquivo ou diretório.
 * A terceira, as permissões para o `grupo de usuários` ao qual o atual pertence.
 * A quarta, as permissões para todos os `outros usuários` não contidos na regra anterior.
