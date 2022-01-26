@@ -116,10 +116,10 @@ Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um c
 * A quarta, as permissões para todos os `outros usuários` não contidos na regra anterior.
 
 * Cada parte de permissão é composta de uma tripla, onde:
-** O primeiro caractere indica a permissão de leitura ao arquivo através da letra `r`.
-** O segundo caractere indica permissão de escrita ao arquivo através da letra `w`.
-** O terceiro caractere indica permissão de execução do arquivo através da letra `x`.
-** Em todas as posições, a omissão daquela permissão é indicada pelo caractere `-`.
+	* O primeiro caractere indica a permissão de leitura ao arquivo através da letra `r`.
+	* O segundo caractere indica permissão de escrita ao arquivo através da letra `w`.
+	* O terceiro caractere indica permissão de execução do arquivo através da letra `x`.
+	* Em todas as posições, a omissão daquela permissão é indicada pelo caractere `-`.
 
 ## Usuários e Grupos
 
@@ -309,6 +309,18 @@ rm -r nome-pasta
 Para apagar um arquivo ou uma pasta inteira, independente dos conteúdos, e evitar a confirmação de cada delete, independente das permissões do arquivo ou pasta:
 ```sh
 rm -rf nome-arquivo
+```
+
+Obs: Para não apagar um arquivo importante sem querer é possível usar a flag `-i` que vai questionar antes de cada remoção
+
+### rmdir
+
+Permite que o usuário consiga apagar uma pasta, mas diferente do `rm -r` ele só vai apagar diretórios vazios.
+
+É um bom comando para não correr riscos, exemplo para apagar um diretório `nome-pasta`:
+
+```sh
+rmdir nome-pasta
 ```
 
 ## Criar
