@@ -135,7 +135,7 @@ Análogo ao `groups`, mostra o número de `identificação` de cada grupo que o 
 
 ## Ajuda
 
-### `–help` ou `-h`
+### `–-help` ou `-h`
 
 Normalmente para cada comando existe uma flag `-h` ou a flag `–-help` que imprime no terminal instruções de como usar o programa. Apesar de não ser regra, muitos programas utilizam da boa prática de incluir tais flags.
 
@@ -146,9 +146,21 @@ Comando que procura por uma página de instruções de um programa específico n
 man man
 ```
 
+### info
+
+Similar ao `man`, é um comando que permite lermos documentação sobre alguns programas. Info é o formato padrão para documentação de softwares da GNU Foundation. `man` e `info` se diferenciam no quesito que, enquanto o primeiro 
+é apenas uma página de um manual do sistema inteiro, o segundo trás mais informações sobre o programa, podendo ser considerado o próprio livro manual sobre o programa. Para entendermos como podemos chamar o comanddo:
+```sh
+man info
+```
+E para entendermos como funciona o programa:
+```sh
+info info
+```
+
 ### tldr
 
-O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso `-h` ou `—-help` de um programa específico.
+O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso `-h` ou `--help` de um programa específico.
 
 Para saber como usar o comando ls:
 ```sh
