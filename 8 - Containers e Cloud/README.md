@@ -62,6 +62,10 @@ O [DockerHub](https://hub.docker.com/) é o repositório oficial e público para
     * No modo interativo: `docker run -ti <nome_da_imagem>:<tag>`
 * Listar containers: `docker ps` ou `docker container ls`
 
+### Criando um Dockerfile
+
+TODO
+
 ## Responsáveis
 * [Renan](https://github.com/nkzren)
 * [Vini]()
