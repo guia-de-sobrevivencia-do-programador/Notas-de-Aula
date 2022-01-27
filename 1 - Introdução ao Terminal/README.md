@@ -10,11 +10,15 @@ Tanto no windows existe o cmd e o powershell quanto no linux onde existe uma var
 
 Exemplo de um emulador de terminal:
 
-![Gnome terminal](./assets/Gnome_terminal.png)
+<p align="center">
+  <img src="./assets/Gnome_terminal.png" alt="Terminal Gnome" width="400" height="300" />
+</p>
 
 Terminal antigo:
 
-![Terminal antigo](./assets/Terminal_antigo.png)
+<p align="center">
+  <img src="./assets/Terminal_antigo.png" alt="Terminal antigo" width="400" height="300" />
+</p>
 
 ### Shell (bash, zsh, dash, fish…)
 
@@ -28,7 +32,9 @@ Para o shell entender os comandos que o usuário quer digitar é usado uma vari�
 
 Nada mais que um programa que roda programas.
 
-![User](./assets/User.png)
+<p align="center">
+  <img src="./assets/User.png" alt="User" height="50" />
+</p>
 
 Em sua shell é provável que a tenha um texto como o da imagem acima, esse texto representa o nome do seu usuário e o nome de sua máquina separados por um @ e onde você se encontra atualmente.
 
