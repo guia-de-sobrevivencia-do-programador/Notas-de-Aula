@@ -177,7 +177,7 @@ Os comandos `less` e `more` são usados para ler textos grandes e múltiplos tex
 
 Comando `more`:
 
-* `spaço`: vai para a próxima página
+* `espaço`: vai para a próxima página
 * `b`: volta uma página
 * `enter`: desce uma linha
 * `=`: mostra a linha atual
