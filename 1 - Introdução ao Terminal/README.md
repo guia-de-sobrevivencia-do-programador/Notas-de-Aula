@@ -100,8 +100,6 @@ Existe também o símbolo `~`, indicador do caminho global até a pasta `/home/U
 
 ## Permissões
 
-### Diretórios != Arquivos
-
 ### RWX (Read Write Execute)
 
 Cada arquivo tem permissões de read (`r`), write (`w`) e execute (`x`), essas permissões são aplicadas para 3 tipos de usuários: dono do arquivo, usuário do mesmo grupo do dono do arquivo e quaisquer outros usuários. Essas permissões podem ser vistas com o comando `ls` e a flag `-l`.
@@ -118,14 +116,18 @@ Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um c
 * 3: `r--`
 * 4: `r-x`
 
-* A primeira parte indica se aquele nome se refere a um `d`iretório ou `l`ink simbólico ou `n`etwork file ou `p` fifo ou `s`ocket.
+* A primeira parte indica se aquele nome se refere a um `d`iretório ou `l`ink simbólico ou `n`etwork file ou `p`ipe ou `s`ocket, ou `-` para arquivos.
 * A segunda parte indica as permissões de acesso para `usuário` dono do arquivo ou diretório.
 * A terceira, as permissões para o `grupo de usuários` ao qual o atual pertence.
 * A quarta, as permissões para todos os `outros usuários` não contidos na regra anterior.
 
-Vale lembrar que o símbolo `-` em uma posição indica a ausência daquela característica.
+* Cada parte de permissão é composta de uma tripla, onde:
+	* O primeiro caractere indica a permissão de leitura ao arquivo através da letra `r`.
+	* O segundo caractere indica permissão de escrita ao arquivo através da letra `w`.
+	* O terceiro caractere indica permissão de execução do arquivo através da letra `x`.
+	* Em todas as posições, a omissão daquela permissão é indicada pelo caractere `-`.
 
-### Usuários e Grupos
+## Usuários e Grupos
 
 ### whoami
 
@@ -139,9 +141,14 @@ O comando groups é o comando utilizado para mostrar os `grupos` que o usuário 
 
 Análogo ao `groups`, mostra o número de `identificação` de cada grupo que o usuário atual pertence
 
+### sudo 
+
+Mnemônico para `Super User DO`, permite a execução de um comando com privilégios de `root`, ou seja, privilégios de leitura, escrita e execução para todos os arquivos do sistema.
+É um comando que deve ser usado com cautela, devido ao enorme poder que confere ao programa sendo executado, portanto não incentivamos seu uso no dia-a-dia.
+
 ## Ajuda
 
-### `–help` ou `-h`
+### `–-help` ou `-h`
 
 Normalmente para cada comando existe uma flag `-h` ou a flag `–-help` que imprime no terminal instruções de como usar o programa. Apesar de não ser regra, muitos programas utilizam da boa prática de incluir tais flags.
 
@@ -152,9 +159,21 @@ Comando que procura por uma página de instruções de um programa específico n
 man man
 ```
 
+### info
+
+Similar ao `man`, é um comando que permite lermos documentação sobre alguns programas. Info é o formato padrão para documentação de softwares da GNU Foundation. `man` e `info` se diferenciam no quesito que, enquanto o primeiro 
+é apenas uma página de um manual do sistema inteiro, o segundo trás mais informações sobre o programa, podendo ser considerado o próprio livro manual sobre o programa. Para entendermos como podemos chamar o comanddo:
+```sh
+man info
+```
+E para entendermos como funciona o programa:
+```sh
+info info
+```
+
 ### tldr
 
-O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso `-h` ou `—-help` de um programa específico.
+O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso `-h` ou `--help` de um programa específico.
 
 Para saber como usar o comando ls:
 ```sh
@@ -280,6 +299,34 @@ Obs: Caso a flag `-r` não seja utilizada apenas será copiada a pasta Filmes se
 Caso queira copiar os arquivos `video.mp4`, `tarefa.pdf` e `enunciado.pdf` para uma pasta chamada `entrega`:
 ```sh
 cp video.mp4 tarefa.pdf enunciado.pdf ./entrega
+```
+
+### rm
+
+Permite apagar definitivamente o arquivo da memória do sistema. Ao apagar um arquivo com rm, deve-se ter cautela, pois o mesmo não poderá ser recuperado depois.
+Para apagar um arquivo: 
+```sh
+rm nome-arquivo1 nome-arquivo2
+```
+Para apagar uma pasta e todos seus conteúdos:
+```sh
+rm -r nome-pasta
+```
+Para apagar um arquivo ou uma pasta inteira, independente dos conteúdos, e evitar a confirmação de cada delete, independente das permissões do arquivo ou pasta:
+```sh
+rm -rf nome-arquivo
+```
+
+Obs: Para não apagar um arquivo importante sem querer é possível usar a flag `-i` que vai questionar antes de cada remoção
+
+### rmdir
+
+Permite que o usuário consiga apagar uma pasta, mas diferente do `rm -r` ele só vai apagar diretórios vazios.
+
+É um bom comando para não correr riscos, exemplo para apagar um diretório `nome-pasta`:
+
+```sh
+rmdir nome-pasta
 ```
 
 ## Criar
