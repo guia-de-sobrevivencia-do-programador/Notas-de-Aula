@@ -13,14 +13,48 @@
   * `make`
 
 ## Gerenciamento de pacotes
+
+ Um gerenciador de pacotes é um sistema que te ajuda a gerenciar as suas dependências.
+
+ Ele fornecerá um método que baixará e instalará livrarias.
+ 
 * Porque utilizar: 
   * Programa tem entradas (geralmente código), executa uma sequencia de passos e gera uma saída.
   * Programas por vezes têm dependências
 * O que é uma dependência
+
+  Uma dependência é um pedacinho de código escrito por terceiros e que, no contexto do seu projeto, idealmente resolve um problema para você.
+
+  Um exemplo simples seria uma livraria para plotar gráficos. Certamente, você pode até ser habilidoso o suficiente para conseguir implementar isso você mesmo, mas demoraria muito e, sinceramente, você não precisa reinventar a roda. Este é um problema que foi resolvido de novo e de novo. Portanto, você pode pegar as implementações das outras pessoas e adaptar para o seu código. Assim, essa livraria importada se torna uma dependência.
+
+  Você até pode importar suas dependências na mão, mas aí temos vários problemas que começam a surgir:
+
+    • E se você encontrar uma livraria melhor do que a que está implementada? Você precisa baixar, instalar e remover a antiga tudo por sua conta
+    • E se tem um update da livraria que você está utilizando, e você quer usar? Você precisa lidar com compatibilidade e fazer uma instalação limpa da dependência na mão
+
+   Em projetos pequenos, isto normalmente não é um problema. Porém, se você está fazendo algo grande de verdade, manter em cheque estes fatores se torna verdadeiramente desafiador.
+ 
 * npm
   * Iniciando um projeto: `package.json`
+
+    Utilize npm init para inicializar um projeto. 	Uma vez que você rodar o comando, um arquivo package.json será criado.
+
+    Todo projeto de Javascript terá um package.json. Ele conterá não somente as dependências como outros metadados, como o nome do projeto e autor.
+ 
   * Como adicionar uma dependência
+    Adicione dependências com npm install <livraria>. Ao escrever este comando substituindo <livraria> por uma dependência válida, o módulo de sua escolha será, por padrão, instalado na pasta  /node_modules do diretório do projeto.
+
   * Scripts
+   Os scripts são definidos no package.json. O seu objetivo é providenciar uma maneira simples de executar tarefas repetitivas, como:
+
+     • Executar testes
+     • Iniciar o projeto localmente
+     • Buildar o projeto	
+
+	  Eles podem ser executados com npm run <nome_do_script>.
+
+	  Você pode fazer scripts de mesmo nome e adicionar “pre” ou “post” no início de cada um, e eles executarão antes e depois, respectivamente, à execução do script cujo nome eles herdam.
+ 
   * Integração com repositório Git
   * Versionamento
 
