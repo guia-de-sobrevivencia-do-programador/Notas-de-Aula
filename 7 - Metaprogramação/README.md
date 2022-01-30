@@ -1,12 +1,12 @@
 # 7 - Metaprogramação
 
 ## Introdução
-* O que é metaprogramação
-* Propósitos
-  * Empacotamento
-  * Teste
-  * Gerenciamento de dependências
-* Exemplos
+
+De forma geral, programar seria algo como, "criar código para resolver problemas": Estamos basicamente criando programas a partir de códigos, que são executados para realizar tarefas, solucionando esses problemas. Mas e metaprogramação?
+
+Metaprogramação é um conjunto de programas voltados para solucionar problemas do *processo* de criar programas. São ferramentas que tem como objetivo testar, compilar e executar seu código de forma mais eficiente. Geralmente em programas pequenos não temos problemas com esse tipo de tarefa, mas conforme avançamos um sistema e aumentamos sua complexidade, elas passam a se tornar cada vez mais inviáveis de serem gerenciadas manualmente pelos programadores. Pense em metaprogramação em algo como "programas que operam em outros programas".
+
+Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas desse tipo. Exemplos:
   * Java: `Maven`, `Gradle`
   * Python: `pip`, `unittest`
   * JavaScript: `npm`, `yarn`
