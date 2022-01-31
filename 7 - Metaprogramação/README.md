@@ -53,10 +53,21 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
 
 	  Eles podem ser executados com npm run <nome_do_script>.
 
-	  Você pode fazer scripts de mesmo nome e adicionar “pre” ou “post” no início de cada um, e eles executarão antes e depois, respectivamente, à execução do script cujo nome eles herdam.
- 
-  * Integração com repositório Git
+	  Você pode fazer scripts de mesmo nome e adicionar “pre” ou “post” no início de cada um, e eles executarão antes e depois, respectivamente, à execução do script cujo nome eles herdam. 
+
   * Versionamento
+	Toda vez que você modificar o seu código de uma forma que ele fique aceitável, você pode mudar o número de versão, especificado no `package.json`, e publicar. Assim, se torna mais fácil procurar por versões passadas do seu código. O npm possui regras específicas direcionadas a isso.
+	
+	Mas antes, vamos conversar sobre Versionamento Semantico. O conceito é simples: Todas as versões possuem três números: `x.y.z`
+	
+	 • o X é para versões maiores do programa. Aumente-o quando você fizer mudanças drásticas que tornam o programa incompatível com sua versão anterior.
+    	 • o Y é para versões menores. Aumente-o quando forem introduzidas novas funcionalidades ao código pré-existente.
+     	 • o Z é para versões de patches. Aumente-o quando forem corrigidos bugs de forma retrocompatível.
+	
+	Esta é a convenção. Mas por que é tão importante para o npm? No caso, é por causa de como o npm update funciona. Com versões nesses padrões, caso outra pessoa queira instalar nossos pacotes, ela pode filtrar pelo número de versão.
+	
+	Um exemplo seria nosso código possuir 3 versões: `1.0.0, 1.1.0, 1.1.1`. Alguém, de fora, escreve nosso pacote no `package.json`. Porém, ele escreve a versão como `>1.0.0`. Nesse caso, isto diz para instalar qualquer versão ACIMA da 1.0.0, ou seja, as outras duas. Ou talvez ele escreva `~1.1.0`, o que significa que isso aceitaria todas as versões de patch dentro da versão menor (ou seja, aceitaria 1.1.1 mas não 1.2.0).
+
 
 ## Integração contínua
 * O que é: gerenciamento do ciclo de vida da aplicação e automatização dos processos de publicação
