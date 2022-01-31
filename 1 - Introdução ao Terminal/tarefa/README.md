@@ -43,7 +43,11 @@ Para os dois primeiros exercícios primeiro extraia o arquivo `muitas_pastas.zip
 
 ## [Seção 4](./Secao_4) - Permissões
 
-Através do terminal, descubra as permissões do arquivo `ppeerrmmiissooeess` para:
+Abaixo estão as permissões de acesso para o arquivo `ppeerrmmiissooeess`
+```
+-rw--w-r-x
+```
+Escreva quais as permissões de leitura, escrita e execução para: 
 
 * O usuário que criou o arquivo.
 
