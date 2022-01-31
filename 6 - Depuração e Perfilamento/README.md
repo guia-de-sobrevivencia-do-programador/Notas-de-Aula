@@ -8,7 +8,7 @@ Depuração é o ato de identificar e buscar por falhas lógicas (ex.: um loop q
 
 Muito provavelmente você já colocou vários prints pelo código para ver se a execução chega ate aquele ponto, se um valor esta certo, ou outra coisa parecida.
 
-A segunda parte da aula a gente vai tratar de perfilamento. Perfilamento e um passo depois de depuração; quando seu código já esta funcionando como esperado (quase). Perfilamento é o ato de buscar por gargalos de performance na aplicação (sendo esse gargalo em entrada e saída, ou em processamento) e identificar que trechos do código fonte esses gargalos estão.
+A segunda parte da aula a gente vai tratar de perfilamento. Perfilamento e um passo depois de depuração; quando seu código já esta funcionando como esperado (quase). Perfilamento é o ato de buscar por gargalos de performance na aplicação (sendo esse gargalo em entrada e saída, ou em processamento) e identificar em que trechos do código fonte esses gargalos estão.
 
 Um exemplo que vocês talvez já devam ter visto que foi necessário perfilar para melhorar a performance do seu código foi em Exercícios Programas ou Juizes Automáticos como o BXComp ou a plataforma URI, onde seu programa tem um tempo máximo em que deve executar uma certa tarefa. Outros casos reais em que performance talvez seja necessária é: inteligencia artificial, algoritmos que rodam em supercomputadores, sistemas embarcados, sistemas críticos, proxies reversas e várias outras coisas.
 
@@ -22,13 +22,13 @@ Vocês vão ouvir falar muito de símbolos nessa aula. Esses símbolos são iden
 
 Esses símbolos no são gerados por padrão quando você compila o programa, então se quiser fazer uso deles é necessário passar algumas flags para o compilador na hora de gerar os arquivos binário.
 
-No GCC e CLANG basta passar a flag `-g` quando for compilar, assim:
+No GCC basta passar a flag `-g` quando for compilar, assim:
 
 ```bash
 gcc -g main.c
 ```
 
-Se quiser fazer algumas otimizações úteis para depuração e deixar que o compilador coloque os símbolos específicos para a ferramenta que for usar, basta passar, respectivamente, as flags `-Og` e `-ggdb`, trocando `gdb` pela ferramenta que for usar (ver as ferramentas disponíveis no `man` do GCC/CLANG). Por ultimo, você pode também controlar o nível de informações colocando um numero entre 0 e 3 após essas outras opções do `-g`. Exemplo:
+Se quiser fazer algumas otimizações úteis para depuração e deixar que o compilador coloque os símbolos específicos para a ferramenta que for usar, basta passar, respectivamente, as flags `-Og` e `-ggdb`, trocando `gdb` pela ferramenta que for usar (ver as ferramentas disponíveis no `man` do GCC). Por ultimo, você pode também controlar o nível de informações colocando um numero entre 0 e 3 após essas outras opções do `-g`. Exemplo:
 
 ```bash
 # -Og: Otimização para depuração
@@ -44,16 +44,26 @@ Níveis de símbolos:
 
 ## Depuração
 
-O que é depuração?
+Como falado antes, depuração é o ato de buscar por erros e identificar onde no código fonte eles ocorrem.
 
-Ativa vs Passiva
+Existem dois jeitos de alcançar esse objetivo: da maneira passiva e da maneira ativa.
+
+### Depuração passiva vs ativa
+
+A depuração passiva é quando você não tem uma participação ativa na depuração do código, você deixa a ferramenta rodar o programa e, no final, ela gera um relatório de o que pode estar dando errado e em que parte do código isso acontece.
+
+Já a depuração passiva depende da interação do usuário com a ferramenta para ...
+
+Como exemplo de depuração passiva, vamos dar uma olhada no `memcheck`, uma ferramenta da suite de ferramentas *Valgrind*.
 
 ### Valgrind
 
-(Exemplo: soma de vetores)
-* memcheck
-
-(Pesquisar sobre)
+O *Valgrind*...
+- varias ferramentas
+- memcheck padrao
+- vamos ver outras em perfilamento
+- Exemplo: soma de vetores
+	- addvec
 
 ### GDB
 
@@ -65,31 +75,23 @@ Ativa vs Passiva
 	- clear (C-l)
 
 - Mostrar como rodar o programa
+	- list
 	- run
 	- start
 		- next
 		- step
-	- continue
-	- list
-	- finish
-		- Rodar até o final da função específica
 	- print
 		- É compatível com C (ex: `print vec_res[0]`)
 		- Guarda em variáveis (`$1, $2, $3...`)
-
-- Frame cont.
-	- Listar frames (backtrace)
-	- Se mover entre os Frames
-		- frame $(frame destino)
-	- Ex:
-		main() -> add_vec()
-	- Estando no add\_vec() você quer ver o main()
-
-- Breakpoints
 	- info
 		- Variáveis de argumento (info args)
 		- Variáveis locais (info local e info var)
 			- Memória stack e heap
+	- continue
+	- finish
+		- Rodar até o final da função específica
+
+- Breakpoints
 		- Mostra os breakpoints (info break)
 
 	- break
@@ -121,6 +123,14 @@ Ativa vs Passiva
 			\> backtrace
 			\> end
 
+- Frame cont.
+	- Listar frames (backtrace)
+	- Se mover entre os Frames
+		- frame $(frame destino)
+	- Ex:
+		main() -> add_vec()
+	- Estando no add\_vec() você quer ver o main()
+
 	(opcional)
 	- tui enable
 
@@ -133,7 +143,7 @@ O que é perfilamento?
 		- Escrita em arquivo
 		- Conexão com internet
 
-Instrumentado vs Não Instrumentado
+### Não Instrumentado vs Instrumentado
 
 Instrumentado
 - Dentro do código utilizar bibliotecas específicas para perfilar
@@ -141,9 +151,7 @@ Instrumentado
 Não-instrumentado
 - Rodar um programa externo
 
-### Não Instrumentado
-
-#### Linux Perf
+### Linux Perf
 
 Roda o código mostrando estatísticas e dados sobre
 
@@ -155,6 +163,7 @@ Roda o código mostrando estatísticas e dados sobre
 	- branches
 	- perf stat -r <n>
 		- repete a execução do código mostrando variância
+	- Exemplo com fib
 * record
 	- grava a execução de um programa
 * report
@@ -167,7 +176,7 @@ Roda o código mostrando estatísticas e dados sobre
 		- tab - Mostrar linha que mais gastou tempo
 		- shift + tab - Mostrar linha que mais gastou tempo
 
-##### Hotspot
+#### Hotspot
 
 (Usar outro exemplo)
 
@@ -181,11 +190,7 @@ Caller
 - Mostra o tempo de execução em cada linha
 - Threads e CPUs
 
-#### Valgrind
-
-* cachegrind
-	- Quase as mesmas conf do perf stat
-	- Quantos cache hit e cache miss ocorreram
+### Valgrind
 
 * callgrind
 	- Mostra mais chamadas feitas na função
@@ -196,9 +201,7 @@ Caller
 	- Relative
 		- Quanto tempo de CPU cada função teve em relação à outra
 
-### Instrumentado
-
-#### LTTng
+### LTTng
 
 (Apenas mostrar o que ele consegue fazer no código e + ou - como ficaria o código)
 
@@ -217,6 +220,10 @@ Acompanha a execução do código
 [Site Oficial](https://lttng.org/docs/) do LTTng
 
 #### BabelTrace2
+
+(Programa para visualizar o LTTng)
+
+#### Trace Compass 2
 
 (Programa para visualizar o LTTng)
 
