@@ -1,3 +1,0 @@
-#! /bin/python3.8
-
-print(f"{''.join(['a' for _ in range(42424242)])}")
