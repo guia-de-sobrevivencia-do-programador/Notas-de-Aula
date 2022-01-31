@@ -40,3 +40,13 @@ Para os dois primeiros exercícios primeiro extraia o arquivo `muitas_pastas.zip
 * Usando o comando `find` você não lembra o nome do arquivo que perdeu, mas sabe que o arquivo tem mais de 100K, qual foi o comando usado para encontrar o arquivo?
 
 * Usando o comando `grep` procure na pasta `./muitos_textos` e responda quais arquivos tem a string `guia de sobrevivencia do programador` com os arquivos separados por vírgula
+
+## [Seção 4](./Secao_4) - Permissões
+
+Através do terminal, descubra as permissões do arquivo `ppeerrmmiissooeess` para:
+
+* O usuário que criou o arquivo.
+
+* Usuários do mesmo grupo que o dono do arquivo.
+
+* Qualquer outro usuário não incluso nas últimas duas questões.
