@@ -17,3 +17,11 @@ Resposta 1: <!-- Sua resposta vem aqui -->
 Resposta 2: <!-- Sua resposta vem aqui -->
 
 Resposta 3: <!-- Sua resposta vem aqui -->
+
+## Seção 4
+
+Resposta 1: <!-- Sua resposta vem aqui -->
+
+Resposta 2: <!-- Sua resposta vem aqui -->
+
+Resposta 3: <!-- Sua resposta vem aqui -->

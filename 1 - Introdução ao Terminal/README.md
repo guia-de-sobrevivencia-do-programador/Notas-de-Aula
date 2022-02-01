@@ -45,11 +45,17 @@ Na imagem acima é possível ver que o usuário é o azz e o computador é o doo
 ### echo
 
 O comando echo é um simples programa que repete o argumento digitado pelo usuário.
+Ele também é útil para imprimir variáveis de ambiente do shell.
 
-Ex:
+Ex comum:
 ```sh
 echo Olá mundo!
 ```
+Ex para variáveis de ambiente:
+```sh
+echo $USER
+```
+
 ### pwd (Print Working Directory)
 
 O `pwd` permite que o usuário possa ver em qual diretório ele se encontra.
@@ -97,7 +103,6 @@ Reparem que enquanto é o primeiro caractere da string, a barra indica a raiz do
 
 Existe também o símbolo `~`, indicador do caminho global até a pasta `/home/USUARIO` (ou `/users/USUARIO` no MacOS), onde USUARIO é o nome do usuário que está usando a shell.
 
-
 ## Permissões
 
 ### RWX (Read Write Execute)
@@ -126,6 +131,16 @@ Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um c
 	* O segundo caractere indica permissão de escrita ao arquivo através da letra `w`.
 	* O terceiro caractere indica permissão de execução do arquivo através da letra `x`.
 	* Em todas as posições, a omissão daquela permissão é indicada pelo caractere `-`.
+
+### Variável PATH
+
+Já sabemos o que é um caminho, então podemos analisar como que o shell sabe qual comando ele pode executar ou não. Como citado anteriormente, existe uma variável de ambiente chamada PATH, então podemos ver o que ela guarda 
+com o comando: 
+```sh
+echo $PATH
+```
+Vemos que são vários caminhos, unidos pelo caratere `:`, que representa a concatenaão de strings no BASH. Podemos ir a um dos diretórios inclusos nessa variável, e listar os arquivos inclusos na pasta. 
+Assim veremos que (idealmente) todos os arquivos contidos nela são executáveis, por causa da flag `x`.
 
 ## Usuários e Grupos
 
