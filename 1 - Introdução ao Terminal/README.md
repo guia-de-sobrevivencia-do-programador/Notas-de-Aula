@@ -386,7 +386,7 @@ find ./tarefas -daystart -mtime -7
 
 Arquivos entre 500Kb e 10Mb no diretório atual:
 ```sh
-find ./ -size +500k -size 10M
+find ./ -size +500k -size -10M
 ```
 
 ### grep
