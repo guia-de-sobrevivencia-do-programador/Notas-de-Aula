@@ -73,7 +73,7 @@ As tags são sempre opcionais, e o valor default é `latest`
 * Baixar uma imagem: `docker pull <nome_da_imagem>:<tag>`
 * Rodar uma imagem: `docker run <nome_da_imagem>:<tag>`
     * No modo interativo: `docker run -ti <nome_da_imagem>:<tag>`
-* Executar um comando num container: `docker exec <nome_da_imagem>:<tag>`<comando>
+* Executar um comando num container: `docker exec <nome_da_imagem>:<tag> <comando>`
 * Listar containers: `docker ps` ou `docker container ls`
 
 
