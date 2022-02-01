@@ -565,3 +565,7 @@ Existem várias maneiras de se fazer extração de dados utilizando apenas o ter
 - curl: https://youtu.be/7XUibDYw4mc
 - curl + API: https://developer.ibm.com/articles/what-is-curl-command/
 - Log usado: https://www.kaggle.com/kmanchikalapudi/accesslog-5-19-2021txt
+
+## Responsáveis
+* [Vini](https://github.com/matiasvinicius)
+* [Fukuda](https://github.com/JoaoFukuda)
