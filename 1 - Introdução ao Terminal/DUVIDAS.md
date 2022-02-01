@@ -34,7 +34,7 @@ O cd pega o caminho exato que você mandar, então se você executar o comando
 ```sh
 cd uma-pasta-
 ```
-e houver dois `arquivos uma-pasta-` e `uma-pasta-2`, ele escolhe a que se encaixa exatamente com o argumento. E se você executar 
+e houver dois arquivos `uma-pasta-` e `uma-pasta-2`, ele escolhe a que se encaixa exatamente com o argumento. E se você executar 
 ```sh
 cd uma-pasta-
 ```
