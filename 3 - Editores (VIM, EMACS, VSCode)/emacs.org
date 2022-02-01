@@ -389,10 +389,14 @@ Não há "segredos" no Emacs
 
 - Manual do Emacs: =C-h r= ou https://www.gnu.org/software/emacs/manual/emacs.html
 
-- Mickey Petersen. [[https://www.masteringemacs.org/][Mastering Emacs]], ePUB
+- [[https://www.gnu.org/software/emacs/refcards/index.html][Reference Cards]] do Emacs, incluindo um em [[https://www.gnu.org/software/emacs/refcards/pdf/pt-br-refcard.pdf][Português]]. Também um [[https://www.ime.usp.br/~rbrito/texts/emacs.html][Resumo de Comandos do Emacs]]
+
+- Mickey Petersen. [[https://www.masteringemacs.org/][Mastering Emacs]], ePUB (material no qual essa aula se baseou)
+
+- Série de textos de Dr. Peter Prevos (um engenheiro civil que usa Emacs) sobre ser ``[[https://lucidmanager.org/categories/productivity/][More Productive with Emacs]]''
+
+- Página do projeto Org Mode https://orgmode.org/ e o [[https://www.ime.usp.br/~gubi/orgmode/basico/GuiaRapido.html][Guia Rápido para o uso do org-mode]] em Português
+
+- Os vídeos (em inglês) do canal System Crafters: https://www.youtube.com/c/SystemCrafters/, começando pelo [[https://youtu.be/48JlgiBpw_I][The Absolute Beginner's Guide to Emacs]]
 
 - O agregador de blogs sobre Emacs [[https://planet.emacsen.org/][Planet Emacs]]
-
-- Os vídeos (em inglês) do canal System Crafters: https://www.youtube.com/c/SystemCrafters/
-
-- As discussões em https://www.reddit.com/r/emacs/
