@@ -88,7 +88,6 @@ elif test 3 -lt 4
 then
 	echo Esse vai ser
 else
-then
 	echo Esse nao
 fi
 ```
