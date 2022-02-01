@@ -36,7 +36,7 @@ Para definir ou atribuir novos valores a variáveis de ambiente você coloca o n
 
 Você também pode pegar variáveis do usuário com o comando `read`. É só invocar ele passando o nome da variável como argumento.
 
-Um exemplo de variáveis pode ser visto no arquivo [`inatorinator`](inatorinator)
+Um exemplo de variáveis pode ser visto no arquivo [`inatorinator`](inatorinator.sh)
 
 Existem alguns outros tipos de variáveis que podem ser utilizadas como o arranjo. Se quiser saber mais, leia o manual (`man bash`) ou a info (`info bash` em `Basic Shell Features > Shell Parameters` ou `Bash Features > Arrays`) do bash.
 
@@ -84,7 +84,7 @@ Para fazer as condicionais que você faria em outras linguagens (com operações
 if [ 1 -eq 0 ]
 then
 	echo Nao vai ser impresso
-elif [ 3 -gt 0 ]
+elif test 3 -lt 4
 then
 	echo Esse vai ser
 else
@@ -110,11 +110,14 @@ done
 ```bash
 case ${SHELL}
 in
-	*bash)
+	bash)
 		echo Voce esta usando BASH!
 		;;
+	*sh)
+		echo Deve ser ZSH, mas talvez DASH, quem sabe FISH ou até SH
+		;;
 	*)
-		echo Deve ser ZSH, mas talvez DASH, quem sabe SH ou até FISH
+		echo Voce esta usando alguma shell que nao termine em sh...
 		;;
 esac
 ```
@@ -135,7 +138,6 @@ Existem algumas variáveis que são bem úteis para scripts em bash. Essas são 
 * `$#` - Número de argumentos passados para o script ou alguma função. Contagem a partir do segundo argumento.
 * `$*` - Todos os argumentos como uma única string
 * `$@` - Todos os argumentos devidamente separados em strings
-* `$_` - Último argumento do último comando executado
 
 Outras dessas variáveis podem ser vistas no man ou na info (`Shell Variables`) do bash.
 
@@ -181,7 +183,7 @@ Também é possível usar a saída de um comando como argumento de outro colocan
 
 Por último, você pode também substituir arquivos que seriam passados como argumentos por um comando. A saída ou entrada desse comando é associada a um arquivo. Para isso você pode passar um comando envolto de parênteses com um sinal de maior ou menor antes para um arquivo com permissões de somente saída ou entrada respectivamente (ex.: `./a.out <(echo Eu sou um arquivo)` ou `echo Não sei porquê você faria isso > >(cat -)`(ex.: `./a.out <(echo Eu sou um arquivo)` ou `echo Não sei porquê você faria isso > >(cat -)`)); não é possível ter um arquivo de entrada e saída ao mesmo tempo utilizando essa funcionalidade.
 
-Podemos ver um exemplo disso utilizando o script [ler\_arquivo](ler_arquivo).
+Podemos ver um exemplo disso utilizando o script [ler\_arquivo](ler_arquivo.sh).
 
 ### Redirecionar com outras coisas
 
