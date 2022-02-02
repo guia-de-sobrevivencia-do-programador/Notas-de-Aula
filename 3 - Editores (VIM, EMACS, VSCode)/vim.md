@@ -66,6 +66,15 @@ A partir de agora é só colinha para refrescar os comandos (ATENÇÃO! `^` ante
 -  Colar antes do cursor: `P`
 -  Colar depois do cursor: `p`
 
+## Procurar por texto
+- Procurar ocorrências depois do cursor: `/` + padrão de pesquisa + Enter
+- Procurar ocorrências antes do cursor: `?` + padrão de pesquisa + Enter
+- Navegar para a próxima ocorrência, de acordo com a pesquisa: `n`
+- Navegar para a ocorrência anterior, de acordo com a pesquisa (inverso do `n`) : `N`
+
+O tipo de pesquisa modifica o comportamento das navegações: Caso esteja procurando com `/`, a próxima ocorrência sempre está abaixo do cursor; 
+Caso use `?`, a próxima ocorrência sempre está acima do cursor.
+
 # Modo de Inserção (entra-se a partir do modo normal)
 -  Inserir antes do cursor: `i`
 -  Inserir antes do primeiro caractere que não é whitespace na linha: `I`
