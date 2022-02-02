@@ -1,0 +1,434 @@
+#+Title: Tour Guiado pelo Emacs
+#+Author: Daniel Cordeiro
+#+Email: daniel.cordeiro@usp.br
+#+STARTUP: inlineimages
+
+* M-x butterfly
+
+#+CAPTION: https://xkcd.com/378/
+[[file:./real_programmers_use_emacs.png]]
+
+
+* O Modo Emacs de ser
+
+** /All hail emacs/
+
+#+BEGIN_QUOTE
+"The purpose of a windowing system is to put
+some amusing fluff around your one almighty
+emacs window."
+                    – Mark, gnu.emacs.help.
+#+END_QUOTE
+
+** História
+
+- Escrito por Richard Stallman em 1976, como extensão do TECO
+
+- Repositório de código (agora no Git) com mais de 30 anos, 130.000 commits e 600 contribuidores
+
+- Escrito em Emacs Lisp (elisp) (na verdade, ≅ 95% em elisp e 5% em C)
+  
+** Filosofia
+
+- Na verdade, é o *GNU* Emacs
+
+- [[https://www.gnu.org/philosophy/philosophy.htm][Filosofia GNU]]: você deve ter a liberdade de estudar e modificar o código que usa
+
+- ... levada ao extremo: você pode alterar *qualquer* aspecto do editor
+
+- É o editor de quem quer que tudo seja do seu jeito:
+  - extensível
+  - personalizável
+  - auto-documentado
+
+** LISP ?
+
+- Emacs implementa sua própria versão de LISP, chamada Emacs Lisp (ou apenas elisp)
+  - elisp dá medo no começo 😉 mas é legal
+  - elisp faz com que o emacs seja um grande processador de símbolos
+  - você pode inspecionar, substituir ou adicionar código (/advice/) em qualquer *qualquer* rotina implementada pelo Emacs
+
+- Rodar o Emacs é rodar um interpretador de elisp que faz a interface entre código elisp e a ABI do sistema operacional
+
+- Quando você escreve um código em elisp você não está escrevendo um /plugin/ que vai rodar de forma isolada e comportada, você está alterando um sistema vivo; um sistema operacional em cima de outro sistema operacional
+
+** Emacs como Sistema Operacional do Dev
+
+#+BEGIN_QUOTE			 .
+LILO boot: linux init=/usr/bin/emacs
+    — Greg Ward
+#+END_QUOTE
+
+- Enquanto Vim tem como filosofia ser uma ferramenta de edição (e não só de escrita de código), Emacs tem como filosofia permitir que o usuário desenvolva todas as ferramentas necessárias para seu trabalho
+  - a discussão sobre as filosofias Vim vs. Emacs é parte da cultura hacker; veja o artigo da Wikipédia [[https://en.wikipedia.org/wiki/Editor_war][Guerra dos Editores]] e uma [[https://youtu.be/3r1z5NDXU3s][sátira]] da série de TV Silicon Valley 😉
+
+*** Ao ponto em que é possível implementar qualquer coisa nele:
+
+- M-x zone :: descanso de tela
+- M-x dunnet :: um jogo de aventura
+- M-x tetris :: um clone de Tetris
+- M-x doctor :: o psicoterapeuta do Emacs
+
+  Além de:
+
+- vários clientes de e-mail (GNUS, mu4e, notmutch, etc.)
+- interface para git (magit)
+- window manager (EXWM)
+- leitor de PDF (pdf-tools)
+- editor de ASCII art (artist-mode)
+- etc., etc., etc.
+
+** Extensibilidade
+
+Alguns exemplos de como o emacs pôde ser estendido para implementar as mais diversas aplicações:
+
+- Emacspeak :: um software de 25+ anos para ajudar quem tem problemas de visão a usar emacs
+
+- Edição remota de arquivos :: TRAMP permite você editar arquivos em outros computadores como se estivesse editando um arquivo local via SSH, FTP, Docker, rclone, rsync, etc.
+  ex: [[/ssh:corinthians:teste.txt]]
+
+- Shell(s) :: Emacs possui um emulador de terminal embutido, um wrapper que permite usar outros shells (como bash) e um próprio shell turbinado chamado Eshell escrito inteiramente em elisp
+
+- Org mode :: uma aplicação de gerenciamento de projetos, TODOs, agenda, programação literária, editoramento, anotações, _apresentações_, etc. É considerado o melhor app de organização baseado em texto puro de todos os tempos, motivo de muita gente ter migrado para emacs nos últimos tempos.
+
+- Calculadora simbólica :: calculadora capaz de realizar álgebra simbólica, computação de precisão arbitrária, matemática matricial e unitária, etc.
+
+| Aluno  | Intro.Programação | Algoritmos | Média |
+|--------+-------------------+------------+-------|
+| Daniel |               9.5 |        9.5 |   9.5 |
+| Tiago  |                 8 |         10 |     9 |
+| Rafael |                 7 |          2 |   4.5 |
+#+TBLFM: $4=vmean($2..$3)
+
+- Player de Música :: Emacs Multimedia System (EMMS)
+
+- e *muito* mais. Emacs continua relevante mesmo em 2022!
+
+* Primeiros passos
+
+** Instalando e Iniciando o Emacs
+
+- O GNU/Emacs é distribuído para GNU/Linux, BSDs, Windows e MacOS. Veja as instruções de instalação no [[https://www.gnu.org/software/emacs/][site do projeto]]
+
+- Para iniciar o Emacs, você deve rodar o comando =emacs=, seguido opcionalmente pelo(s) nome(s) do(s) arquivos que você quer editar
+
+- As seguintes opções de linha de comando podem ser úteis:
+  | Opção  | Descrição                                               |
+  |--------+---------------------------------------------------------|
+  | =--help= | Mostra a ajuda                                          |
+  | =-nw=    | Força o Emacs a rodar no modo terminal                  |
+  | =-q=     | Não lê arquivos de inicialização (ex: =init.el=)          |
+  | =-Q=     | Não lê arqs. de inicialização do usuário nem do sistema |
+
+- O emacs pode ser configurado como um servidor. Um cliente, o =emacsclient= reutiliza uma única instância do Emacs
+
+** Conceitos importantes para entender o Emacs
+
+*** Buffer
+
+A maioria dos editores e IDEs é /baseada em arquivos/ (mostram texto de um arquivo, gravam texto em um arquivo). No Emacs, todos os arquivos são buffers, mas nem todo buffer é um arquivo (pode representar um dispositivo de E/S, um outro processo, ou uma área de edição não associada a arquivo, como o =scratch=). Internamente, buffer é uma estrutura de dados que pode ser manipulada por código elisp
+
+*** Janela e /Frame/
+Um buffer é exibido na tela em uma /janela/. No emacs, uma janela é um dos ladrilhos que formam um frame.
+
+*** /Modeline/, /echo area/ e /minibuffer/
+
+Nesta janela, o /modeline/ é a linha abaixo que parece com: =1:0: U -~/.emacs.org All Org WK [9/10] GCMH Wrap Narrow=. O /buffer/ é chamado de =emacs.org= e seu /major mode/ é o modo =Org=. O modeline pode mostrar todo tipo de informação útil (qde. de energia na bateria do notebook, o nome da função ou classe trabalhada, em qual revisão ou /branch/ do controle de versão você está atualmente, etc. O minibuffer está na linha abaixo do modeline e mostra erros ou informações gerais.
+
+*** Point e Mark
+
+- /point/ é sinônimo de cursor (representado geralmente como █)
+  - o */buffer/ atual* é aquele que tiver o cursor em um determinado momento
+
+- além de marcar o local onde um caractere será inserido, o /point/ também é parte de uma dupla chamada /point/ e /mark/. Ambos definem uma *região* (outros editores chamam de seleção)
+
+*** /Killing/, /Yanking/ e CUA
+
+- ao definir o CUA (Commum User Access) em 1987, a IBM inaugurou os conceitos hoje universais de *recortar*, *copiar* e *colar*; todo editor implementa o conceito de /clipboard/ e provê atalhos para essas funções: =Ctrl+x= ou =Shift+Delete=; =Ctrl+c= ou =Ctrl+Insert=; e =Ctrl+v= ou =Shift+Insert=, respectivamente
+
+- o Emacs já implementava tudo isso antes, mas com outros nomes:
+
+  + recortar :: /killing/ (=C-w= (região) ou =C-k= (linha))
+
+  + colar :: /yanking/ (=C-y=)
+
+  + copiar :: salvar no /kill ring/ ou só copiar mesmo :) (=M-y=)
+
+- o =cua-mode= é um /minor mode/ que habilita as teclas tradicionais
+*** =.emacs.d=, =init.el= e =.emacs=
+
+- Um dos passatempos favoritos dos usuários do emacs é compartilhar com outros usuários as suas configurações e códigos que personalizam o editor
+
+- Historicamente, as configurações são guardadas em um arquivo texto chamado de =.emacs= . Mas atualmente as configurações ficam em =~/.emacs.d/init.el= no Linux e em =%HOME%\init.el= no Windows.
+
+- Emacs 27+ também obedece a convenção do XDG e permite guardar as configurações em =~/.config/emacs/init.el= em sistemas Linux que implementam XDG
+
+- Quando alguém fala do arquivo de inicialização do Emacs, está falando do seu =init.el= . O =init.el= é um arquivo com código em elisp que será executado no processo de inicialização do Emacs
+
+- Uma dica é usar um /starter kit/, que turbinam o Emacs com configurações e pacotes úteis. Algumas recomendações:
+
+  + =.emacs.d= de Steve Purcell :: https://github.com/purcell/emacs.d
+
+  + Prelude de Bozhidar Batzov :: https://github.com/bbatsov/prelude
+
+  + Spacemacs :: https://spacemacs.org/
+
+  + Doom Emacs :: https://github.com/hlissner/doom-emacs
+
+  (os dois últimos combinam a extensibilidade do Emacs com a edição modal do Vim)
+
+*** /Major modes/ e /minor modes/
+
+- */Major modes/* controlam como um buffer no Emacs se comporta. Se você quer editar um arquivo com código Python e visitar, por exemplo, o arquivo =helloworld.py= o Emacs sabe (usando um registro centralizado que mapeia extensões a /major modes/ ou analisando o início do arquivo) que ele deve usar o /Python major mode/.
+
+- Todo buffer tem um único /major mode/.
+
+- O /major mode/ pode ser simples e não oferecer /font locking/ (/syntax highlight/) nem nenhuma outra funcionalidade específica. Mas também pode oferecer funcionalidades completas de uma IDE moderna, como /font locking/, motor de indentação:
+
+  | Modificador | Nome                                 |
+  |-------------+--------------------------------------|
+  | =C-=          | Control                              |
+  | =M-=          | Meta ("Alt" na maioria dos teclados) |
+  | =S-=          | Shift                                |
+
+- Uma _sequência de teclas_ é uma sequência de ações de teclado ou mouse e uma tecla de término que invocam um comando. Se a sequência não completa um comando, então a sequência é um _prefixo_:
+
+Exemplos:
+  + =C-d= chama o comando =delete-char= (para invocar o comando, aperte control + d)
+  + =C-M-d= chama o comando =down-list=, que coloca o cursor em um nível mais profundo de parênteses (Teste do (Daniel (de Angelis) Cordeiro))
+
+**** Prefixos
+
+Prefixos são subdivisões, uma forma de agrupar comandos e de aumentar o número possível de combinações. Por exemplo, o prefixo =C-x= possui dezenas de comandos associados. =C-x= é um prefixo que você usará o tempo todo:
+
++ =C-x C-f= chama o comando =find-file= . Você o executa primeiro mantendo =control= apertado e então apertando e soltando =x=. O Emacs irá mostrar na /echo area/ depois de um tempo a string =C-x-=, com o =-= ao final indicando que ele aguarda um complemento. Em seguida, você digita =C-f=, segurando =control= enquanto aperta a tecla =f=.
+  - você pode, mas não precisa, manter o =control= apertado enquanto digita =x= e =f=
+
++ =C-x 8 P= tem dois prefixos: o primeiro =C-x= e o seguindo que é o =8=. Sozinhos eles não invocam comando. A sequência só é completa se você a terminar com =P=
+
+Prefixos parecem complicados, mas o agrupamento faz com que comandos similares estejam agrupados juntos. Por exemplo =C-x r= é o prefixo para manipulação de retângulo de strings. Por exemplo, marque a região entre os caracteres =li= e o =>= das três linhas e use =C-x r t= para definir uma classe:
+
+  #+begin_src html
+    <ul>
+      <li>primeiro item</li>
+      <li>segundo item</li>
+      <li>terceiro item</li>
+    </ul>
+  #+end_src
+
+- =TAB=, =F1=-=F12=, etc. também são teclas que podem fazer parte de sequências. Também são representadas entre parênteses angulares =<tab>=, =<f1>=, etc.
+
+- Se você estiver travado (por exemplo, começou a digitar o prefixo errado), use o comando =C-g= (que é o comando de cancelamento de ações universal do Emacs)
+
+- O /minor mode/ [[https://github.com/justbur/emacs-which-key][which-key]] pode te ajudar a descobrir quais as teclas de uma determinada sequência
+
+**** =M-x=: execute comando extendido
+
+- Só uma pequena parcela dos comandos do emacs estão atreladas (/bound/) a teclas. A maioria não está, ou porque são pouco usados, ou porque você pegou as teclas atreladas a um comando e atrelou a outro, deixando o primeiro sem sem teclas (/unbounded/)
+
+- Por isso, é comum que você invoque os comandos menos usados pelo nome. Para isso, usamos o =M-x= (pronunciado /mex/, M x ou meta x). Um prompt no minibuffer permitirá você digitar o nome do comando.
+
+  + por exemplo: =M-x lunar-phases=
+
+- Emacs tem um sistema de auto-compleção associado a tecla =TAB=. Use o =TAB= para reduzir a lista de sugestões de comandos
+
+**** Descobrindo e lembrando das teclas
+
+- Se você não se lembrar exatamente de um comando, o Emacs pode ajudar
+
+- Se você só se lembrar do início da sequência, mas não do fim, adicione =C-h= para ver uma lista das opções. Ex: =C-x 8 C-h=
+
+- Confie no sistema de auto-documentação do Emacs!
+
+* Configuração do Emacs
+
+- Um tópico para mais de uma aula e muito, *muito* divertido 😉
+
+- Você pode:
+
+  + usar a interface de configuração do Emacs: =M-x customize=; especialmente recomendado para iniciantes
+
+  + escrever código em elisp no seu arquivo de inicialização [[file:~/.emacs.d/init.el][init.el]]
+
+- Na verdade, você pode executar código elisp em qualquer lugar e a qualquer momento no seu emacs e ele pode alterar o funcionamento do seu emacs com =M-x eval-buffer= ou =M-x eval-region=:
+
+    #+BEGIN_SRC emacs-lisp
+    (defun unfill-paragraph (&optional region)
+	"Takes a multi-line paragraph and makes it into a single line of text."
+	(interactive (progn
+		       (barf-if-buffer-read-only)
+		       (list t)))
+	(let ((fill-column (point-max)))
+	  (fill-paragraph nil region)))
+    (bind-key "M-Q" 'unfill-paragraph)
+  #+END_SRC
+
+Exemplo:
+
+Um parágrafo multilinhas
+pode se tornar um parágrafo
+monolinha 
+
+** O Gerenciador de Pacotes
+
+- Desde a versão 24, Emacs tem seu próprio gerenciador de pacotes
+
+- Há vários repositórios de pacotes, os mais importantes são o ELPA (/Emacs Lisp Package Archive,/ oficial, com código GNU), o [[https://melpa.org/][MELPA]] (gerenciado pela comunidade, muito mais completo)
+
+- =M-x package-list-packages=
+
+** Temas de Cores
+
+- Se você não gostar do tema de cores padrão do Emacs, basta usar outro
+
+- =M-x customize-themes=
+
+- Há *muitos* temas de cores disponíveis no MELPA, a maioria tem o nome terminando com =-theme= 
+
+- Eu uso o pacote base16-theme com o tema base16-onedark:
+  #+begin_src emacs-lisp
+    (load-theme 'base16-onedark)
+  #+end_src
+
+* Conseguindo ajuda
+
+- O Emacs é um editor com um sistema sofisticado de auto-documentação
+
+- Aprender como encontrar ajuda é essencial
+
+** O manual Info
+
+- O próprio manual do Emacs foi escrito usando TeXinfo (se você já usou o comando =info= no Linux, já interagiu com um visualizador de TeXinfo)
+
+- =M-x info= ou =C-h i=
+
+- Teclas para navegar no manual:
+
+  | Tecla | Finalidade                                |
+  |-------+-------------------------------------------|
+  | =[= e =]= | nó *Anterior* ou o *próximo* nó               |
+  | =l= e =r= | *Voltar* ou *Avançar* no histórico            |
+  | =n= e =p= | *Próximo* nó ou o *Anterior* no mesmo nível   |
+  | =u=     | Sobe um nível para um nó pai              |
+  | =SPC=   | Avança uma página da tela do manual       |
+  | =TAB=   | Percorre os links e referências-cruzadas  |
+  | =RET=   | Abre o link ativo                         |
+  | =m=     | Abre menu com os nomes dos itens e o abre |
+  | =q=     | Fecha o navegador do manual               |
+
+
+** Apropos
+
+- Permite procurar, com expressões regulares, por um comando
+
+- =M-x apropos= ou =C-h a=
+
+- Ex: você está procurando por um comando que conte palavras e sabe que ele termina com =-words= mas não lembra o começo
+  - procure com =C-h a -words$=
+
+- Apropos mostra o nome do comando, a sequência de teclas associada ao comando (se tiver) e sua descrição
+
+
+** O sistema de descrição
+
+- Um conjunto de comandos que permite descrever o estado atual do interpretador de elisp do Emacs
+
+- Isso significa que ele descreve comandos interativos, funções elisp, etc. Descreve toda faceta do Emacs, seja ela implementada em elisp ou C
+
+Não há "segredos" no Emacs
+
+- =M-x describe-mode= ou =C-h m= :: mostra a documentação para o /major mode/ (e eventuais /minor modes/ habilitados)
+
+- =M-x describe-function= ou =C-h f= :: descreve uma função elisp. Se a função for interativa, é um dos comandos do Emacs. Ex: =C-h f org-tree-slide-mode=
+
+- =M-x describe-variable= ou =C-h v= :: descreve uma variável. Ex: =C-h v emacs-version=
+
+- =M-x describe-key= ou =C-h k= :: descreve o que uma sequência de teclas faz. Ex: =C-h k C-x C-s=
+
+- =M-x describe-bindings= ou o /minor mode/ =which-key= 
+
+* Emacs em 2022
+
+- Emacs não é *apenas* um editor, mas um ambiente de produtividade que você pode personalizar usando elisp
+
+** Coisas únicas que o Emacs faz:
+  + Permite acompanhar projetos, tarefas e compromissos com [[https://orgmode.org/][Org Mode]]
+  + Gerencia seus e-mails e chats com uma variedade de pacotes ([[https://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]], ERC, [[https://github.com/zevlg/telega.el][telega.el]])
+  + Acessa servidores remotos com o TRAMP
+  + Serve como um ambiente completo de janelas com EXWM
+
+** Mas também tem:
+  + edição modal à moda do Vim com [[https://github.com/emacs-evil/evil][evil-mode]]
+  + Funcionalidades completas de IDEs para muitas linguagens com [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]] e [[https://github.com/emacs-lsp/dap-mode][dap-mode]]
+  + Uma das melhores interfaces para Git que existe (acredite!): [[https://magit.vc/][Magit]]
+  + Integração com compiladores, test runners, linters, etc.
+
+** O poder do Org Mode
+
+- Você pode usar Org para fazer suas apresentações
+
+- Você pode usar Org para escrever textos
+  
+- Você pode usar Org para gerenciar seus TODOs
+
+*** Mas você também pode usar para fazer programação literária
+
+- =C-c C-c= aciona o Org Babel para executar os blocos de código
+
+  #+begin_src shell
+    for i in /tmp/*; do echo $i; done
+  #+end_src
+
+#+begin_src C
+  #include <stdio.h>
+  int main() {
+     printf("Hello, World!");
+     return 0;
+  }
+#+end_src
+
+#+NAME: somedata
+   | nb    | sqr | noise |
+   |-------+-----+-------|
+   | zero  |   0 |  0.23 |
+   | one   |   1 |  1.31 |
+   | two   |   4 |  4.61 |
+   | three |   9 | 19.05 |
+   | four  |  16 | 16.55 |
+
+#+name: c-table
+   #+header: :exports results
+   #+begin_src C++ :results output :var somedata=somedata :includes "<string.h> <stdio.h> <stdlib.h>"
+     int main()
+      {
+        for(int j=0; j<somedata_cols; j++) { printf("%s  ", somedata_header[j]); };
+        printf("\n");
+        for (int i=0; i<somedata_rows; i++) {
+          printf ("%2d %7s ", i, somedata_h(i,"nb"));
+          for (int j=1; j<somedata_cols; j++) {
+            const char* cell = somedata[i][j];
+            printf ("%5s %5g ", cell, 1000*atof(cell));
+          }
+          printf("\n");
+        }
+        return 0;
+      }
+   #+end_src
+
+* Veja também
+
+- Emacs Tutorial: =C-h t=
+
+- Manual do Emacs: =C-h r= ou https://www.gnu.org/software/emacs/manual/emacs.html
+
+- [[https://www.gnu.org/software/emacs/refcards/index.html][Reference Cards]] do Emacs, incluindo um em [[https://www.gnu.org/software/emacs/refcards/pdf/pt-br-refcard.pdf][Português]]. Também um [[https://www.ime.usp.br/~rbrito/texts/emacs.html][Resumo de Comandos do Emacs]]
+
+- Mickey Petersen. [[https://www.masteringemacs.org/][Mastering Emacs]], ePUB (material no qual essa aula se baseou)
+
+- Série de textos de Dr. Peter Prevos (um engenheiro civil que usa Emacs) sobre ser ``[[https://lucidmanager.org/categories/productivity/][More Productive with Emacs]]''
+
+- Página do projeto Org Mode https://orgmode.org/ e o [[https://www.ime.usp.br/~gubi/orgmode/basico/GuiaRapido.html][Guia Rápido para o uso do org-mode]] em Português
+
+- Os vídeos (em inglês) do canal System Crafters: https://www.youtube.com/c/SystemCrafters/, começando pelo [[https://youtu.be/48JlgiBpw_I][The Absolute Beginner's Guide to Emacs]]
+
+- O agregador de blogs sobre Emacs [[https://planet.emacsen.org/][Planet Emacs]]

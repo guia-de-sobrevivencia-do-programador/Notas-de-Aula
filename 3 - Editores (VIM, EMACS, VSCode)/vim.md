@@ -2,7 +2,7 @@
 
 Vim é um editor antigo, de código fonte aberto, muito popular entre programadores por ser altamente extensível, e infame por sua curva de aprendizado não amigável a iniciantes. Entretanto, ele é uma versão melhorada (*v* *im*proved) do editor `vi`, que não continha _syntax highlighting_, modo visual, scripting e outras gostosuras.
 
-O vi, predecessor do vim, foi concebido nos anos 70 por Billy Joy com base no editor `ex`, e tem seu nome por ser o modo `*vi*sual` deste. O vi surgiu em uma época onde se acessava computadores através de terminais remotos cujo layout dos teclados era levemente diferente: As setas direcionais eram acessadas pelas teclas `hjkl` e a tecla Escape econtrava-se onde hoje encontramos a tecla Caps Lock.
+O vi, predecessor do vim, foi concebido nos anos 70 por Billy Joy com base no editor `ex`, e tem seu nome por ser o modo `*vi*sual` deste. O vi surgiu em uma época onde se acessava computadores através de terminais remotos cujo layout dos teclados era levemente diferente: As setas direcionais eram acessadas pelas teclas `hjkl` e a tecla Escape encontrava-se onde hoje encontramos a tecla Caps Lock.
 
 <img title="teclado do terminal ADM3A" alt="teclado antigo kk" src="./Resources/ADM3A.png">
 
@@ -14,12 +14,12 @@ Vim preza por uma edição fluida de código. O modo de funcionamento padrão do
 
 Essas frases tem uma ação (com um numero de repetições como argumento opcional) e, dependendo da ação, um objeto ou movimento sob o qual essa ação será executada. Por um lado, uma ação pode ser `delete`, `replace`, `change`, `insert`, `paste` e muitas outras. Por outro lado, um objeto ou movimento pode ser uma ou mais (através de argumentos opcionais) palavras, parágrafos, linhas, tudo dentro de um parênteses e várias outras coisas também.
 
-Essa gramática, quando dominada, permite uma edição muito mais rápida e fluida do código sem o sentimento de que você esta pensando para programar. Você pode somente focar no codigo em si e nao no ato de programar.
+Essa gramática, quando dominada, permite uma edição muito mais rápida e fluida do código sem o sentimento de que você esta pensando para programar. Você pode somente focar no código em si e não no ato de programar.
 
 Para os acostumados com a sintaxe e o jeito de funcionar do vim, editar um arquivo se torna uma tarefa muito menos monótona e muito mais dinâmica: 
-Ações complexas requerem poucas teclas digitadas para serem executadas, e tarefas repetitivas podem ser facilmente reexecutadas em outro trecho de codigo ou ate em varios arquivos diferentes.
+Ações complexas requerem poucas teclas digitadas para serem executadas, e tarefas repetitivas podem ser facilmente reexecutadas em outro trecho de código ou ate em vários arquivos diferentes.
 Adicionalmente, devido a sua origem, o editor força o usuário a nunca tirar a mão de perto das letras (as chamadas _home row keys_), e isso permite que ações sejam encadeadas sem interrupções. 
-Além disso, vim permite que funções novas de edição sejam criadas, dando liberdade ao usuário de customizar qualquer aspecto do editor através de scripts feitos por voce e plugins feitos pela comunidade.
+Além disso, vim permite que funções novas de edição sejam criadas, dando liberdade ao usuário de customizar qualquer aspecto do editor através de scripts feitos por você e plugins feitos pela comunidade.
 
 # Os básicos.
 
@@ -46,9 +46,9 @@ A partir de agora é só colinha para refrescar os comandos (ATENÇÃO! `^` ante
 -  Toda movimentação pode receber uma quantidade antes que indica quantas vezes será repetida. Ex: `4j` ou `50l`
 -  Por caracteres: `h`(esquerda), `j`(baixo), `k`(cima), `l`(direita)
 -  Por "palavra": `w` (`word`: começo da próxima palavra), `e`(`end of word`: final da próxima palavra), `b` (`back`: começo da palavra anterior)
--  Por linha (não aceita quantidade): `0`(começo da linha), `^`(comeco da linha ignorando caracteres de espaco), `$`(final da linha)
+-  Por linha (não aceita quantidade): `0`(começo da linha), `^`(começo da linha ignorando caracteres de espaço), `$`(final da linha)
 -  Por arquivo: `gg`(Começo do arquivo), `G`(Final do arquivo)
--  Por arquivo (tambem): `#G`(substitua `#` por um numero: va para a linha `#`), `#%`(substitua `#` por um numero: va para o `#` por cento do arquivo. Ex.: `50%`: va para o meio do arquivo)
+-  Por arquivo (também): `#G`(substitua `#` por um numero: vá para a linha `#`), `#%`(substitua `#` por um numero: vá para o `#` por cento do arquivo. Ex.: `50%`: vá para o meio do arquivo)
 
 ## Desfazer ações
 -  Desfazer: `u`
@@ -65,6 +65,15 @@ A partir de agora é só colinha para refrescar os comandos (ATENÇÃO! `^` ante
 -  Copiar linha inteira: `Y` ou `yy`
 -  Colar antes do cursor: `P`
 -  Colar depois do cursor: `p`
+
+## Procurar por texto
+- Procurar ocorrências depois do cursor: `/` + padrão de pesquisa + Enter
+- Procurar ocorrências antes do cursor: `?` + padrão de pesquisa + Enter
+- Navegar para a próxima ocorrência, de acordo com a pesquisa: `n`
+- Navegar para a ocorrência anterior, de acordo com a pesquisa (inverso do `n`) : `N`
+
+O tipo de pesquisa modifica o comportamento das navegações: Caso esteja procurando com `/`, a próxima ocorrência sempre está abaixo do cursor; 
+Caso use `?`, a próxima ocorrência sempre está acima do cursor.
 
 # Modo de Inserção (entra-se a partir do modo normal)
 -  Inserir antes do cursor: `i`

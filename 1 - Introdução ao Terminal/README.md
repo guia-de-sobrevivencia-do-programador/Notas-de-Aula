@@ -10,11 +10,15 @@ Tanto no windows existe o cmd e o powershell quanto no linux onde existe uma var
 
 Exemplo de um emulador de terminal:
 
-![Gnome terminal](./assets/Gnome_terminal.png)
+<p align="center">
+  <img src="./assets/Gnome_terminal.png" alt="Terminal Gnome" width="400" height="300" />
+</p>
 
 Terminal antigo:
 
-![Terminal antigo](./assets/Terminal_antigo.png)
+<p align="center">
+  <img src="./assets/Terminal_antigo.png" alt="Terminal antigo" width="400" height="300" />
+</p>
 
 ### Shell (bash, zsh, dash, fish…)
 
@@ -28,7 +32,9 @@ Para o shell entender os comandos que o usuário quer digitar é usado uma vari�
 
 Nada mais que um programa que roda programas.
 
-![User](./assets/User.png)
+<p align="center">
+  <img src="./assets/User.png" alt="User" height="50" />
+</p>
 
 Em sua shell é provável que a tenha um texto como o da imagem acima, esse texto representa o nome do seu usuário e o nome de sua máquina separados por um @ e onde você se encontra atualmente.
 
@@ -39,11 +45,17 @@ Na imagem acima é possível ver que o usuário é o azz e o computador é o doo
 ### echo
 
 O comando echo é um simples programa que repete o argumento digitado pelo usuário.
+Ele também é útil para imprimir variáveis de ambiente do shell.
 
-Ex:
+Ex comum:
 ```sh
 echo Olá mundo!
 ```
+Ex para variáveis de ambiente:
+```sh
+echo $USER
+```
+
 ### pwd (Print Working Directory)
 
 O `pwd` permite que o usuário possa ver em qual diretório ele se encontra.
@@ -91,10 +103,7 @@ Reparem que enquanto é o primeiro caractere da string, a barra indica a raiz do
 
 Existe também o símbolo `~`, indicador do caminho global até a pasta `/home/USUARIO` (ou `/users/USUARIO` no MacOS), onde USUARIO é o nome do usuário que está usando a shell.
 
-
 ## Permissões
-
-### Diretórios != Arquivos
 
 ### RWX (Read Write Execute)
 
@@ -112,14 +121,28 @@ Sempre separamos as strings de permissões em 4 partes, uma parte de apenas um c
 * 3: `r--`
 * 4: `r-x`
 
-* A primeira parte indica se aquele nome se refere a um `d`iretório ou `l`ink simbólico ou `n`etwork file ou `p` fifo ou `s`ocket.
+* A primeira parte indica se aquele nome se refere a um `d`iretório ou `l`ink simbólico ou `n`etwork file ou `p`ipe ou `s`ocket, ou `-` para arquivos.
 * A segunda parte indica as permissões de acesso para `usuário` dono do arquivo ou diretório.
 * A terceira, as permissões para o `grupo de usuários` ao qual o atual pertence.
 * A quarta, as permissões para todos os `outros usuários` não contidos na regra anterior.
 
-Vale lembrar que o símbolo `-` em uma posição indica a ausência daquela característica.
+* Cada parte de permissão é composta de uma tripla, onde:
+	* O primeiro caractere indica a permissão de leitura ao arquivo através da letra `r`.
+	* O segundo caractere indica permissão de escrita ao arquivo através da letra `w`.
+	* O terceiro caractere indica permissão de execução do arquivo através da letra `x`.
+	* Em todas as posições, a omissão daquela permissão é indicada pelo caractere `-`.
 
-### Usuários e Grupos
+### Variável PATH
+
+Já sabemos o que é um caminho, então podemos analisar como que o shell sabe qual comando ele pode executar ou não. Como citado anteriormente, existe uma variável de ambiente chamada PATH, então podemos ver o que ela guarda 
+com o comando: 
+```sh
+echo $PATH
+```
+Vemos que são vários caminhos, unidos pelo caratere `:`, que representa a concatenaão de strings no BASH. Podemos ir a um dos diretórios inclusos nessa variável, e listar os arquivos inclusos na pasta. 
+Assim veremos que (idealmente) todos os arquivos contidos nela são executáveis, por causa da flag `x`.
+
+## Usuários e Grupos
 
 ### whoami
 
@@ -133,9 +156,14 @@ O comando groups é o comando utilizado para mostrar os `grupos` que o usuário 
 
 Análogo ao `groups`, mostra o número de `identificação` de cada grupo que o usuário atual pertence
 
+### sudo 
+
+Mnemônico para `Super User DO`, permite a execução de um comando com privilégios de `root`, ou seja, privilégios de leitura, escrita e execução para todos os arquivos do sistema.
+É um comando que deve ser usado com cautela, devido ao enorme poder que confere ao programa sendo executado, portanto não incentivamos seu uso no dia-a-dia.
+
 ## Ajuda
 
-### `–help` ou `-h`
+### `–-help` ou `-h`
 
 Normalmente para cada comando existe uma flag `-h` ou a flag `–-help` que imprime no terminal instruções de como usar o programa. Apesar de não ser regra, muitos programas utilizam da boa prática de incluir tais flags.
 
@@ -146,9 +174,21 @@ Comando que procura por uma página de instruções de um programa específico n
 man man
 ```
 
+### info
+
+Similar ao `man`, é um comando que permite lermos documentação sobre alguns programas. Info é o formato padrão para documentação de softwares da GNU Foundation. `man` e `info` se diferenciam no quesito que, enquanto o primeiro 
+é apenas uma página de um manual do sistema inteiro, o segundo trás mais informações sobre o programa, podendo ser considerado o próprio livro manual sobre o programa. Para entendermos como podemos chamar o comanddo:
+```sh
+man info
+```
+E para entendermos como funciona o programa:
+```sh
+info info
+```
+
 ### tldr
 
-O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso `-h` ou `—-help` de um programa específico.
+O tldr é um programa que recebe como argumento o nome de outro programa e lista e explica alguns comandos úteis do programa especificado. Geralmente é usado quando o usuário está sem tempo para ler o manual ou ver o uso `-h` ou `--help` de um programa específico.
 
 Para saber como usar o comando ls:
 ```sh
@@ -177,7 +217,7 @@ Os comandos `less` e `more` são usados para ler textos grandes e múltiplos tex
 
 Comando `more`:
 
-* `spaço`: vai para a próxima página
+* `espaço`: vai para a próxima página
 * `b`: volta uma página
 * `enter`: desce uma linha
 * `=`: mostra a linha atual
@@ -276,6 +316,34 @@ Caso queira copiar os arquivos `video.mp4`, `tarefa.pdf` e `enunciado.pdf` para 
 cp video.mp4 tarefa.pdf enunciado.pdf ./entrega
 ```
 
+### rm
+
+Permite apagar definitivamente o arquivo da memória do sistema. Ao apagar um arquivo com rm, deve-se ter cautela, pois o mesmo não poderá ser recuperado depois.
+Para apagar um arquivo: 
+```sh
+rm nome-arquivo1 nome-arquivo2
+```
+Para apagar uma pasta e todos seus conteúdos:
+```sh
+rm -r nome-pasta
+```
+Para apagar um arquivo ou uma pasta inteira, independente dos conteúdos, e evitar a confirmação de cada delete, independente das permissões do arquivo ou pasta:
+```sh
+rm -rf nome-arquivo
+```
+
+Obs: Para não apagar um arquivo importante sem querer é possível usar a flag `-i` que vai questionar antes de cada remoção
+
+### rmdir
+
+Permite que o usuário consiga apagar uma pasta, mas diferente do `rm -r` ele só vai apagar diretórios vazios.
+
+É um bom comando para não correr riscos, exemplo para apagar um diretório `nome-pasta`:
+
+```sh
+rmdir nome-pasta
+```
+
 ## Criar
 
 ### mkdir
@@ -318,7 +386,7 @@ find ./tarefas -daystart -mtime -7
 
 Arquivos entre 500Kb e 10Mb no diretório atual:
 ```sh
-find ./ -size +500k -size 10M
+find ./ -size +500k -size -10M
 ```
 
 ### grep
