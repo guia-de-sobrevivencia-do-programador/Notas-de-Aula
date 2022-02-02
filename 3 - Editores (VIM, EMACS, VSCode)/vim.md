@@ -81,4 +81,11 @@ A partir de agora é só colinha para refrescar os comandos:
 -  Procurar e substituir todas as ocorrências na linha: `s/PADRAO-DE-PROCURA/TEXTO-DE-SUBSTITUICAO/g` + tecla ENTER
 -  Procurar e substituir confirmando a substituição: `s/PADRAO-DE-PROCURA/TEXTO-DE-SUBSTITUICAO/c` + tecla ENTER
 
-
+# BIBLIOGRAFIA e extras
+Caso queira se aprofundar no editor, o livro 'Learning the vi and Vim editors', 
+de Arnold Robbins, Elbert Hannah e Linda Lamb (O'Reilly, 7a ed.) é uma ótima escolha.
+Recomendo também o uso do vimtutor, que é um arquivo de texto ensinando a usar o vim, aberto dentro do próprio editor.
+Para utilizar o vimtutor, basta digitar no seu terminal:
+```sh
+vimtutor
+```
