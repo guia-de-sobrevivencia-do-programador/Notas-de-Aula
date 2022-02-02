@@ -83,7 +83,8 @@ A partir de agora é só colinha para refrescar os comandos:
 
 # BIBLIOGRAFIA e extras
 Caso queira se aprofundar no editor, o livro 'Learning the vi and Vim editors', 
-de Arnold Robbins, Elbert Hannah e Linda Lamb (O'Reilly, 7a ed.) é uma ótima escolha.  
+de Arnold Robbins, Elbert Hannah e Linda Lamb (O'Reilly, 7a ed.) é uma ótima escolha.
+
 Recomendo também o uso do vimtutor, que é um arquivo de texto ensinando a usar o vim, aberto dentro do próprio editor.
 Para utilizar o vimtutor, basta digitar no seu terminal:
 ```sh
