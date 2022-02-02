@@ -2,6 +2,14 @@
 
 ## Seção 1 — Vim
 
+1. Abra o vim em qualquer arquivo, entre no modo de comando, digite o seguinte comando 
+`nnoremap B 0iOlá, tudo bem?<CR><Esc>` e então volte ao modo normal. 
+O que acontece se você digitar `B` (shift + `b`) no modo normal após salvar o comando?
+
+2. Digite `nnoremap B 0iOlá, tudo bem?<CR><Esc>` dentro de um arquivo chamado `.vimrc`, salve o arquivo na pasta home de seu usuário (~) e saia do editor. 
+Então, reabra o vim em qualquer arquivo. 
+O mesmo comportamento observado na questão anterior acontece se você digitar `B` enquanto no modo normal? Por quê isso acontece?
+
 ## Seção 2 — Emacs
 
 Como vimos em aula, o Emacs é um editor autodocumentado; toda a sua documentação está disponível em seu sofisticado sistema de descrição.
