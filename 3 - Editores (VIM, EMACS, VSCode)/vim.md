@@ -43,7 +43,7 @@ A partir de agora é só colinha para refrescar os comandos:
 
 -  Toda movimentação pode receber uma quantidade antes que indica quantas vezes será repetida. Ex: `4j` ou `50l`
 -  Por caracteres: `h`(esquerda), `j`(baixo), `k`(cima), `l`(direita)
--  Por "palavra": `w`(começo da próxima palavra, `e`(final da próxima palavra), `b` 
+-  Por "palavra": `w`(começo da próxima palavra, `e`(final da próxima palavra), `b` (começo da palavra anterior)
 -  Por linha (não aceita quantidade): `0`(começo da linha), `$`(final da linha)
 -  Por arquivo: `gg`(Começo do arquivo), `G`(Final do arquivo) 
 
