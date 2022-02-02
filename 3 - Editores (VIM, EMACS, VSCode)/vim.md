@@ -1,20 +1,20 @@
 # Vi , Vim e Neovim
 
-Vim é um editor antigo, de código fonte aberto, muito popular entre programadores por ser altamente extensível, e infame por sua curva de aprendizado nao amigavel a iniciantes. Entretanto, ele é uma versão melhorada (*v* *im*proved) do editor `vi`, que não continha _syntax highlighting_, modo visual, scripting e outras gostosuras.
+Vim é um editor antigo, de código fonte aberto, muito popular entre programadores por ser altamente extensível, e infame por sua curva de aprendizado não amigável a iniciantes. Entretanto, ele é uma versão melhorada (*v* *im*proved) do editor `vi`, que não continha _syntax highlighting_, modo visual, scripting e outras gostosuras.
 
 O vi, predecessor do vim, foi concebido nos anos 70 por Billy Joy com base no editor `ex`, e tem seu nome por ser o modo `*vi*sual` deste. O vi surgiu em uma época onde se acessava computadores através de terminais remotos cujo layout dos teclados era levemente diferente: As setas direcionais eram acessadas pelas teclas `hjkl` e a tecla Escape econtrava-se onde hoje encontramos a tecla Caps Lock.
 
 <img title="teclado do terminal ADM3A" alt="teclado antigo kk" src="./Resources/ADM3A.png">
 
-O vim por sua vez foi criado e mantido por Bram Moolenaar, porém por ser ainda o único *maintainer* do repositório (nao permitindo contribuicoes no codigo de ninguem alem dele mesmo), as atualizações do editor não conseguem acompanhar as vontades da comunidade e, devido a isso, foi criado o editor Neovim, que é um *fork* do editor vim, visando refatorar o codigo do editor e adicionar novas funcionalidades de maneira mais rápida e centradas na comunidade, mas ainda mantendo compatibilidade com o seu predecessor. Das varias contribuicoes feitas pela comunidade voltadas para o usuario final, duas que se destacam sao o suporte nativo para Language Server Protocols e a adocao de Lua como sua linguagem principal para configuracao e scripts.
+O vim por sua vez foi criado e mantido por Bram Moolenaar, porém por ser ainda o único *maintainer* do repositório (não permitindo contribuições no código por ninguém além dele mesmo), as atualizações do editor não conseguem acompanhar as vontades da comunidade e, devido a isso, foi criado o editor Neovim, que é um *fork* do editor vim, visando refatorar o codigo do editor e adicionar novas funcionalidades de maneira mais rápida e centradas na comunidade, mas ainda mantendo compatibilidade com o seu predecessor. Das várias contribuições feitas pela comunidade voltadas para o usuário final, duas que se destacam são o suporte nativo para Language Server Protocols e a adoção de Lua como sua linguagem principal para configuracao e scripts.
 
 # Por quê VIM?
 
 Vim preza por uma edicao fluida de codigo. O modo de funcionamento padrao do vim e o `normal mode`. Nesse modo, cada tecla tem um significado e o que voce faz e conversar com o editor atraves de frases.
 
-Essas frases tem uma acao (com um numero de repeticoes como argumento opcional) e, dependendo da acao, um objeto ou movimento sob o qual essa acao sera executada. Por um lado, uma acao pode ser `delete`, `replace`, `change`, `insert`, `paste` e muitas outras. Por outro lado, um objeto ou movimento pode ser uma ou mais (atraves de argumentos opcionais) palavras, paragrafos, linhas, tudo dentro de um parenteses e varias outras coisas tambem.
+Essas frases tem uma acao (com um numero de repeticoes como argumento opcional) e, dependendo da acao, um objeto ou movimento sob o qual essa acao sera executada. Por um lado, uma acao pode ser `delete`, `replace`, `change`, `insert`, `paste` e muitas outras. Por outro lado, um objeto ou movimento pode ser uma ou mais (através de argumentos opcionais) palavras, parágrafos, linhas, tudo dentro de um parentêses e várias outras coisas também.
 
-Essa gramatica, quando dominada, permite uma edicao muito mais rapida e fluida do codigo sem o sentimento de que voce esta pensando para programar. Voce pode somente focar no codigo em si e nao no ato de programar.
+Essa gramática, quando dominada, permite uma edição muito mais rápida e fluida do código sem o sentimento de que você esta pensando para programar. Você pode somente focar no codigo em si e nao no ato de programar.
 
 Para os acostumados com a sintaxe e o jeito de funcionar do vim, editar um arquivo se torna uma tarefa muito menos monótona e muito mais dinâmica: 
 Ações complexas requerem poucas teclas digitadas para serem executadas, e tarefas repetitivas podem ser facilmente reexecutadas em outro trecho de codigo ou ate em varios arquivos diferentes.
@@ -38,7 +38,7 @@ Você não sai. MUAHAHAHAHAHAH. Brincadeira. Para salvarmos um arquivo, precisam
 Para isso, precisamos estar no modo normal e então digitar `:w` e apertar a tecla Enter. Os dois pontos ativam o modo de linha de comando, 
 já o caractere `w` (de _write_) indica o comando de salvar o conteúdo escrito na tela para o arquivo. 
 
-A partir de agora é só colinha para refrescar os comandos:
+A partir de agora é só colinha para refrescar os comandos (ATENÇãO! `^` antes de um caractere significa que a tecla CTRL deve ser pressionada junto ao mesmo):
 
 # Modo Normal
 ## Movimentação
@@ -52,7 +52,7 @@ A partir de agora é só colinha para refrescar os comandos:
 
 ## Desfazer ações
 -  Desfazer: `u`
--  Refazer: `R`
+-  Refazer: `^R` 
 
 ## Deletar
 -  Aceita quantidades antes da ação
@@ -68,28 +68,24 @@ A partir de agora é só colinha para refrescar os comandos:
 
 # Modo de Inserção (entra-se a partir do modo normal)
 -  Inserir antes do cursor: `i`
+-  Inserir antes do primeiro caractere que não é whitespace na linha: `I`
 -  Adicionar ao final do cursor: `a` 
+-  Adicionar ao final da linha: `A`
 -  Sair do modo normal : Tecla Esc
 
 # Modo visual (entra-se a partir do modo normal)
 -  Funcionalidade igual ao modo normal, porém selecionando texto.
 -  Ativar modo visual por caractere: `v`
 -  Ativar modo visual por linha: `V`
--  Ativar modo visual por coluna: `CTRL+V`
-
+-  Ativar modo visual por coluna: `^V` 
 
 # Modo de comandos (entra-se a partir do modo normal ou visual)
 -  Ativar modo:  `:`
 -  Procurar e substituir uma vez na linha: `s/PADRAO-DE-PROCURA/TEXTO-DE-SUBSTITUICAO/` + tecla ENTER
 -  Procurar e substituir todas as ocorrências na linha: `s/PADRAO-DE-PROCURA/TEXTO-DE-SUBSTITUICAO/g` + tecla ENTER
--  Procurar e substituir confirmando a substituição: `s/PADRAO-DE-PROCURA/TEXTO-DE-SUBSTITUICAO/c` + tecla ENTER
+-  Procurar e substituir uma vez na linha, confirmando a substituição: `s/PADRAO-DE-PROCURA/TEXTO-DE-SUBSTITUICAO/c` + tecla ENTER
+-  Procurar e substituir em todo o arquivo: `%s/PADRAO-DE-PROCURA/TEXTO-DE-SUBSTITUICAO/` + tecla ENTER
 
-# BIBLIOGRAFIA e extras
-Caso queira se aprofundar no editor, o livro 'Learning the vi and Vim editors', 
-de Arnold Robbins, Elbert Hannah e Linda Lamb (O'Reilly, 7a ed.) é uma ótima escolha.
-
-Recomendo também o uso do vimtutor, que é um arquivo de texto ensinando a usar o vim, aberto dentro do próprio editor.
-Para utilizar o vimtutor, basta digitar no seu terminal:
-```sh
-vimtutor
-```
+# Recursos externos
+- Livro 'Learning the vi and Vim editors', de Arnold Robbins, Elbert Hannah e Linda Lamb (O'Reilly, 7a ed.).
+- `vimtutor`, comando instalado em conjunto ao vim que ensina o usuário a usar esse através do próprio editor e de um texto contendo um tutorial.
