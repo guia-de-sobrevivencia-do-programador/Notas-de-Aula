@@ -21,8 +21,6 @@ Com base no tutorial e usando os métodos de descrição do Emacs vistos em aula
 
 ## Seção 3 — Visual Studio Code
 
-Instalando o VSCODE, faça uma pasta para um projeto, e lá faça um código de uma função que recebe 2 valores, atribui eles a variáveis e depois inverte os valores das variáveis de lugar (ou seja, temp = A, A = B, B = temp). Após isso:
-
 1. Descubra como mudar o tema de cores do VSCODE! Qual é o nome do último tema de cor listado?
 
 2. Descubra como salvar o seu projeto do VSCODE como um Workspace e descreva o que apareceu na pasta.
