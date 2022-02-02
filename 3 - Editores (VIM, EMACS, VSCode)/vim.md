@@ -1,23 +1,25 @@
-# vi , vim e Neovim
+# Vi , Vim e Neovim
 
-Vim é um editor de código fonte aberto antigo, muito popular entre programadores por ser altamente extensível e infame por sua dificuldade inicial de uso.
-Entretanto, vim é uma versão melhorada (*vi* i*m*proved) do editor `vi`, que não continha _syntax highlighting_, modo visual, scripting e outras gostosuras.
-Billy Joy programou o vi nos anos 70,  com base em no editor `ex` e tem seu nome por ser o modo `*vi*sual` deste. O vi surgiu em uma época onde se acessava computadores 
-através de terminais remotos, cujo layout dos teclados era levemente diferente: As setas direcionais eram acessadas pelas teclas `hjkl` e a tecla Escape 
-econtrava-se onde encontramos a Caps Lock.
+Vim é um editor antigo, de código fonte aberto, muito popular entre programadores por ser altamente extensível, e infame por sua curva de aprendizado nao amigavel a iniciantes. Entretanto, ele é uma versão melhorada (*v* *im*proved) do editor `vi`, que não continha _syntax highlighting_, modo visual, scripting e outras gostosuras.
+
+O vi, predecessor do vim, foi concebido nos anos 70 por Billy Joy com base no editor `ex`, e tem seu nome por ser o modo `*vi*sual` deste. O vi surgiu em uma época onde se acessava computadores através de terminais remotos cujo layout dos teclados era levemente diferente: As setas direcionais eram acessadas pelas teclas `hjkl` e a tecla Escape econtrava-se onde hoje encontramos a tecla Caps Lock.
 
 <img title="teclado do terminal ADM3A" alt="teclado antigo kk" src="./Resources/ADM3A.png">
 
-Vim foi criado e mantido por Bram Moolenaar, porém o fato de ser ainda o único *maintainer* do repositório, as atualizações do editor não conseguem acompanhar 
-as vontades da comunidade e devido a isso, criou-se o editor Neovim, que é um *fork* do editor vim, visando refatorar o editor e adicionar novas funcionalidades 
-de maneira mais rápida, mas ainda mantendo compatibilidade com o seu predecessor. Neovim tem suporte nativo a Language Server Protocols, adota Lua como sua linguagem principal para
-scripts [ETC ETC PREENCHER]
+O vim por sua vez foi criado e mantido por Bram Moolenaar, porém por ser ainda o único *maintainer* do repositório (nao permitindo contribuicoes no codigo de ninguem alem dele mesmo), as atualizações do editor não conseguem acompanhar as vontades da comunidade e, devido a isso, foi criado o editor Neovim, que é um *fork* do editor vim, visando refatorar o codigo do editor e adicionar novas funcionalidades de maneira mais rápida e centradas na comunidade, mas ainda mantendo compatibilidade com o seu predecessor. Das varias contribuicoes feitas pela comunidade voltadas para o usuario final, duas que se destacam sao o suporte nativo para Language Server Protocols e a adocao de Lua como sua linguagem principal para configuracao e scripts.
 
 # Por quê VIM?
-Para os acostumados com a sintaxe e o jeito de funcionar do vim, editar um arquivo se torna uma torna muito menos monótona e muito mais dinâmica: 
-Ações complexas requerem poucas teclas digitadas para serem computadas e tarefas repetitivas podem ser facilmente repetidas com uma ou duas teclas (`.` ou `@`).
-Adicionalmente, devido a sua origem, o editor força o usuário a nunca tirar a mão de perto das letras, e isso permite que ações sejam encadeadas sem interrupções. 
-Além disso, vim permite que funções novas de edição sejam criadas, dando liberdade ao usuário de customizar, através do arquivo .vimrc.
+
+Vim preza por uma edicao fluida de codigo. O modo de funcionamento padrao do vim e o `normal mode`. Nesse modo, cada tecla tem um significado e o que voce faz e conversar com o editor atraves de frases.
+
+Essas frases tem uma acao (com um numero de repeticoes como argumento opcional) e, dependendo da acao, um objeto ou movimento sob o qual essa acao sera executada. Por um lado, uma acao pode ser `delete`, `replace`, `change`, `insert`, `paste` e muitas outras. Por outro lado, um objeto ou movimento pode ser uma ou mais (atraves de argumentos opcionais) palavras, paragrafos, linhas, tudo dentro de um parenteses e varias outras coisas tambem.
+
+Essa gramatica, quando dominada, permite uma edicao muito mais rapida e fluida do codigo sem o sentimento de que voce esta pensando para programar. Voce pode somente focar no codigo em si e nao no ato de programar.
+
+Para os acostumados com a sintaxe e o jeito de funcionar do vim, editar um arquivo se torna uma tarefa muito menos monótona e muito mais dinâmica: 
+Ações complexas requerem poucas teclas digitadas para serem executadas, e tarefas repetitivas podem ser facilmente reexecutadas em outro trecho de codigo ou ate em varios arquivos diferentes.
+Adicionalmente, devido a sua origem, o editor força o usuário a nunca tirar a mão de perto das letras (as chamadas _home row keys_), e isso permite que ações sejam encadeadas sem interrupções. 
+Além disso, vim permite que funções novas de edição sejam criadas, dando liberdade ao usuário de customizar qualquer aspecto do editor através de scripts feitos por voce e plugins feitos pela comunidade.
 
 # Os básicos.
 
@@ -29,12 +31,12 @@ Para abrir um arquivo com vim, basta digitarmos no terminal: `vim [nome-do-arqui
 Se você acabou de abrir o editor e já tentou escrever alguma coisa, vai perceber que o resultado não foi nada esperado. 
 Isso se dá porque vim funciona através de modos: Quando abrimos o editor, ele está no modo normal, que permite a navegação pelo texto, mas não a edição.
 Para editarmos, basta digitar `i` dentro do modo normal, o que nos levará ao modo de inserção, nele podemos digitar sem obstáculos. 
-Para sairmos do modo de inserção, basta apertar a tecla Esc que voltaremos ao modo normal. Essa lógica vale para todos os modos que você se encontrar.
+Para voltar ao modo normal, basta apertar a tecla Esc. Essa lógica vale para (quase) todos os modos que você se encontrar.
 
 ## Ok, mas como que eu salvo um arquivo?
 Você não sai. MUAHAHAHAHAHAH. Brincadeira. Para salvarmos um arquivo, precisamos dizer ao editor que vamos executar um comando.
-Para isso, precisamos estar no modo normal e então digitar `:w` e apertar a tecl Enter. Os dois pontos ativam o modo de linha de comando, 
-já o caractere `w` indica o comando de salvar o conteúdo escrito na tela para o arquivo. 
+Para isso, precisamos estar no modo normal e então digitar `:w` e apertar a tecla Enter. Os dois pontos ativam o modo de linha de comando, 
+já o caractere `w` (de _write_) indica o comando de salvar o conteúdo escrito na tela para o arquivo. 
 
 A partir de agora é só colinha para refrescar os comandos:
 
@@ -43,13 +45,14 @@ A partir de agora é só colinha para refrescar os comandos:
 
 -  Toda movimentação pode receber uma quantidade antes que indica quantas vezes será repetida. Ex: `4j` ou `50l`
 -  Por caracteres: `h`(esquerda), `j`(baixo), `k`(cima), `l`(direita)
--  Por "palavra": `w`(começo da próxima palavra, `e`(final da próxima palavra), `b` (começo da palavra anterior)
--  Por linha (não aceita quantidade): `0`(começo da linha), `$`(final da linha)
--  Por arquivo: `gg`(Começo do arquivo), `G`(Final do arquivo) 
+-  Por "palavra": `w` (`word`: começo da próxima palavra), `e`(`end of word`: final da próxima palavra), `b` (`back`: começo da palavra anterior)
+-  Por linha (não aceita quantidade): `0`(começo da linha), `^`(comeco da linha ignorando caracteres de espaco), `$`(final da linha)
+-  Por arquivo: `gg`(Começo do arquivo), `G`(Final do arquivo)
+-  Por arquivo (tambem): `#G`(substitua `#` por um numero: va para a linha `#`), `#%`(substitua `#` por um numero: va para o `#` por cento do arquivo. Ex.: `50%`: va para o meio do arquivo)
 
 ## Desfazer ações
 -  Desfazer: `u`
--  Desfazer o desfazer: `R`
+-  Refazer: `R`
 
 ## Deletar
 -  Aceita quantidades antes da ação
