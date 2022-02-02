@@ -6,13 +6,13 @@ O vi, predecessor do vim, foi concebido nos anos 70 por Billy Joy com base no ed
 
 <img title="teclado do terminal ADM3A" alt="teclado antigo kk" src="./Resources/ADM3A.png">
 
-O vim por sua vez foi criado e mantido por Bram Moolenaar, porém por ser ainda o único *maintainer* do repositório (não permitindo contribuições no código por ninguém além dele mesmo), as atualizações do editor não conseguem acompanhar as vontades da comunidade e, devido a isso, foi criado o editor Neovim, que é um *fork* do editor vim, visando refatorar o codigo do editor e adicionar novas funcionalidades de maneira mais rápida e centradas na comunidade, mas ainda mantendo compatibilidade com o seu predecessor. Das várias contribuições feitas pela comunidade voltadas para o usuário final, duas que se destacam são o suporte nativo para Language Server Protocols e a adoção de Lua como sua linguagem principal para configuracao e scripts.
+O vim por sua vez foi criado e mantido por Bram Moolenaar, porém por ser ainda o único *maintainer* do repositório (não permitindo contribuições no código por ninguém além dele mesmo), as atualizações do editor não conseguem acompanhar as vontades da comunidade e, devido a isso, foi criado o editor Neovim, que é um *fork* do editor vim, visando refatorar o código do editor e adicionar novas funcionalidades de maneira mais rápida e centradas na comunidade, mas ainda mantendo compatibilidade com o seu predecessor. Das várias contribuições feitas pela comunidade voltadas para o usuário final, duas que se destacam são o suporte nativo para Language Server Protocols e a adoção de Lua como sua linguagem principal para configuração e scripts.
 
 # Por quê VIM?
 
-Vim preza por uma edicao fluida de codigo. O modo de funcionamento padrao do vim e o `normal mode`. Nesse modo, cada tecla tem um significado e o que voce faz e conversar com o editor atraves de frases.
+Vim preza por uma edição fluida de código. O modo de funcionamento padrão do vim e o `normal mode`. Nesse modo, cada tecla tem um significado e o que você faz e conversar com o editor através de frases.
 
-Essas frases tem uma acao (com um numero de repeticoes como argumento opcional) e, dependendo da acao, um objeto ou movimento sob o qual essa acao sera executada. Por um lado, uma acao pode ser `delete`, `replace`, `change`, `insert`, `paste` e muitas outras. Por outro lado, um objeto ou movimento pode ser uma ou mais (através de argumentos opcionais) palavras, parágrafos, linhas, tudo dentro de um parentêses e várias outras coisas também.
+Essas frases tem uma ação (com um numero de repetições como argumento opcional) e, dependendo da ação, um objeto ou movimento sob o qual essa ação será executada. Por um lado, uma ação pode ser `delete`, `replace`, `change`, `insert`, `paste` e muitas outras. Por outro lado, um objeto ou movimento pode ser uma ou mais (através de argumentos opcionais) palavras, parágrafos, linhas, tudo dentro de um parênteses e várias outras coisas também.
 
 Essa gramática, quando dominada, permite uma edição muito mais rápida e fluida do código sem o sentimento de que você esta pensando para programar. Você pode somente focar no codigo em si e nao no ato de programar.
 
@@ -38,7 +38,7 @@ Você não sai. MUAHAHAHAHAHAH. Brincadeira. Para salvarmos um arquivo, precisam
 Para isso, precisamos estar no modo normal e então digitar `:w` e apertar a tecla Enter. Os dois pontos ativam o modo de linha de comando, 
 já o caractere `w` (de _write_) indica o comando de salvar o conteúdo escrito na tela para o arquivo. 
 
-A partir de agora é só colinha para refrescar os comandos (ATENÇãO! `^` antes de um caractere significa que a tecla CTRL deve ser pressionada junto ao mesmo):
+A partir de agora é só colinha para refrescar os comandos (ATENÇÃO! `^` antes de um caractere significa que a tecla CTRL deve ser pressionada junto ao mesmo):
 
 # Modo Normal
 ## Movimentação
