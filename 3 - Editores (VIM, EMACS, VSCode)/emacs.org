@@ -60,7 +60,7 @@ LILO boot: linux init=/usr/bin/emacs
 #+END_QUOTE
 
 - Enquanto Vim tem como filosofia ser uma ferramenta de edição (e não só de escrita de código), Emacs tem como filosofia permitir que o usuário desenvolva todas as ferramentas necessárias para seu trabalho
-  - veja sobre a "Guerra dos Editores" [[https://en.wikipedia.org/wiki/Editor_war]] 😉
+  - a discussão sobre as filosofias Vim vs. Emacs é parte da cultura hacker; veja o artigo da Wikipédia [[https://en.wikipedia.org/wiki/Editor_war][Guerra dos Editores]] e uma [[https://youtu.be/3r1z5NDXU3s][sátira]] da série de TV Silicon Valley 😉
 
 *** Ao ponto em que é possível implementar qualquer coisa nele:
 
@@ -162,19 +162,19 @@ Nesta janela, o modeline é a linha abaixo que parece com: =1:0: U -~/.emacs.org
 - Uma _sequência de teclas_ é uma sequência de ações de teclado ou mouse e uma tecla de término que invocam um comando. Se a sequência não completa um comando, então a sequência é um _prefixo_:
 
 Exemplos:
-  - =C-d= chama o comando =delete-char= (para invocar o comando, aperte control + d)
-  - =C-M-d= chama o comando =down-list=, que coloca o cursor em um nível mais profundo de parênteses (Teste do (Daniel (de Angelis) Cordeiro))
+  + =C-d= chama o comando =delete-char= (para invocar o comando, aperte control + d)
+  + =C-M-d= chama o comando =down-list=, que coloca o cursor em um nível mais profundo de parênteses (Teste do (Daniel (de Angelis) Cordeiro))
 
 *** Prefixos
 
 Prefixos são subdivisões, uma forma de agrupar comandos e de aumentar o número possível de combinações. Por exemplo, o prefixo =C-x= possui dezenas de comandos associados. =C-x= é um prefixo que você usará o tempo todo:
 
-- =C-x C-f= chama o comando =find-file= . Você o executa primeiro mantendo =control= apertado e então apertando e soltando =x=. O Emacs irá mostrar na /echo area/ depois de um tempo a string =C-x-=, com o =-= ao final indicando que ele aguarda um complemento. Em seguida, você digita =C-f=, segurando =control= enquanto aperta a tecla =f=.
++ =C-x C-f= chama o comando =find-file= . Você o executa primeiro mantendo =control= apertado e então apertando e soltando =x=. O Emacs irá mostrar na /echo area/ depois de um tempo a string =C-x-=, com o =-= ao final indicando que ele aguarda um complemento. Em seguida, você digita =C-f=, segurando =control= enquanto aperta a tecla =f=.
   - você pode, mas não precisa, manter o =control= apertado enquanto digita =x= e =f=
 
-- =C-x 8 P= tem dois prefixos: o primeiro =C-x= e o seguindo que é o =8=. Sozinhos eles não invocam comando. A sequência só é completa se você a terminar com =P=
++ =C-x 8 P= tem dois prefixos: o primeiro =C-x= e o seguindo que é o =8=. Sozinhos eles não invocam comando. A sequência só é completa se você a terminar com =P=
 
-- Prefixos parecem complicados, mas o agrupamento faz com que comandos similares estejam agrupados juntos. Por exemplo =C-x r= é o prefixo para manipulação de retângulo de strings. Por exemplo, marque a região entre os caracteres =li= e o =>= das três linhas e use =C-x r t= para definir uma classe:
+Prefixos parecem complicados, mas o agrupamento faz com que comandos similares estejam agrupados juntos. Por exemplo =C-x r= é o prefixo para manipulação de retângulo de strings. Por exemplo, marque a região entre os caracteres =li= e o =>= das três linhas e use =C-x r t= para definir uma classe:
 
   #+begin_src html
     <ul>
@@ -196,7 +196,7 @@ Prefixos são subdivisões, uma forma de agrupar comandos e de aumentar o númer
 
 - Por isso, é comum que você invoque os comandos menos usados pelo nome. Para isso, usamos o =M-x= (pronunciado /mex/, M x ou meta x). Um prompt no minibuffer permitirá você digitar o nome do comando.
 
-  - por exemplo: =M-x lunar-phases=
+  + por exemplo: =M-x lunar-phases=
 
 - Emacs tem um sistema de auto-compleção associado a tecla =TAB=. Use o =TAB= para reduzir a lista de sugestões de comandos
 
