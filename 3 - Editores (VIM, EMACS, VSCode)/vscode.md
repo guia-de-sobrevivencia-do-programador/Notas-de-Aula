@@ -24,7 +24,7 @@ Escreva bagulho_aleatorio cinco vezes no arquivo, depois a use.
  O terceiro é o `Source Control`. É uma integração com `Git`, a qual já deve ser explicada pela aula de Git e GitHub. Permite você publicar uma pasta inteira através do próprio VSCODE. E só isso.
 
 
-O quarto é o botão de debug, também acessável por `Run > Start Debugging` ou somente `F5`. Isso será explicado em sua própria seção da apresentação, mais tarde.
+O quarto é o botão de debug, também acessível por `Run > Start Debugging` ou somente `F5`. Isso será explicado em sua própria seção da apresentação, mais tarde.
 
 
 O quinto é o botão de extensões, uma das mais principais características do VSCODE. 
@@ -33,7 +33,7 @@ Abra, e mostre a parte principal. Vai parecer mais ou menos como isso:
 
 ![Imgur](https://i.imgur.com/Nrn0Ngo.png)
 
-As `extensões` tem coisas como: Servidores para hostear sites localmente (O Live Server), debuggers para linguagens específicas, corretores automáticos específicos de linguagem, debuggers especializados, WSL, integração com containers, uma extensão que permite duas ou mais pessoas editarem um código local (O `Live Share`, o meu favorito) e basicamente qualquer coisa já concebida pela psyche humana.
+As `extensões` tem coisas como: Servidores para hospedar sites localmente (O Live Server), debuggers para linguagens específicas, corretores automáticos específicos de linguagem, debuggers especializados, WSL, integração com contêineres, uma extensão que permite duas ou mais pessoas editarem um código local (O `Live Share`, o meu favorito) e basicamente qualquer coisa já concebida pela psique humana.
 
 Você pode baixar alguma extensão como exemplo, só saiba o que você está baixando e como deixar isso claro na apresentação.
 
