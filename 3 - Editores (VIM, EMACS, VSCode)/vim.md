@@ -6,7 +6,7 @@ Billy Joy programou o vi nos anos 70,  com base em no editor `ex` e tem seu nome
 através de terminais remotos, cujo layout dos teclados era levemente diferente: As setas direcionais eram acessadas pelas teclas `hjkl` e a tecla Escape 
 econtrava-se onde encontramos a Caps Lock.
 
-<img title="teclado do terminal ADM3A" alt="teclado antigo kk" src="/Resources/ADM3A.png">
+<img title="teclado do terminal ADM3A" alt="teclado antigo kk" src="./Resources/ADM3A.png">
 
 Vim foi criado e mantido por Bram Moolenaar, porém o fato de ser ainda o único *maintainer* do repositório, as atualizações do editor não conseguem acompanhar 
 as vontades da comunidade e devido a isso, criou-se o editor Neovim, que é um *fork* do editor vim, visando refatorar o editor e adicionar novas funcionalidades 
