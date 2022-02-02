@@ -26,7 +26,7 @@ emacs window."
 
 - Repositório de código (agora no Git) com mais de 30 anos, 130.000 commits e 600 contribuidores
 
-- Escrito em Emacs Lisp (elisp) (na verdade, \approx 95% em elisp e 5% em C)
+- Escrito em Emacs Lisp (elisp) (na verdade, ≅ 95% em elisp e 5% em C)
   
 ** Filosofia
 
@@ -104,40 +104,60 @@ Alguns exemplos de como o emacs pôde ser estendido para implementar as mais div
 
 - e *muito* mais. Emacs continua relevante mesmo em 2022!
 
-* Conceitos importantes para entender o Emacs
+* Primeiros passos
 
-** Buffer
+** Instalando e Iniciando o Emacs
+
+- O GNU/Emacs é distribuído para GNU/Linux, BSDs, Windows e MacOS. Veja as instruções de instalação no [[https://www.gnu.org/software/emacs/][site do projeto]]
+
+- Para iniciar o Emacs, você deve rodar o comando =emacs=, seguido opcionalmente pelo(s) nome(s) do(s) arquivos que você quer editar
+
+- As seguintes opções de linha de comando podem ser úteis:
+  | Opção  | Descrição                                               |
+  |--------+---------------------------------------------------------|
+  | =--help= | Mostra a ajuda                                          |
+  | =-nw=    | Força o Emacs a rodar no modo terminal                  |
+  | =-q=     | Não lê arquivos de inicialização (ex: =init.el=)          |
+  | =-Q=     | Não lê arqs. de inicialização do usuário nem do sistema |
+
+- O emacs pode ser configurado como um servidor. Um cliente, o =emacsclient= reutiliza uma única instância do Emacs
+
+** Conceitos importantes para entender o Emacs
+
+*** Buffer
 
 A maioria dos editores e IDEs é /baseada em arquivos/ (mostram texto de um arquivo, gravam texto em um arquivo). No Emacs, todos os arquivos são buffers, mas nem todo buffer é um arquivo (pode representar um dispositivo de E/S, um outro processo, ou uma área de edição não associada a arquivo, como o =scratch=). Internamente, buffer é uma estrutura de dados que pode ser manipulada por código elisp
 
-** Janela e /Frame/
+*** Janela e /Frame/
 Um buffer é exibido na tela em uma /janela/. No emacs, uma janela é um dos ladrilhos que formam um frame.
 
-** /Modeline/, /echo area/ e /minibuffer/
+*** /Modeline/, /echo area/ e /minibuffer/
 
-Nesta janela, o modeline é a linha abaixo que parece com: =1:0: U -~/.emacs.org All Org WK [9/10] GCMH Wrap Narrow=. O buffer é chamado de =emacs.org= e seu /major mode/ é o modo Org. O modeline pode mostrar todo tipo de informação útil (qde. de energia na bateria do notebook, o nome da função ou classe trabalhada, em qual revisão ou /branch/ do controle de versão você está atualmente, etc. O minibuffer está na linha abaixo do modeline e mostra erros ou informações gerais.
+Nesta janela, o /modeline/ é a linha abaixo que parece com: =1:0: U -~/.emacs.org All Org WK [9/10] GCMH Wrap Narrow=. O /buffer/ é chamado de =emacs.org= e seu /major mode/ é o modo =Org=. O modeline pode mostrar todo tipo de informação útil (qde. de energia na bateria do notebook, o nome da função ou classe trabalhada, em qual revisão ou /branch/ do controle de versão você está atualmente, etc. O minibuffer está na linha abaixo do modeline e mostra erros ou informações gerais.
 
-** Point e Mark
+*** Point e Mark
 
 - /point/ é sinônimo de cursor (representado geralmente como █)
   - o */buffer/ atual* é aquele que tiver o cursor em um determinado momento
 
 - além de marcar o local onde um caractere será inserido, o /point/ também é parte de uma dupla chamada /point/ e /mark/. Ambos definem uma *região* (outros editores chamam de seleção)
 
-** /Killing/, /Yanking/ e CUA
+*** /Killing/, /Yanking/ e CUA
 
-- ao definir o CUA (Commum User Access) em 1987, a IBM inaugurou os conceitos hoje universais de *recortar*, *copiar* e *colar*; todo editor implementa o conceito de clipboard e provê atalhos para essas funções: =Ctrl+x= ou =Shift+Delete=; =Ctrl+c= ou =Ctrl+Insert=; e =Ctrl+v= ou =Shift+Insert=, respectivamente
+- ao definir o CUA (Commum User Access) em 1987, a IBM inaugurou os conceitos hoje universais de *recortar*, *copiar* e *colar*; todo editor implementa o conceito de /clipboard/ e provê atalhos para essas funções: =Ctrl+x= ou =Shift+Delete=; =Ctrl+c= ou =Ctrl+Insert=; e =Ctrl+v= ou =Shift+Insert=, respectivamente
 
 - o Emacs já implementava tudo isso antes, mas com outros nomes:
-  + recortar :: /killing/
 
-  + colar :: /yanking/
+  + recortar :: /killing/ (=C-w= (região) ou =C-k= (linha))
 
-  + copiar :: salvar no /kill ring/ ou só copiar mesmo :)
+  + colar :: /yanking/ (=C-y=)
 
-** =.emacs.d=, =init.el= e =.emacs=
+  + copiar :: salvar no /kill ring/ ou só copiar mesmo :) (=M-y=)
 
-- Um dos passatempo favoritos dos usuários do emacs é compartilhar com outros usuários as suas configurações e códigos que personalizam o editor
+- o =cua-mode= é um /minor mode/ que habilita as teclas tradicionais
+*** =.emacs.d=, =init.el= e =.emacs=
+
+- Um dos passatempos favoritos dos usuários do emacs é compartilhar com outros usuários as suas configurações e códigos que personalizam o editor
 
 - Historicamente, as configurações são guardadas em um arquivo texto chamado de =.emacs= . Mas atualmente as configurações ficam em =~/.emacs.d/init.el= no Linux e em =%HOME%\init.el= no Windows.
 
@@ -145,7 +165,19 @@ Nesta janela, o modeline é a linha abaixo que parece com: =1:0: U -~/.emacs.org
 
 - Quando alguém fala do arquivo de inicialização do Emacs, está falando do seu =init.el= . O =init.el= é um arquivo com código em elisp que será executado no processo de inicialização do Emacs
 
-** /Major modes/ e /minor modes/
+- Uma dica é usar um /starter kit/, que turbinam o Emacs com configurações e pacotes úteis. Algumas recomendações:
+
+  + =.emacs.d= de Steve Purcell :: https://github.com/purcell/emacs.d
+
+  + Prelude de Bozhidar Batzov :: https://github.com/bbatsov/prelude
+
+  + Spacemacs :: https://spacemacs.org/
+
+  + Doom Emacs :: https://github.com/hlissner/doom-emacs
+
+  (os dois últimos combinam a extensibilidade do Emacs com a edição modal do Vim)
+
+*** /Major modes/ e /minor modes/
 
 - */Major modes/* controlam como um buffer no Emacs se comporta. Se você quer editar um arquivo com código Python e visitar, por exemplo, o arquivo =helloworld.py= o Emacs sabe (usando um registro centralizado que mapeia extensões a /major modes/ ou analisando o início do arquivo) que ele deve usar o /Python major mode/.
 
@@ -165,7 +197,7 @@ Exemplos:
   + =C-d= chama o comando =delete-char= (para invocar o comando, aperte control + d)
   + =C-M-d= chama o comando =down-list=, que coloca o cursor em um nível mais profundo de parênteses (Teste do (Daniel (de Angelis) Cordeiro))
 
-*** Prefixos
+**** Prefixos
 
 Prefixos são subdivisões, uma forma de agrupar comandos e de aumentar o número possível de combinações. Por exemplo, o prefixo =C-x= possui dezenas de comandos associados. =C-x= é um prefixo que você usará o tempo todo:
 
@@ -190,7 +222,7 @@ Prefixos parecem complicados, mas o agrupamento faz com que comandos similares e
 
 - O /minor mode/ [[https://github.com/justbur/emacs-which-key][which-key]] pode te ajudar a descobrir quais as teclas de uma determinada sequência
 
-*** =M-x=: execute comando extendido
+**** =M-x=: execute comando extendido
 
 - Só uma pequena parcela dos comandos do emacs estão atreladas (/bound/) a teclas. A maioria não está, ou porque são pouco usados, ou porque você pegou as teclas atreladas a um comando e atrelou a outro, deixando o primeiro sem sem teclas (/unbounded/)
 
@@ -200,7 +232,7 @@ Prefixos parecem complicados, mas o agrupamento faz com que comandos similares e
 
 - Emacs tem um sistema de auto-compleção associado a tecla =TAB=. Use o =TAB= para reduzir a lista de sugestões de comandos
 
-*** Descobrindo e lembrando das teclas
+**** Descobrindo e lembrando das teclas
 
 - Se você não se lembrar exatamente de um comando, o Emacs pode ajudar
 
@@ -210,13 +242,13 @@ Prefixos parecem complicados, mas o agrupamento faz com que comandos similares e
 
 * Configuração do Emacs
 
-- Um tópico para mais de uma aula e muito, *muito* divertido. 😉
+- Um tópico para mais de uma aula e muito, *muito* divertido 😉
 
 - Você pode:
 
-  - usar a interface de configuração do Emacs: =M-x customize=; especialmente recomendado para iniciantes
+  + usar a interface de configuração do Emacs: =M-x customize=; especialmente recomendado para iniciantes
 
-  - escrever código em elisp no seu arquivo de inicialização [[file:~/.emacs.d/init.el][init.el]]
+  + escrever código em elisp no seu arquivo de inicialização [[file:~/.emacs.d/init.el][init.el]]
 
 - Na verdade, você pode executar código elisp em qualquer lugar e a qualquer momento no seu emacs e ele pode alterar o funcionamento do seu emacs com =M-x eval-buffer= ou =M-x eval-region=:
 
