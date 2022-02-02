@@ -1,7 +1,5 @@
 # VSCODE
 
-(Eu vou adicionar imagens depois, confia)
-
 ## Se acostumando com a interface
 
 A primeira coisa a se fazer é um projeto. Faça uma pasta no computador. Crie algum arquivo qualquer nele (eu vou fazer alguma_coisa.py pra facilitar a minha vida). Pelo VSCODE, `File > Open` File ou `Ctrl + O`.
