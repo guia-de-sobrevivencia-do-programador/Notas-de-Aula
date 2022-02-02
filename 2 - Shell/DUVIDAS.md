@@ -25,3 +25,9 @@ Isso! `Ctrl+c` significa que você está mandando um sinal de interrupção ao p
 - Como faz para abrir dois terminais? (Quando o Fukuda abriu mais um terminal)
 
 Ele estava usando tmux, vai ser mostrado mais sobre esse assunto na aula 9.
+
+## Dúvida 5
+
+- É possível instalar o WSL no Windows 7?
+
+Não é possível.
