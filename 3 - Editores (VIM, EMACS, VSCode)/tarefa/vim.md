@@ -25,4 +25,4 @@ O que acontece se você digitar `B` (shift + `b`) no modo normal após salvar o 
 
 * Digite `nnoremap B 0iOlá, tudo bem?<CR><Esc>` dentro de um arquivo chamado `.vimrc`, salve o arquivo e saia do editor. 
 Então, coloque esse arquivo na pasta home (`~`) de seu usuário e abra o vim em qualquer arquivo. 
-O mesmo comportamento observado na questão anterior acontece se você digitar `B` enquanto no modo normal? Por que isso acontece?
+O mesmo comportamento observado na questão anterior acontece se você digitar `B` enquanto no modo normal? Por quê isso acontece?
