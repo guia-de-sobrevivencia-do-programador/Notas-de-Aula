@@ -2,6 +2,22 @@
 
 Aqui registramos e vamos responder algumas perguntas que foram feitas durante a aula.
 
+## Dúvidas da Tarefa
+
+## Dúvida 1 (Vai ir pra aula 1)
+
+- Eu fiquei com dúvida na tarefa da aula 1. Temos que baixar as pastas do Github?
+
+Sim, você pode baixar as pastas do github ou usar o [link](https://drive.google.com/file/d/196e2t537wh2Y1hQGgZcsBM7UpEsoahuK/view?usp=sharing) no drive!
+
+## Dúvida 2 (Vai ir pra aula 1)
+
+- A resposta do exercício não vai depender da pasta onde ficam esses arquivos no computador?
+
+Algumas respostas dependem de onde a pasta fica, se for responder a Seção 1 os comandos devem ser executados dentro da pasta `Secao_1`.
+
+## Dúvidas da Aula
+
 #### Dúvida 1
 
 - O que é ambiente `unix`?
