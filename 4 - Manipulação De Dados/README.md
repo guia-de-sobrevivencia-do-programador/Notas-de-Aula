@@ -84,7 +84,7 @@ Agora você pode dormir tranquilamente sabendo que existem 66 vogais no refrão 
 
 ## `Sed` e expressões regulares
 
-O trabalho do `grep` foi muito útil para identificar padrões e extraí-los, mas e se nosso intuíto fosse modificar os textos a fim de gerar novos arquivos ou mesmo reduzir a quantidade de dados e gerar mais informação? Neste caso a ferramenta que tenderá a ter mais utilidade que o `grep` é o `sed`.
+O trabalho do `grep` foi muito útil para identificar padrões e extraí-los, mas e se nosso intuíto fosse modificar os textos a fim de gerar novos arquivos ou até mesmo reduzir a quantidade de dados e gerar mais informação? Neste caso a ferramenta que tenderá a ter mais utilidade que o `grep` é o `sed`.
 
 O comando `sed` (Editor de Streams/Fluxo) funciona como um editor de texto para o Linux, sendo utilizado essencialmente para filtragem de texto. Isso quer dizer que ele é uma ótima ferramenta para limpar textos e, consequentemente, sumarizar dados para trazer mais informação.
 
