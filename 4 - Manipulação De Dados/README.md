@@ -150,7 +150,7 @@ Nossa expressão regular precisa dos seguintes elementos, nesta ordem:
 
 - `[0-3][0-9]`: Cada dia é um número representado por dois caracteres: O primeiro vai de 0 à 3 e o segundo de 0 à 9;
 - `/`;
-- `[A-Z][a-z]{2}`: Três caracteres agora, o primeiro em maiúscula e os dois seguintes (extados dois) em letra minuscula;
+- `[A-Z][a-z]{2}`: Três caracteres agora, o primeiro em maiúscula e os dois seguintes (exatos dois) em letra minúscula;
 - `/`;
 - `[0-9]{4}`: Extamante quatro dígitos para representar o ano;
 - `:`;
