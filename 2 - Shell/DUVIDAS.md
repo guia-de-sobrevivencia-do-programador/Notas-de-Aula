@@ -14,7 +14,7 @@ Aqui registramos e vamos responder algumas perguntas que foram feitas durante a 
 
 - Qual a definição de uma variável de ambiente?
 
-Variáveis de ambientes são como variáveis locais são únicas para cada bash que existir, cada bash seria como um novo ambiente. Essas variáveis vão estar acompanhando sua seção e pode ser acessada por qualquer programa, guardar coisas, prover informações, etc… 
+Variáveis de ambiente são valores nomeados (variáveis) e dinâmicos (podem mudar em tempo de execução) que podem afetar o comportamento dos processos do computador. As variáveis de ambiente de um novo processo (um programa executado) são herdadas do processo que o criou. Se você executa um processo no terminal, é do shell que o novo processo herdará as variáveis. Em um shell como o Bash, você pode definir novas variáveis de ambiente para os processos que serão executados por esse shell com o comando `export`. As variáveis de ambiente podem ser acessadas pelos programas usando a chamada de sistema `getenv()` (veja o seu manual em `man 3 getenv`).
 
 #### Dúvida 3
 
