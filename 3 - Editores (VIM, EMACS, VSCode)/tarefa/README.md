@@ -28,3 +28,12 @@ Com base no tutorial e usando os métodos de descrição do Emacs vistos em aula
    Qual o resultado esperado para `C-y`? Se você digitar `C-y` novamente, qual o resultado esperado como resultado do novo comando de *yank*? Logo em seguida ao `C-y`, digite `M-y` (e repita `M-y` algumas vezes). Com base no experimento, qual a diferença entre `C-y` e `M-y`? (Dica: veja a seção "INSERTING AND DELETING" do tutorial)
 
 ## Seção 3 — Visual Studio Code
+
+1. Descubra como mudar o tema de cores do VSCODE! Qual é o nome do último tema de cor listado?
+
+2. Descubra como salvar o seu projeto do VSCODE como um Workspace e descreva o que apareceu na pasta.
+
+3. Baixe como extensão o "Extension Pack for Java". Após isso, no `Ctrl + Shift + P` (ou F1, que é consistente em todos os SOs), faça "> Java: Create Java Project..." e depois selecione "No build tools". Descreva o que aconteceu e o que apareceu.
+(PS: Mesmo sem saber Java, você conseguirá completar esse.)
+
+Bônus: Instale qualquer extensão que te interessar e descreva brevemente o que ela faz.
