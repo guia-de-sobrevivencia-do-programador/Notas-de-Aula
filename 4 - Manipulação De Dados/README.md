@@ -152,7 +152,7 @@ Nossa expressão regular precisa dos seguintes elementos, nesta ordem:
 - `/`;
 - `[A-Z][a-z]{2}`: Três caracteres agora, o primeiro em maiúscula e os dois seguintes (exatos dois) em letra minúscula;
 - `/`;
-- `[0-9]{4}`: Extamante quatro dígitos para representar o ano;
+- `[0-9]{4}`: Exatamente quatro dígitos para representar o ano;
 - `:`;
 - `[0-2][0-9]`: Dois dígitos para representar a hora;
 - `:`;
@@ -207,7 +207,7 @@ $ cat accesslog.txt | grep -E -c "FALHA"
 1843
 ```
 
-Com isso é possível perceber que aproximadamente 32 % das requisições falharam.
+Com isso é possível perceber que aproximadamente 32% das requisições falharam.
 
 Todas as linhas tiveram seu código substiuído por SUCESSO ou FALHA, o que pode ser útil para sumarizar análises do motivo de estarem sendo geradas tantas falhas.
 
@@ -249,7 +249,7 @@ $ sed '/ FALHA / d' accesslog.txt | grep -oE "^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.
 1121 143.95.66.197
 ```
 
-Você pode passar os arquivos gerados para outras linguagens de programação mais poderosas para análise de dados como Python e R. Veja um exemplo com python onde capturamos todos os IPs e vemos a distribuição de probabilidade correspondente ao número de requisições feitas em um dia:
+Você pode passar os arquivos gerados para outras linguagens de programação mais poderosas para análise de dados como Python e R. Veja um exemplo com Python onde capturamos todos os IPs e vemos a distribuição de probabilidade correspondente ao número de requisições feitas em um dia:
 
 ```
 $ cat accesslog.txt | grep -oE "^[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}" | sort | uniq -c > IPs.txt
@@ -304,7 +304,7 @@ Neste arquivo existem duas colunas: a primeira é a contagem e a segunda são os
 $ awk '{print $2}' IPs.txt
 ```
 
-Mas `awk` é muito poderos mesmo, você pode facilmente interagir com seus arquivos ou sistema operacional da maneira que quiser (e que conseguir implementar)! Vamos usar o comando `ls -la`  com o `awk` e filtrar a hora em que cada arquivo da pasta corrente foi alterado:
+Mas `awk` é muito poderoso mesmo, você pode facilmente interagir com seus arquivos ou sistema operacional da maneira que quiser (e que conseguir implementar)! Vamos usar o comando `ls -la`  com o `awk` e filtrar a hora em que cada arquivo da pasta corrente foi alterado:
 
 ```
 $ ls -la | awk '{print $8, "-----",  $9}'
@@ -320,7 +320,7 @@ $ ls -la | awk '{print $8, "-----",  $9}'
 15:22 ----- README.md
 ```
 
-Você também pode sgerar estatísticas usando por exemplo R (que é outra linguagem de programação) podendo fazer tudo direto como entrada pelo terminal:
+Você também pode gerar estatísticas usando por exemplo R (que é outra linguagem de programação) podendo fazer tudo direto como entrada pelo terminal:
 
 ```
 awk '{print $1}' IPs.txt | R --no-echo -e 'x <- scan(file="stdin", quiet=TRUE); summary(x)'
@@ -372,7 +372,7 @@ FIM DA LISTA
 
 ## Sobre APIs
 
-API (Interface de programação de aplicações) é uma maneira muito utilizada atualmente por programadores e pessoas que extraem dados de maneira geral na web. Uma API pode ser imaginada como um sistema, mais especificamente uma interface, desenvolvida para permitir que pessoas que tenham acesso à API de capturar dados ou utilizar os serviços disponibilizados.
+API (interface de programação de aplicações) é uma maneira muito utilizada atualmente por programadores e pessoas que extraem dados de maneira geral na web. Uma API pode ser imaginada como um sistema, mais especificamente uma interface, desenvolvida para permitir que pessoas que tenham acesso à API de capturar dados ou utilizar os serviços disponibilizados.
 
 Um exemplo de API é a do Twitter, que permite capturar (obviamente) tweets da plataforma de maneira automatizada, desde que quem consuma a API utilize suas credenciais e tome cuidado com a quantidade excessiva de requisições que faz no website. A API do whatsapp permite pagamentos utilizando a plataforma como pagamento, e também facilitar a relação entre consumidor e empresa.
 
@@ -528,7 +528,7 @@ $ curl --request GET 'viacep.com.br/ws/SP/São Paulo/Avenida Vital Brasil/json/'
 ]
 ```
 
-Caso queira retornar por exemplo apenas os CEPS de todas as localidades que batem com o endereço você pode usar`jq` também. Perceba que há um padrão: `[{informações},{informações...{informações}]`. Com o `jq` fica assim a leitura dos CEPs:
+Caso queira retornar, por exemplo, apenas os CEPS de todas as localidades que batem com o endereço você pode usar `jq` também. Perceba que há um padrão: `[{informações},{informações...{informações}]`. Com o `jq` fica assim a leitura dos CEPs:
 
 ```
 $ curl --request GET 'viacep.com.br/ws/SP/São Paulo/Avenida Vital Brasil/json/' | jq '.[].cep'
