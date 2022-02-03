@@ -47,7 +47,7 @@ A tecla `a` vai começar a inserir depois do seu cursor (bloco) enquanto a tecla
 
 #### Dúvida 1
 
-- Como eu faço pra instaar o emacs? (Usando o Ubuntu)
+- Como eu faço pra instalar o Emacs? (Usando o Ubuntu)
 
 No site do [emacs](https://www.gnu.org/software/emacs/) tem algumas opções que mostram como baixar o emacs, para baixar no ubuntu (ou outras distribuições baseadas em debian) seria:
 
