@@ -398,9 +398,9 @@ Para encontrar a palavra `urgente` no arquivo `tarefas`:
 grep urgente ./tarefas
 ```
 
-Para encontrar a palavra `trabalho_final.cpp` em todas as pastas dentro de `Downloads`:
+Para encontrar a palavra `trabalho_final.cpp` em algum arquivo dentro de todas as pastas contidas em `Downloads`:
 ```sh
-grep –recursive trabalho_final.cpp ./Downloads
+grep --recursive trabalho_final.cpp ./Downloads
 ```
 
 ## Responsáveis
