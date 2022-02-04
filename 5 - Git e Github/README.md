@@ -74,7 +74,12 @@ Com esse serviço, é possível hospedar um site simples automaticamente no pró
 
 ## Recursos externos
 
+- [Documentação Git](https://git-scm.com/doc)
+- [Tutorial Git e Github](https://docs.github.com/en/get-started/using-git/about-git)
+- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 - [Recursos do Github](https://github.com/features)
+- [Gerar uma nova chave SSH e adicioná-la ao ssh-agent](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [Adicionar uma nova chave SSH à sua conta do GitHub](https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 ## Responsáveis
 * [Vilela](https://github.com/lk-vila)
