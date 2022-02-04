@@ -77,5 +77,5 @@ Com esse serviço, é possível hospedar um site simples automaticamente no pró
 - [Recursos do Github](https://github.com/features)
 
 ## Responsáveis
-* [Vilela]()
-* [Furquim]()
+* [Vilela](https://github.com/lk-vila)
+* [Furquim](https://github.com/FvFurquim)
