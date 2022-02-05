@@ -46,13 +46,21 @@ Níveis de símbolos:
 
 Como falado antes, depuração é o ato de buscar por erros e identificar onde no código fonte eles ocorrem.
 
+Sabendo que existem erros durante a compilação de um código o `compiletime error` e erros durante a execução do código o `runtime error`, a depuração visa facilitar a correção de erros durante a execução do programa.
+
+Alguns exemplos podem ser:
+
+- Não liberar a memória alocada
+- Acessar algum endereço errado
+- Erros de lógica
+
 Existem dois jeitos de alcançar esse objetivo: da maneira passiva e da maneira ativa.
 
 ### Depuração passiva vs ativa
 
-A depuração passiva é quando você não tem uma participação ativa na depuração do código, você deixa a ferramenta rodar o programa e, no final, ela gera um relatório de o que pode estar dando errado e em que parte do código isso acontece.
+A depuração `passiva` é quando você não tem uma participação ativa na depuração do código, você deixa a ferramenta rodar o programa e, no final, ela gera um relatório de o que pode estar dando errado e em que parte do código isso acontece.
 
-Já a depuração passiva depende da interação do usuário com a ferramenta para ...
+Já a depuração `ativa` é quanto você usa ferramentas e durante a execução do programa verifica valores de variáveis, se as condições estão funcionando corretamente, pode mudar o fluxo do programa e coisas do tipo buscando pelo erro.
 
 Como exemplo de depuração passiva, vamos dar uma olhada no `memcheck`, uma ferramenta da suite de ferramentas *Valgrind*.
 
@@ -66,73 +74,206 @@ O *Valgrind*...
 	- addvec
 
 ### GDB
+#### Frame
 
-- Frame
-	- Cada chamada é um frame (ambientes de execução no programa)
+Durante a execução de um programa existe uma `stack` que armazena as chamadas de funções, essa `stack` é dividida em pedaço iguais chamadas `frames`, cada `frame` é a data associada com a chamada de uma função. O `frame` contém os argumentos da função, as variáveis locais de cada função e o endereço de qual função está sendo executada.
 
-- Misc
-	- help
-	- clear (C-l)
+Usando como exemplo o código de [soma de vetores](./addvec/addvec.c) quando a execução acontece primeiro é chamada a função `main()` depois é chamada a função `add_vec()`, na stack isso é representada como dois frames:
 
-- Mostrar como rodar o programa
-	- list
-	- run
-	- start
-		- next
-		- step
-	- print
-		- É compatível com C (ex: `print vec_res[0]`)
-		- Guarda em variáveis (`$1, $2, $3...`)
-	- info
-		- Variáveis de argumento (info args)
-		- Variáveis locais (info local e info var)
-			- Memória stack e heap
-	- continue
-	- finish
-		- Rodar até o final da função específica
+![frame](./assets/frames.png)
 
-- Breakpoints
-		- Mostra os breakpoints (info break)
+Na imagem acima conseguimos ver que estamos na função `add_vec()` dentro da função `main()`.
 
-	- break
+#### Introdução
 
-	- break <line> <condition>
-		- break 7 if i == 4
+Para usar a ferramenta gdb é possível executar o comando `gdb` para depurar o programa `addvec`:
 
-	- condition <ID breakpoint> <condition>
+```sh
+gdb addvec
+```
 
-	- watch
-		- Toda vez que a variável selecionada mudar ele mostra seu valor
-			- Valor antigo e novo, local na memória
-		- Quando a variável sai do escopo o breakpoint é deletado
+Depois de exeutar o comando entramos em uma shell iterativa que podemos executar comandos para depurar o programa.
 
-	- watch <expression> <condition>
-		- watch i if i == -1
+Assim que entramos no gdb o comando `help` é um dos primeiros comandos que pode ajudar o entendimento do programa.
 
-	- dprintf (printf dinâmico)
-		- (Ficam listados em breakpoints)
-		- Explicar os argumentos: localização + String formatting
-			- Exemplo: dprintf 7 "Vec[%d]: %d -> $d\n" i vec_res[i] (v1[i] + v2[i])
+```
+(gdb) help
+```
 
-	- del
-		- Remover breakpoints
-			- watch também é um breakpoint
+O comando `help` pode ser usado com argumentos para ver mais informações sobre um comando ou uma classe (o exemplo abaixo mostra informações sobre `run`).
 
-	- commands
-		- Ex:
-			\> backtrace
-			\> end
+```
+(gdb) help run
+```
 
-- Frame cont.
-	- Listar frames (backtrace)
-	- Se mover entre os Frames
-		- frame $(frame destino)
-	- Ex:
-		main() -> add_vec()
-	- Estando no add\_vec() você quer ver o main()
+Conforme for usando o gdb a tela vai encher de comandos, para poder limpar a tela a combinação de teclas `Ctrl + l` pode ser útil.
 
-	(opcional)
-	- tui enable
+#### Controle de fluxo
+
+Sabendo como procurar mais informações sobre um programa, agora será apresentado os controles de fluxo.
+
+Para executar um programa podemos usar o comando `run` ou `r` e o comando `start` e `s`.
+
+Com o programa `addvec` aberto no gdb ao executar `run`:
+```
+(gdb) run
+```
+
+O programa vai executar até terminar, pois o comando `run` executar o programa e para ao chegar em um `breakpoint` ou até o término do programa.
+
+Ao tentar executar `start`:
+```
+(gdb) start
+```
+
+Vemos que o programa irá parar na primeira linha depois da função `main()` (Lembrando que só é possível ver o código fonte se o programa foi compilado com símbolos).
+
+Agora para "avançar" o programa podemos usar o comand o `next` ou `n`:
+```
+(gdb) next
+```
+
+O programa vai executar uma linha.
+
+É possível avançar com o comando `next` até a linha 18. Na linha 18 existe uma chamada de função `add_vec()` e para poder ver o conteúdo da função o comando `step` ou `s`.
+```
+(gdb) step
+```
+
+Agora o gdb irá mostrar a execução dentro do frame `add_vec()`.
+
+
+- `continue` ou `c`: executa o programa até o programa chegar em um `breakpoint` ou acabar de executar o programa
+- `finish`: executa o programa até sair do `frame` atual
+
+Para ver o código fonte de um programa pode ser usado o comando `list` (Lembrando que o código só vai ser mostrado se o progama foi compilado com `símbolos`):
+
+- `list` ou `l`: mostra as 10 próximas linhas que vão ser executadas
+
+#### Depurando
+
+Para saber se o programa realmente está funcionando como deveria, ao invés de colocar `print()` no código fonte para saber o valor de uma variável podemos imprimir o valor de cada variável durante a sua execução.
+
+O comando `print` recebe como argumento  o nome da variável que vai ser exibida:
+
+```
+(gdb) print variável
+```
+
+O comando `print` funciona com a sintaxe da linguagem `C` então caso o usuário queira ver o valor de um ponteiro pode usar algo como o exemplo abaixo:
+
+```
+(gdb) print *variável
+```
+
+Depois de usar o comando `print` as variáveis que foram vistas vão ficar salvas em alguma variáveis, por exemplo ao rodar o comando abaixo:
+```
+(gdb) print *variável
+```
+
+O gdb vai mostrar algo como o resultado mostrado abaixo:
+```
+$1 = 12
+```
+
+Depurando programas grandes vai existir uma grande variedade de funções, para poder visualizar onde o programa está é possível usar o comando `backtrace` ou `bt`
+
+```
+(gdb) backtrace
+```
+
+Usando como exemplo o programa `addvec` ele primeiro vai entrar na função `main()` e depois na função `add_vec()`, dentro da função `add_vec()` executando o comando `bt`:
+
+```
+#0  add_vec (v1=0x7fffffffe5b0, v2=0x7fffffffe5d0, len=5) at addvec.c:8
+#1  0x000055555555526b in main () at addvec.c:19
+```
+
+É possível ver que o programa está atualmente no frame `add_vec()` que foi chamado pelo `main()` na linha `19`
+
+Dentro de um frame podemos ver as variáveis que foram enviadas para ele usando o comando `info args`:
+
+```
+#0  add_vec (v1=0x7fffffffe5b0, v2=0x7fffffffe5d0, len=5) at addvec.c:8
+```
+
+Podemos ver as variáveis locais dentro de um escopo por exemplo as variáveis que podemos acessar dentro da função `add_vec()`:
+```
+(gdb) info local
+```
+
+#### Breakpoints
+
+Como visto na aula 3 algumas IDE's tem a opção de parar a execução do programa (criar `breakpoints`), o gdb também tem essa funcionalidade e pode ser usada com o comando `break` ou `b`.
+
+Para que o programa pare de executar na linha `20` por exemplo:
+```
+(gdb) break 20
+```
+
+Para que o programa pare de executar na função `add_vec()` por exemplo:
+```
+(gdb) break add_vec
+```
+
+Para ver os breakpoints que foram colocados existe o comando `info break`:
+```
+(gdb) info break
+```
+
+Os breakpoints podem ocorrer com condições também para o programa parar de executar na linha `7` qunado o valor de `i` for `4` por exemplo:
+```
+(gdb) break 7 if i == 4
+```
+
+Se o breakpoint já foi colocado é possível colocar uma condição de parada nele com o comando `condition`, para colocar a condição no breakpoint `2` e  a condição `if i == 3`:
+```
+(gdb) condition 2 if i == 3
+```
+
+Já foi mostrado o comando `print` para imprimir variáveis especificadas, mas caso exista uma variável que precise ser constantemente vigiada, temos o comando `watch`, esse comando vai mostrar todas as mudanças na variável especificada (No exemplo abaixo vamos ver todas as mudanças na variável `variavel`:
+```
+(gdb) variavel
+```
+
+Esse comado também aceita condições assim como o comando `break`, então para imrpimir o valor da variável `variavel` quando `i == 3`:
+```
+(gdb) watch variavel if i == 3
+```
+
+Para poder visualizar melhor as variáveis de um programa o comando `dprintf` consegue formatar antes de imprimir as variáveis, por exemplo para imprimir na linha `9` as variáveis `i`, `vec_res[i]` e `(v1[i] + v2[i])`:
+```
+(gdb) dprintf 9, "Vec[%d]: %d -> %d\n", i, vec_res[i], (v1[i] + v2[i])
+```
+
+Agora para remover os breakpoints que foram criados o comando `del` sozinho vai deletar todos os breakpoints existentes:
+```
+(gdb) del
+```
+
+E para deletar apenas um breakpoint específico, por exemplo para deletar o breakpoint `3`:
+```
+(gdb) del 3
+```
+
+Para executar algum comando depois de chegar em um breakpoint (existente) o `commands` pode ajudar, um exemplo é executar o comando `backtrace` quando a execução do programa chegar no breakpoint `2`:
+```
+(gdb) commands 2
+```
+
+E então você pode colocar os comandos que vão ser executados depois terminar com um `end`:
+```
+(gdb) commands 2
+Type commands for breakpoint(s) 2, one per line.
+End with a line saying just "end".
+>bt
+>end
+```
+
+Para quem quiser algo mais gráfico a opção `tui` permite ver onde o gdb está vendo o código, para habilitar:
+```
+(gdb) tui enable
+```
 
 ## Perfilamento
 
