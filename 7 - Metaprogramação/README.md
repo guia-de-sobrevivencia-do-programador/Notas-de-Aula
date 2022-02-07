@@ -64,7 +64,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
     	 • o Y é para versões menores. Aumente-o quando forem introduzidas novas funcionalidades ao código pré-existente.
      	 • o Z é para versões de patches. Aumente-o quando forem corrigidos bugs de forma retrocompatível.
 	
-	Esta é a convenção. Mas por que é tão importante para o npm? No caso, é por causa de como o npm update funciona. Com versões nesses padrões, caso outra pessoa queira instalar nossos pacotes, ela pode filtrar pelo número de versão.
+	Esta é a convenção. Mas por que essa convenção é tão importante para o npm? No caso, é por causa de como o npm update funciona. Com números de versão que seguem essa convenção, caso outra pessoa queira instalar nossos pacotes, ela pode filtrar pelo número de versão.
 	
 	Um exemplo seria nosso código possuir 3 versões: `1.0.0, 1.1.0, 1.1.1`. Alguém, de fora, escreve nosso pacote no `package.json`. Porém, ele escreve a versão como `>1.0.0`. Nesse caso, isto diz para instalar qualquer versão ACIMA da 1.0.0, ou seja, as outras duas. Ou talvez ele escreva `~1.1.0`, o que significa que isso aceitaria todas as versões de patch dentro da versão menor (ou seja, aceitaria 1.1.1 mas não 1.2.0).
 
