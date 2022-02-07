@@ -66,12 +66,22 @@ Como exemplo de depuração passiva, vamos dar uma olhada no `memcheck`, uma fer
 
 ### Valgrind
 
-O *Valgrind*...
-- varias ferramentas
-- memcheck padrao
-- vamos ver outras em perfilamento
-- Exemplo: soma de vetores
-	- addvec
+O *Valgrind* é um framework para fazer análises dinâmicas. Ela vem com vários instrumentos de Depuração e Perfilamento para melhorar seu programa.
+
+O instrumento que vai ser usado em debugging é o `memcheck`, esse instrumento é um detector de erros de memória (particulamente os erros em C e C++)
+
+Alguns exemplos de erros que podem acontecer no seu programa que o *Valgrind* pode detectar são:
+
+* Variáveis não inicializadas
+* Vazamento de memória
+* Liberar memória já liberada
+* Detectar operações em ponteiros que já foram liberados
+* Detectar acesso inválido de memória
+
+Para usar o *Valgrind*:
+```sh
+valgrind --tool=memcheck --leak-check=yes --track-origins=yes [programa]
+```
 
 ### GDB
 #### Frame
@@ -228,12 +238,12 @@ Os breakpoints podem ocorrer com condições também para o programa parar de ex
 
 Se o breakpoint já foi colocado é possível colocar uma condição de parada nele com o comando `condition`, para colocar a condição no breakpoint `2` e  a condição `if i == 3`:
 ```
-(gdb) condition 2 if i == 3
+(gdb) condition 2 i == 3
 ```
 
 Já foi mostrado o comando `print` para imprimir variáveis especificadas, mas caso exista uma variável que precise ser constantemente vigiada, temos o comando `watch`, esse comando vai mostrar todas as mudanças na variável especificada (No exemplo abaixo vamos ver todas as mudanças na variável `variavel`:
 ```
-(gdb) variavel
+(gdb) watch variavel
 ```
 
 Esse comado também aceita condições assim como o comando `break`, então para imrpimir o valor da variável `variavel` quando `i == 3`:
