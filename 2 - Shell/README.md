@@ -34,7 +34,7 @@ Uma analogia com outras linguagens: o ambiente em bash é o escopo e as variáve
 
 Para definir ou atribuir novos valores a variáveis de ambiente você coloca o nome da variável, um sinal de igual (`=`) (sem espaço entre o nome e o símbolo de igual) e o valor que quer dar para a variável (ex.: `VAR=algumvalor`). As variáveis de ambiente tem nomes em caixa alta por convenção, mas pode colocar tanto letras minúscula quanto maiúscula (cuidado que o bash é sensível à caixa da letra). Para usar essas variáveis é só colocar nome dela com um cifrão na frente; o nome pode ou não estar envolto de chaves (`{}`) (ex.: `$VAR` ou `${VAR}`).
 
-Você também pode pegar variáveis do usuário com o comando `read`. É só invocar ele passando o nome da variável como argumento.
+Você também pode pegar entradas do usuário com o comando `read` e colocar em variáveis. É só invocar ele passando o nome da variável como argumento.
 
 Um exemplo de variáveis pode ser visto no arquivo [`inatorinator`](inatorinator.sh)
 
