@@ -39,7 +39,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
 
     Utilize npm init para inicializar um projeto. 	Uma vez que você rodar o comando, um arquivo package.json será criado.
 
-    Todo projeto de Javascript terá um package.json. Ele conterá não somente as dependências como outros metadados, como o nome do projeto e autor.
+    Todo projeto de Javascript terá um package.json. Além das dependências, ele conterá outros metadados, como o nome do projeto e autor.
  
   * Como adicionar uma dependência
     Adicione dependências com npm install <livraria>. Ao escrever este comando substituindo <livraria> por uma dependência válida, o módulo de sua escolha será, por padrão, instalado na pasta  /node_modules do diretório do projeto.
