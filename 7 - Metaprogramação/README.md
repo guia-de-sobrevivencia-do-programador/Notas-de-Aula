@@ -79,7 +79,7 @@ Integração contínua (ou do inglês, *continuous integration - CI*) é um conc
 
 ## Testes
 
-Conforme dito na seção anterior, projetos de software maiores possuem algumas necessidades adicionais para manter a saúde do sistema (e consequentemente das pessoas que o mantém). Uma dessas necessidades envolve a criação de testes automatizados para verificar que as partes do sistema ainda se comportam conforme esperado mesmo após as novas mudanças (imaginem ter que testar todas as funcionalidades do google meet toda vez que adicionam um fundo de tela novo?). Alguns dos conceitos muito comuns nesses tipos de teste estão nas subseções abaixo
+Conforme dito na seção anterior, projetos de software maiores possuem algumas necessidades adicionais para manter a saúde do sistema (e consequentemente das pessoas que o mantém). Uma dessas necessidades envolve a criação de testes automatizados para verificar que as partes do sistema ainda se comportam conforme esperado mesmo após as novas mudanças (imaginem ter que testar todas as funcionalidades do Google Meet toda vez que adicionam um fundo de tela novo?). Alguns dos conceitos mais comuns nesses tipos de teste serão listados nas subseções abaixo.
 
 ### Testes de unidade (*Unit tests*)
 
