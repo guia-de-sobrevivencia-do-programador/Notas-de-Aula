@@ -51,7 +51,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
      • Iniciar o projeto localmente
      • Buildar o projeto	
 
-	  Eles podem ser executados com npm run <nome_do_script>.
+	  Eles podem ser executados com `npm run <nome_do_script>`.
 
 	  Você pode fazer scripts de mesmo nome e adicionar “pre” ou “post” no início de cada um, e eles executarão antes e depois, respectivamente, à execução do script cujo nome eles herdam. 
 
