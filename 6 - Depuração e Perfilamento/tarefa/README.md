@@ -29,4 +29,4 @@ Resposta 2: Os arquivo(s) que executam o comando `free()` em um bloco já libera
 
 ## [Seção 3](./Secao_3) - Perfilamento
 
-* Compile o arquivo dentro da pasta `Secao_3` e use alguns dos programas mostrados durante a aula para descobrir qual das funções dentro do código é a mais demorada, e escreva qual das funções demorou mais.
+* Compile o arquivo dentro da pasta `Secao_3` e use um dos programas mostrados durante a aula para descobrir qual das funções dentro do código é a mais demorada, e escreva qual das funções demorou mais.
