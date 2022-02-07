@@ -386,13 +386,108 @@ Agora para mostrar uma ferramenta instrumentada de perfilamento temos o *LTTng*.
 
 O aproveitamento desse tipo de ferramenta depende muito mais da experiencia e criatividade de quem a esta usando, podendo dar resultados incríveis se utilizada corretamente.
 
+Para essa ferramenta teremos dois exemplos: iremos gravar e visualizar os resultados do programa `httpserver` que já esta instrumentado, e iremos instrumentar o programa `fib`.
+
+#### Exemplo 1
+
+Para gravarmos um programa instrumentado com LTTng primeiro precisamos nos certificar de que temos um `session daemon`. Um programa que recebe e gerencia os registros enviados pelos vários programas instrumentados. Para isso vamos tentar listar todas as sessões do *LTTng*:
+
+```bash
+lttng list
+```
+```
+> Error: No session daemon is available
+```
+
+Isso indica que não temos um *session daemon*. Para criarmos um, podemos rodar o comando `lttng-sessiond` com a opção `-d` para colocar a execução no plano de fundo em vez de ocupar o terminal.
+
+```bash
+lttng-sessiond -d
+```
+
+Então podemos criar uma sessão para usar com o comando `create` dando o nome de uma sessão como argumento:
+
+```bash
+lttng create gsp
+```
+
+Agora temos que criar um canal pelo qual iremos receber os dados do *session daemon*. O *LTTng* tem dois tipos de tracing principais: `userspace` e `kernel`. Quando criamos um *channel* precisamos falar qual desses tipos a gente deseja usar.
+
+```bash
+lttng enable-channel --userspace httpserver
+```
+
+Por ultimo, a gente precisa falar quais eventos a gente deseja receber nesse channel. Não precisamos indicar a sessão, mas precisamos indicar o canal pelo qual desejamos receber os eventos.
+
+```bash
+lttng enable-event --userspace httpserver 'httpservertp:*'
+```
+
+Agora é só ativar e rodar o programa. Uma vez que estamos satisfeitos, podemos parar a sessão.
+
+```bash
+lttng start
+# Rodar o programa
+lttng stop
+```
+
+Os arquivos de saída (diferente dos arquivos de saída das outras ferramentas mostradas aqui) ficam em `~/lttng-traces/`.
+
+Similar ao *Valgrind*, o *LTTng* também não tem ferramenta de visualização própria, mas temos duas opções: *BabelTrace2* para o terminal, e *Trace Compass* como alternativa "gráfica" (mas não muito gráfica).
+
 #### BabelTrace2
 
-(Programa para visualizar o LTTng)
+O *BabelTrace2* tem uma serie de ferramentas para manipular os dados de tracing, mas iremos utilizar apenas a visualização com o comando *convert*. Esse comando pode ser omitido pois é a opção padrão, mas para buscar mais informações utilize `man babeltrace2-convert`.
 
-#### Trace Compass 2
+Para listar os eventos em ordem de acontecimento, rode:
 
-(Programa para visualizar o LTTng)
+```bash
+babeltrace2 ~/lttng-traces/gsp*
+```
+
+#### Trace Compass
+
+Uma outra ferramenta para visualizar o perfilamento é o *Trace Compass*. Essa tem várias opções de filtro e alguns gráficos para mostrar a frequência com que um evento ocorre e filtros por campos.
+
+Para carregarmos um trace, vamos em `File > Import...` e em `Select root directory` colocamos `~/lttng-traces/gsp*`. Podemos ou não criar um experimento na parte de opções em baixo, mas para esse uso simples não é necessário.
+
+#### Exemplo 2
+
+Nesse exemplo iremos instrumentar o programa `fib`.
+
+Iremos criar um evento que registra informações de qual o valor atual com que a função foi chamada e qual o nível da recursão.
+
+Em `tp.h` iremos criar um evento chamado `call` que recebe dois parâmetros: `value` e `recursion_level`, e cujos campos do evento corresponde aos dois parâmetros passados.
+
+```c
+// tp.h
+
+LTTNG_UST_TRACEPOINT_EVENT(
+	fibtp,
+	call,
+	LTTNG_UST_TP_ARGS(
+		int, value,
+		int, recursion_level
+	),
+	LTTNG_UST_TP_FIELDS(
+		lttng_ust_field_integer(int, value, value)
+		lttng_ust_field_integer(int, recursion_level, rec_lvl)
+	)
+)
+```
+
+E podemos ver os resultados do mesmo jeito que vimos os do `httpserver`, mas precisamos criar um novo filtro de evento. Já que estamos aqui vamos criar outro canal também para poder desabilitar o canal do `httpserver`.
+
+```bash
+lttng disable-channel --userspace httpserver
+
+lttng enable-channel --userspace fib
+lttng enable-event --userspace fib 'fibtp:*'
+
+lttng start
+# Rodar o programa
+lttng stop
+```
 
 ## Responsáveis
 * [Fukuda](https://github.com/JoaoFukuda)
