@@ -71,7 +71,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
 
 ## Integração contínua
 
-Conforme as aplicações crescem, os processos que envolvem gerar novas funcionalidades e versões vão ficando cada vez mais complexos, como atualizar documentações, arquivos de configuração, publicar a nova versão em algum servidor, etc... Também vimos com aulas anteriores formas de criar código colaborativamente, mas normalmente queremos que o código se mantenha uniforme em nosso projeto, checando coisas como espaçamento e identação.
+Conforme as aplicações crescem, os processos que envolvem gerar novas funcionalidades e versões vão ficando cada vez mais complexos, como atualizar documentações, arquivos de configuração, publicar a nova versão em algum servidor, etc. Também vimos em aulas anteriores formas de criar código colaborativamente, mas normalmente queremos que o código se mantenha uniforme em nosso projeto, checando coisas como espaçamento e indentação.
 
 Além disso, em aplicações muito grandes fica cada vez mais difícil garantir que novas versões não alterem comportamentos que funcionavam corretamente numa versão anterior. Testes manuais nos permitem verificar que tudo está funcionando corretamente, mas não é viável para sistemas maiores. Quando começamos a perceber que os processos envolvendo novas mudanças estão começando a consumir tempo demais, podemos introduzir o conceito de **Integração contínua**.
 
