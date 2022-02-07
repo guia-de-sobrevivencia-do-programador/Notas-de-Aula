@@ -58,7 +58,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
   * Versionamento
 	Toda vez que você modificar o seu código de uma forma que ele fique aceitável, você pode mudar o número de versão, especificado no `package.json`, e publicar. Assim, se torna mais fácil procurar por versões passadas do seu código. O npm possui regras específicas direcionadas a isso.
 	
-	Mas antes, vamos conversar sobre Versionamento Semantico. O conceito é simples: Todas as versões possuem três números: `x.y.z`
+	Mas antes, vamos conversar sobre "Versionamento Semântico". O conceito é simples: todas as versões possuem três números: `x.y.z`
 	
 	 • o X é para versões maiores do programa. Aumente-o quando você fizer mudanças drásticas que tornam o programa incompatível com sua versão anterior.
     	 • o Y é para versões menores. Aumente-o quando forem introduzidas novas funcionalidades ao código pré-existente.
