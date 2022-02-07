@@ -277,88 +277,104 @@ Para quem quiser algo mais gráfico a opção `tui` permite ver onde o gdb está
 
 ## Perfilamento
 
-O que é perfilamento?
-- Utilizar ferramentas para descobrir gargalos no seu código
-	- Gargalo de processamento
-	- Gargalo de input/output
-		- Escrita em arquivo
-		- Conexão com internet
+Perfilamento, como falado antes, é o ato de identificar e localizar gargalos de performance no seu código. Os tipos mais comuns de gargalos são os gargalos de processamento e gargalo de entrada/saída.
+
+Gargalos de processamento ocorrem quando a velocidade do seu programa é limitada pela velocidade do seu processador ou o acesso à memória principal, já os gargalos de entrada e saída ocorrem quando a velocidade é limitada pelo acesso a arquivos ou à rede (internet).
 
 ### Não Instrumentado vs Instrumentado
 
-Instrumentado
-- Dentro do código utilizar bibliotecas específicas para perfilar
+Vamos dar uma olhada em dois tipos diferentes de ferramentas para identificar e, posteriormente, localizar no código esses gargalos: as instrumentadas e as não instrumentadas.
 
-Não-instrumentado
-- Rodar um programa externo
+Ferramentas não instrumentadas fazem suas medições por fora do programa, periodicamente o interrompendo para registrar o estado atual da memória (ou qualquer outra análise que a ferramenta faça), juntando com informações obtidas através do uso de símbolos para inferir quais funções ou instruções estão sendo executadas.
+
+Ferramentas instrumentadas disponibilizam bibliotecas para o desenvolvedor poder criar e inserir chamadas para a ferramenta dentro do seu programa. Quando o programa roda, essas chamadas se comunicam com a ferramenta enviando os dados para gerar um relatório.
 
 ### Linux Perf
 
-Roda o código mostrando estatísticas e dados sobre
+A primeira das duas ferramentas de perfilamento não instrumentado que vamos mostrar é o *linux\_perf*, ou simplesmente *perf*.
 
-(Exemplo: fibonacci 40)
+O *perf* é uma ferramenta de perfilamento que possui varias funcionalidades. A primeira que as pessoas normalmente veem é o *perf stat*.
 
-* stat
-	- cpu utilizada
-	- troca de contexto
-	- branches
-	- perf stat -r <n>
-		- repete a execução do código mostrando variância
-	- Exemplo com fib
-* record
-	- grava a execução de um programa
-* report
-	- resultado da execução
-* annotate
-	- É possível ver o tempo gasto em cada instrução
-	- Mostra mais ou menos onde pode estar o gargalo
-	- Keybindings
-		- k - Mostrar linhas
-		- tab - Mostrar linha que mais gastou tempo
-		- shift + tab - Mostrar linha que mais gastou tempo
+Essa funcionalidade coleta estatísticas sobre a velocidade da CPU, tempo de execução, acesso ao cache e branching, e outros dados interessantes para alguém que esta perfilando.
+
+Podemos ver um exemplo utilizando o programa `fib`. Primeiro rodamos o `fib` com o `perf stat` sem flags:
+
+```bash
+perf stat ./fib/fib 40
+```
+
+<!-- Explicar resultados e tals -->
+
+Podemos também pedir para o *perf stat* rodar nosso programa varias vezes e tirar a média e o desvio padrão das medidas. Para isso passamos a opção `-r` com o numero de repetições desejado.
+
+```bash
+perf stat -r 30 ./fib/fib 36
+```
+
+Outra ferramenta do *perf* é o *perf record*, que é complementado pelas ferramentas *perf report* e *perf annotate*.
+
+O *perf record* grava a execução de um programa e salva os dados coletados em um arquivo. *Perf report* lê e trata esses dados, mostrando funções ordenadas por tempo em execução.
+
+O *perf annotate* é uma ferramenta opcional que mostra dentro da função quais as instruções que mais estão contribuindo para o tempo de execução da função.
+
+Vamos ver um exemplo com o programa `httpserver`. Esse programa é composto por um servidor HTTP e um cliente que gera trafico para o servidor. No exemplo o cliente vai ser rodado em um outro computador conectado à mesma rede.
+
+Primeiro vamos gravar a execução do servidor com o *perf record*:
+
+```bash
+perf record --call-graph dwarf ./httpserver/httpserver
+```
+
+A opção `--call-graph` indica que queremos pegar informações sobre o stack frame das funções para tentar indicar não so a função que está sendo atualmente executada, mas a recursão inteira que levou a essa função atual ser executada.
+
+O argumento `dwarf` passado para a opção indica o formato em que essa informação sera guardada. Nesse caso `dwarf` é a mais comum, então vamos com ela.
+
+Podemos também configurar a frequência com que o *perf report* interrompe a execução do programa para obtermos mais informações, mas com a desvantagem de maior interferência com a performance (por estarmos toda hora interrompendo a execução).
+
+Essa execução cria um arquivo `perf.data` e, caso já exista um arquivo com esse nome, esse é renomeado para `perf.data.old`. Para ler o arquivo vamos usar o *perf report*:
+
+```bash
+perf report
+```
+
+Dentro da ferramenta podemos analisar várias informações pertinentes como as funções que gastam mais tempo de execução e quais outras funções essa chama.
+
+Aqui a gente pode apertar `+` e `-` para abrir e fechar a lista de funções que são chamadas pela função que a gente está selecionando. Outra tecla interessante é o `d` que filtra por arquivo de origem da função. Para uma lista de outras possíveis ações, aperte `?`.
+
+Uma das coisas que você pode fazer é entrar na anotação da função. Isso vai mostrar o código em assembly da função com uma indicação de quais dessas instruções estão usando mais o tempo da função.
+
+Uma das teclas mais importantes aqui é o `Tab` e o `Shift + Tab` que vão mostrando a lista de instruções mais custosas da função. De novo, aperte `?` caso queira saber mais acoes possíveis.
 
 #### Hotspot
 
-(Usar outro exemplo)
+*Hotspot* é uma outra ferramenta que substitui o *perf report*. Ela utiliza a saída do *perf record* para mostrar de maneira mais gráfica os mesmos dados que são visíveis no *perf report*.
 
-Versão + gráfica usando os mesmos dados do linux report
+Uma adição interessante ao *Hotspot* é o flamegraph. Ele mostra quais funções estão gastando mais tempo de execução com um gráfico em nível onde cada barra significa uma função, a largura indica o tempo de execução e as funções que estão acima são chamadas pelas que estão em baixo.
 
-Flame Graph (Precisamos de um código de exemplo)
-- Lê o perf.data
-- Mostra a recursão das chamadas
-
-Caller
-- Mostra o tempo de execução em cada linha
-- Threads e CPUs
+Nele vemos que uma das funções que mais esta gastando tempo de execução é a `malloc`. Vamos tentar consertar isso!
 
 ### Valgrind
 
-* callgrind
-	- Mostra mais chamadas feitas na função
+Uma outra ferramenta para coleta de dados sobre performance de funções em função do tempo de execução é uma ferramenta da suite *Valgrind*: o *callgrind*.
 
-* kcachegrind (visualizador do output do callgrind e cachegrind)
-	- Mostrar as chamadas que foram feitas na execução
-	- Quais funções fizeram outras chamadas
-	- Relative
-		- Quanto tempo de CPU cada função teve em relação à outra
+O *callgrind* diferente do *perf* não vem com uma ferramenta para tratar o arquivo de saída, então vamos usar um outro programa auxiliar chamado *kcachegrind*.
+
+```bash
+valgrind --tool=callgrind ./httpserver/httpserver
+kcachegrind callgrind.out.*
+```
+
+O mais interessante dessa ferramenta se encontra na parte inferior: o *call graph*. Essa ferramenta mostra de maneira bem interativa quais funções estão chamando quais outras, quantas vezes e o tempo que a função ficou sendo executada.
 
 ### LTTng
 
-(Apenas mostrar o que ele consegue fazer no código e + ou - como ficaria o código)
+[Site Oficial do LTTng.](https://lttng.org/docs/)
 
-(Precisamos de um código de exemplo)
+Agora para mostrar uma ferramenta instrumentada de perfilamento temos o *LTTng*. O *LTTng* (*Linux Tracing Toolkit: next generation*) é uma ferramenta de *tracing*.
 
-Linux Tracing Toolkit: Next Generation
+*Tracing* é o ato de registrar informações sobre a execução de um programa para analise posterior. Esses registros, diferentes das ferramentas não instrumentadas, são configurados e feitos por você através de instruções especializadas inseridas no código fonte da sua aplicação.
 
-Muito mais controle das informações que você quer no seu código
-
-Tracing
-
-(Explicar o que é tracing)
-
-Acompanha a execução do código
-
-[Site Oficial](https://lttng.org/docs/) do LTTng
+O aproveitamento desse tipo de ferramenta depende muito mais da experiencia e criatividade de quem a esta usando, podendo dar resultados incríveis se utilizada corretamente.
 
 #### BabelTrace2
 
