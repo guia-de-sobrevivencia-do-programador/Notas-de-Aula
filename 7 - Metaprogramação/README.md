@@ -70,14 +70,28 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
 
 
 ## Integração contínua
-* O que é: gerenciamento do ciclo de vida da aplicação e automatização dos processos de publicação
-* Conforme as aplicações crescem, os processos que envolvem gerar uma nova versão vão ficando cada vez mais complexos
-* Integração contínua em suma: processo automático que executa toda vez que o código é alterado
+
+Conforme as aplicações crescem, os processos que envolvem gerar novas funcionalidades e versões vão ficando cada vez mais complexos, como atualizar documentações, arquivos de configuração, publicar a nova versão em algum servidor, etc... Também vimos com aulas anteriores formas de criar código colaborativamente, mas normalmente queremos que o código se mantenha uniforme em nosso projeto, checando coisas como espaçamento e identação.
+
+Além disso, em aplicações muito grandes fica cada vez mais difícil garantir que novas versões não alterem comportamentos que funcionavam corretamente numa versão anterior. Testes manuais nos permitem verificar que tudo está funcionando corretamente, mas não é viável para sistemas maiores. Quando começamos a perceber que os processos envolvendo novas mudanças estão começando a consumir tempo demais, podemos introduzir o conceito de **Integração contínua**.
+
+Integração contínua (ou do inglês, *continuous integration - CI*) é um conceito bem abrangente que pode ser resumido como: processo automático que executa toda vez que os arquivos de um repositório são alterados. Existem diversas ferramentas que utilizam esse conceito para prover funcionalidades que são comuns em CIs (como por exemplo o GitHub Actions, ou até o próprio Git através dos *git hooks*). De forma geral, a maior parte dessas ferramentas funciona de forma similar: adicionamos e/ou modificamos um arquivos de configuração que determinam quais tarefas serão executadas em quais momentos, de forma a automatizar processos. Um exemplo muito comum é rodar testes automatizados toda vez que é adicionado um commit ao repositório.
 
 ## Testes
-* Conceitos
-* Testes de unidade
-* Testes de integração
+
+Conforme dito na seção anterior, projetos de software maiores possuem algumas necessidades adicionais para manter a saúde do sistema (e consequentemente das pessoas que o mantém). Uma dessas necessidades envolve a criação de testes automatizados para verificar que as partes do sistema ainda se comportam conforme esperado mesmo após as novas mudanças (imaginem ter que testar todas as funcionalidades do google meet toda vez que adicionam um fundo de tela novo?). Alguns dos conceitos muito comuns nesses tipos de teste estão nas subseções abaixo
+
+### Testes de unidade (*Unit tests*)
+
+Testes de unidade são feitos para testar pequenas partes do código, a fim de cobrir erros menores nessas unidades, que geralmente são métodos ou funções. A ideia aqui é testar se os componentes que estão sendo desenvolvidos funcionam isoladamente conforme o esperado. Normalmente são os testes mais simples e em maior quantidade.
+
+### Testes de integração (*Integration tests*)
+
+Após confirmar que os componentes do seu sistema funcionam individualmente com os testes de unidade, às vezes é necessário testar como esses componentes funcionam em conjunto: essa é a finalidade dos testes de integração. Esses testes normalmente são mais complexos do que os testes de unidade, pois testam se os componentes estão se comunicando corretamente. Um caso de uso comum para esses testes são conexões com bancos de dados.
+
+### Mocking
+
+Para que possamos limitar o escopo dos testes, muitas vezes precisamos "simular" respostas dos outros componentes não relevantes para o nosso teste. Esse processo é chamado de mocking, onde criamos uma resposta falsa, simulando um comportamento esperado, para que possamos testar somente a parte que nos interessa no momento.
 
 ## Responsáveis
 * [Renan](https://github.com/nkzren)
