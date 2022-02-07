@@ -19,7 +19,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
  Ele fornecerá um método que baixará e instalará livrarias.
  
 * Porque utilizar: 
-  * Programa tem entradas (geralmente código), executa uma sequencia de passos e gera uma saída.
+  * Programa tem entradas (geralmente código), executa uma sequência de passos e gera uma saída.
   * Programas por vezes têm dependências
 * O que é uma dependência
 
