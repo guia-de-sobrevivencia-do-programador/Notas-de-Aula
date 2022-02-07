@@ -420,7 +420,7 @@ lttng enable-channel --userspace httpserver
 Por ultimo, a gente precisa falar quais eventos a gente deseja receber nesse channel. Não precisamos indicar a sessão, mas precisamos indicar o canal pelo qual desejamos receber os eventos.
 
 ```bash
-lttng enable-event --userspace httpserver 'httpservertp:*'
+lttng enable-event --userspace -c httpserver 'httpservertp:*'
 ```
 
 Agora é só ativar e rodar o programa. Uma vez que estamos satisfeitos, podemos parar a sessão.
@@ -476,13 +476,30 @@ LTTNG_UST_TRACEPOINT_EVENT(
 )
 ```
 
+```c
+// fib.c
+int rl = 0;
+
+int fib(int v)
+{
+        lttng_ust_tracepoint(fibtp, call, v, rl);
+        rl++;
+
+        if (v <= 1)
+                return 1;
+
+        int result = fib(v-1)+fib(v-2);
+        rl--;
+        return result;
+}
+```
 E podemos ver os resultados do mesmo jeito que vimos os do `httpserver`, mas precisamos criar um novo filtro de evento. Já que estamos aqui vamos criar outro canal também para poder desabilitar o canal do `httpserver`.
 
 ```bash
 lttng disable-channel --userspace httpserver
 
 lttng enable-channel --userspace fib
-lttng enable-event --userspace fib 'fibtp:*'
+lttng enable-event --userspace -c fib 'fibtp:*'
 
 lttng start
 # Rodar o programa

@@ -4,7 +4,7 @@
 #undef LTTNG_UST_TRACEPOINT_INCLUDE
 #define LTTNG_UST_TRACEPOINT_INCLUDE "./tp.h"
 
-#if !defined(_TP_H) || defined(LTTNG_UST_TRACEPOINT_MULTI_HEADER_READ)
+#if !defined(_TP_H) || defined(LTTNG_UST_TRACEPOINT_HEADER_MULTI_READ)
 #define _TP_H
 #include <lttng/tracepoint.h>
 
