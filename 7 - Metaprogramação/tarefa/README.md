@@ -23,15 +23,15 @@ O propósito desta seção é o aluno se familiarizar com dependências de proje
 Esta seção tem como objetivo apresentar alguns conceitos de integração contínua que foram vistos em aula. 
 
 0. Copie o conteúdo da pasta `tarefa` para uma nova pasta e crie um repositório Git a partir dela (com o `git init`).
-1. Crie um script executável `pre-commit` na pasta `.git/hooks/` (Há um arquivo `.git/hooks/pre-commit.sample` de exemplo)
-2. Adicione o comando de teste do `npm` ao script, para que ele execute antes de cada commit
-3. Modifique o código do teste para que ele falhe (exemplo: `expect(resultado).toBe("isso_nem_eh_um_numero")`)
+1. Crie um script executável `pre-commit` na pasta `.git/hooks/` (Há um arquivo `.git/hooks/pre-commit.sample` de exemplo).
+2. Adicione o comando de teste do `npm` ao script, para que ele execute antes de cada commit.
+3. Modifique o código do teste para que ele falhe (exemplo: `expect(resultado).toBe("isso_nem_eh_um_numero")`).
 4. Tente fazer um commit. Ele deve falhar. Tire um *screenshot* do resultado.
-5. Adicione o seu script no zip da tarefa
+5. Adicione o seu script no arquivo zip da tarefa.
 
 ## Seção 3 - Testes
 
-0. Crie testes de unidade para as outras operações da `calculadora.js`
-1. Para a operação `pot`, faça um mock da biblioteca `math.js`, verificando se a operação correta foi chamada
+0. Crie testes de unidade para as outras operações da `calculadora.js`.
+1. Para a operação `pot`, faça um mock da biblioteca `math.js`, verificando se a operação correta foi chamada.
 
 
