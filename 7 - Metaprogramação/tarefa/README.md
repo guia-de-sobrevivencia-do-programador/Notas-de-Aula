@@ -22,7 +22,7 @@ O propósito desta seção é o aluno se familiarizar com dependências de proje
 
 Esta seção tem como objetivo apresentar alguns conceitos de integração contínua que foram vistos em aula. 
 
-0. Copie o conteúdo da pasta `tarefa` para uma nova pasta e crie um repositório Git a partir dela (com o `git init`)
+0. Copie o conteúdo da pasta `tarefa` para uma nova pasta e crie um repositório Git a partir dela (com o `git init`).
 1. Crie um script executável `pre-commit` na pasta `.git/hooks/` (Há um arquivo `.git/hooks/pre-commit.sample` de exemplo)
 2. Adicione o comando de teste do `npm` ao script, para que ele execute antes de cada commit
 3. Modifique o código do teste para que ele falhe (exemplo: `expect(resultado).toBe("isso_nem_eh_um_numero")`)
