@@ -25,7 +25,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
 
   Uma dependência é um pedacinho de código escrito por terceiros e que, no contexto do seu projeto, idealmente resolve um problema para você.
 
-  Um exemplo simples seria uma livraria para plotar gráficos. Certamente, você pode até ser habilidoso o suficiente para conseguir implementar isso você mesmo, mas demoraria muito e, sinceramente, você não precisa reinventar a roda. Este é um problema que foi resolvido de novo e de novo. Portanto, você pode pegar as implementações das outras pessoas e adaptar para o seu código. Assim, essa livraria importada se torna uma dependência.
+  Um exemplo simples seria uma biblioteca para plotar gráficos. Você até pode ser habilidoso o suficiente para conseguir implementar isso você mesmo, mas demoraria muito e, sinceramente, você não precisa reinventar a roda. Este é um problema que foi resolvido de novo e de novo. Portanto, você pode pegar as implementações das outras pessoas e adaptar para o seu código. Assim, essa biblioteca importada se torna uma dependência.
 
   Você até pode importar suas dependências na mão, mas aí temos vários problemas que começam a surgir:
 
