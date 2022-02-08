@@ -1,11 +1,24 @@
 const { pow } = require('mathjs')
 
-const soma = (a, b) => a + b
-const sub = (a, b) => a - b
-const mult = (a, b) => a * b
-const div = (a, b) => a / b
+const soma = function (a, b) {
+  return a + b;
+}
 
-const pot = (a, b) => pow(a, b)
+const sub = function (a, b) {
+  return a - b;
+}
+
+const mult = function (a, b) { 
+  return a * b 
+}
+
+const div = function (a, b) { 
+  return a / b 
+}
+
+const pot = function (a, b) { 
+  return pow(a, b) 
+}
 
 module.exports = {
   soma,
