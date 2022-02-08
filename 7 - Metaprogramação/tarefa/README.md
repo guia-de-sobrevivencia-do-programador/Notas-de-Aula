@@ -30,6 +30,6 @@ Esta seção tem como objetivo apresentar alguns conceitos de integração cont�
 
 ## Seção 3 - Testes
 
-0. Crie testes de unidade para as outras funções do código
+0. Crie testes de unidade para as outras funções do código da `calculadora.js`
 
 
