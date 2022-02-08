@@ -25,7 +25,7 @@ Esta seção tem como objetivo apresentar alguns conceitos de integração cont�
 1. Crie um script executável `pre-commit` na pasta `.git/hooks/` (Há um arquivo `.git/hooks/pre-commit.sample` de exemplo)
 2. Adicione o comando de teste do `npm` ao script, para que ele execute antes de cada commit
 3. Modifique o código do teste para que ele falhe (exemplo: `expect(resultado).toBe("isso_nem_eh_um_numero")`)
-4. Tente fazer um commit. Ele deve falhar
+4. Tente fazer um commit. Ele deve falhar. Tire uma screenshot do resultado
 5. Adicione o seu script no zip da tarefa
 
 ## Seção 3 - Testes
