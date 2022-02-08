@@ -30,7 +30,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
   Você até pode importar suas dependências na mão, mas aí temos vários problemas que começam a surgir:
 
     • E se você encontrar uma biblioteca melhor do que a que está implementada? Você precisa baixar, instalar e remover a antiga tudo por sua conta
-    • E se tem um update da livraria que você está utilizando, e você quer usar? Você precisa lidar com compatibilidade e fazer uma instalação limpa da dependência na mão
+    • E se um update da biblioteca que você está utilizando for lançado e você quiser usá-lo? Você precisa lidar com compatibilidade e fazer uma instalação limpa da dependência na mão.
 
    Em projetos pequenos, isto normalmente não é um problema. Porém, se você está fazendo algo grande de verdade, manter em cheque estes fatores se torna verdadeiramente desafiador.
  
