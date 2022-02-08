@@ -19,4 +19,5 @@ Este curso foi inspirado no curso [Missing Semester](https://missing.csail.mit.e
 - Felipe Voigtlaender Furquim: @FvFurquim
 - Henrique Tsuyoshi Yara: @HTsuyoshi
 - João Francisco Cocca Fukuda: @joaofukuda e https://joaofukuda.dev/
+- Larissa Maruyama: @snorlara
 - Renan Nakazawa: @nkzren
