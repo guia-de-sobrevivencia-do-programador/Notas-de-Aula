@@ -40,7 +40,7 @@ O npm, ou "Node packager manager", é um projeto *open source* feito para o Node
 
   * Iniciando um projeto: `package.json`
 
-    Utilize npm init para inicializar um projeto. Uma vez que você rodar o comando, um arquivo package.json será criado.
+    Utilize `npm init` para inicializar um projeto. Uma vez que você rodar o comando, um arquivo package.json será criado.
 
     Todo projeto de Javascript terá um package.json. Além das dependências, ele conterá outros metadados, como o nome do projeto e autor.
  
