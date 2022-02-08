@@ -16,7 +16,7 @@ O propósito desta seção é o aluno se familiarizar com dependências de proje
 0. Tente rodar o comando `npm start`. Por que a execução do comando resulta em um erro?
 
 1. Corrija o erro e execute novamente o `npm start`. O que você fez para corrigir?
-2. Adicione a dependência `crypto-js` e modifique o programa para imprimir o resultado anterior encriptado com o algoritmo `SHA256`
+2. Adicione a dependência `crypto-js` e modifique o programa para imprimir o resultado anterior encriptado com o algoritmo `SHA256`.
 
 ## Seção 2 - Integração contínua
 
