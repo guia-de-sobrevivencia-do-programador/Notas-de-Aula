@@ -14,9 +14,7 @@ Responda as questões a seguir:
 
 1. Qual a sequência de comandos para enviar commits de uma nova branch local "dev" para um repositório remoto que ainda não possui essa branch?
 
-2. Qual a diferença entre git remote e git clone?
-
-3. Quais comandos poderíamos usar para buscar e visualizar os novos commits em um repositório remoto sem baixá-lo no repositório local?
+2. Quais comandos poderíamos usar para buscar e visualizar os novos commits em um repositório remoto sem baixá-lo no repositório local?
 
 ## Seção 3 - Git e Github
 
