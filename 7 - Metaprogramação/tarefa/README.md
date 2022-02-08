@@ -30,6 +30,7 @@ Esta seção tem como objetivo apresentar alguns conceitos de integração cont�
 
 ## Seção 3 - Testes
 
-0. Crie testes de unidade para as outras funções do código da `calculadora.js`
+0. Crie testes de unidade para as outras operações da `calculadora.js`
+1. Para a operação `pot`, faça um mock da biblioteca `math.js`, verificando se a operação correta foi chamada
 
 
