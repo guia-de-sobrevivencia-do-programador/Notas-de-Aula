@@ -15,7 +15,8 @@ Este curso foi inspirado no curso [Missing Semester](https://missing.csail.mit.e
 ### Equipe
 
 - Prof. Dr. Daniel Cordeiro: @cordeiro e http://each.usp.br/dc/
-- João Francisco Cocca Fukuda: @joaofukuda e https://joaofukuda.dev/
-- Renan Nakazawa: @nkzren
 - Caio Rodrigues Gomes: @4n7hem
 - Henrique Tsuyoshi Yara: @HTsuyoshi
+- João Francisco Cocca Fukuda: @joaofukuda e https://joaofukuda.dev/
+- Renan Nakazawa: @nkzren
+
