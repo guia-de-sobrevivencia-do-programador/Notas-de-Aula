@@ -20,10 +20,23 @@ const pot = function (a, b) {
   return pow(a, b) 
 }
 
+const calcula = function (a, b, operacao) {
+
+  if (operacao === 'soma') {
+    return soma(a, b)
+  } else if (operacao === 'sub') {
+    return sub(a, b)
+  } else if (operacao === 'mult') {
+    return mult(a, b)
+  } else if (operacao === 'div') {
+    return div(a, b)
+  } else if (operacao === 'pot') {
+    return pot(a, b)
+  } else {
+    throw new Error('Operacao invalida')
+  }
+}
+
 module.exports = {
-  soma,
-  sub,
-  mult,
-  div,
-  pot,
+  calcula
 }
