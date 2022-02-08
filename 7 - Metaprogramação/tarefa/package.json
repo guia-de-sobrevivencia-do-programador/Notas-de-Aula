@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest calculadora.test.js",
-    "start": "node index.js"
+    "test": "jest src/.",
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "2.6.1"
+    "mathjs": "^10.1.1"
   },
   "devDependencies": {
     "jest": "26.6.3"
