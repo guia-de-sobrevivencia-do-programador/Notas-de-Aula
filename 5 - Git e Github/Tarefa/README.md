@@ -16,7 +16,7 @@ Responda as questões a seguir:
 
 2. Qual a diferença entre git remote e git clone?
 
-3. Com quais comandos poderia buscar e visualizar os novos commits em um  repositório remoto sem baixá-los no repositório local?
+3. Quais comandos poderíamos usar para buscar e visualizar os novos commits em um repositório remoto sem baixá-lo no repositório local?
 
 ## Seção 3 - Git e Github
 
