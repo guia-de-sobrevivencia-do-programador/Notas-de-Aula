@@ -37,7 +37,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
 * npm
   * Iniciando um projeto: `package.json`
 
-    Utilize npm init para inicializar um projeto. 	Uma vez que você rodar o comando, um arquivo package.json será criado.
+    Utilize `npm init` para inicializar um projeto. Uma vez que você rodar o comando, um arquivo package.json será criado.
 
     Todo projeto de Javascript terá um package.json. Além das dependências, ele conterá outros metadados, como o nome do projeto e autor.
  
