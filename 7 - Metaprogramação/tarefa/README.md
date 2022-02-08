@@ -13,7 +13,8 @@ O arquivo a ser entregue é um arquivo `.zip` contendo as respostas das pergunta
 
 O propósito desta seção é o aluno se familiarizar com dependências de projetos de software. As perguntas aqui contidas deverão ser respondidas em um arquivo `secao1.txt` no zip da entrega.
 
-0. Tente rodar o `npm start`. Porque deu erro?
+0. Tente rodar o comando `npm start`. Por que a execução do comando resulta em um erro?
+
 1. Corrija o erro e execute novamente o `npm start`. O que você fez para corrigir?
 2. Adicione a dependência `crypto-js` e modifique o programa para imprimir o resultado anterior encriptado com o algoritmo `SHA256`
 
