@@ -36,7 +36,7 @@ Atualmente, todas as linguagens mais utilizadas tem uma ou mais ferramentas dess
  
 * npm
 
-O npm, ou "Node packager manager", é um projeto open source feito para o Node.js. Ele permite com que desenvolvedores JavaScript facilmente compartilhem código através de suas funções.
+O npm, ou "Node packager manager", é um projeto *open source* feito para o Node.js. Ele permite a criação de pacotes, que facilitam a distribuição e compartilhamento de código entre desenvolvedores JavaScript.
 
   * Iniciando um projeto: `package.json`
 
