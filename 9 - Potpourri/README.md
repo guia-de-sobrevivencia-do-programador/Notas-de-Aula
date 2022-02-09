@@ -1,4 +1,10 @@
-# 8 - Containers e Cloud
+# 9 - Potpourri
+
+* Markdown
+* [Linters](./Linters)
+* Suite de Redes no Linux
+* Cronjobs e InCronjobs
+* [Window Manager](./Window Manager)
 
 ## Responsáveis
 * Markdown - [Furquim](https://github.com/FvFurquim)
