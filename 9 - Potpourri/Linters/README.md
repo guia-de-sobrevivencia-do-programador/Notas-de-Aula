@@ -50,22 +50,3 @@ Não se aplica para todos os linters, mas existem linters específicos que podem
 Para quem quiser dar uma olhada nos linters existentes e quais linguagens de programação eles conseguem suportar existe um [repositorio](https://megalinter.github.io/5.7.0/all_linters/) com uma variedade de linters especificando sua licença, linguagem, versão, repositório, etc... Existem outros repositórios com indicações de linters como [esse](https://github.com/caramelomartins/awesome-linters).
 
 Vai depender do programador pesquisar e escolher qual linter é melhor para seu uso no dia-a-dia.
-
-### Análise Estática
-
-- `StandardJS` para JavaScript
-- `PHPMD` para PHP
-- `StyleCop` para C#
-
-### Segurança
-
-- `Gosec` para Go
-- `Bandit` para Python
-- `LGTM` para muitas linguagens como JavaScript, Python e C#
-
-### Convenção de código
-
-- `Prettier` para JavaScript
-- `Rubocop` para Ruby
-- `StyleCop` para C#
-
