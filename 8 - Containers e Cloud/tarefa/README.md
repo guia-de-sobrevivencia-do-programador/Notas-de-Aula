@@ -27,8 +27,6 @@ Para essa seção, serão feitas algumas perguntas, que devem ser respondidas em
 
 Essa seção tem como objetivo exercitar os conceitos de Docker vistos em aula em um exercício prático. Para todos os exercícios, **não é necessário alterar o código JavaScript fornecido**. As respostas às perguntas deverão estar em um arquivo `secao2.txt` dentro do arquivo .zip a ser entregue.
 
-* As saídas dos exercícios `0` e `1` desta seção deverão estar no arquivo `secao2.txt` seguindo o seguinte formato:
-
 0. Execute a aplicação localmente com o comando `npm start` e faça uma requisição via curl para a mesma (`curl localhost:3000`). Copie as saídas do terminal conforme a instrução acima.
 1. Execute a aplicação dentro de um container, expondo a porta `3000` do container na porta `3001` da máquina local. Faça uma nova requisição para a aplicação dentro do container. Copie as saídas do terminal conforme a instrução acima.
 2. Por que o IP é diferente nas duas requisições?
