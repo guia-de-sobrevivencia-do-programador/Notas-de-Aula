@@ -1,5 +1,6 @@
 FROM node:14
 WORKDIR /opt/app
+RUN useradd -u 2469 banana
 
 COPY ./package.json ./
 
@@ -9,7 +10,8 @@ RUN npm install
 
 RUN mkdir -p -m 777 /var/log/app
 
-RUN useradd -u 2469 banana
+ENV LOG_PATH=/var/log/app
+
 USER banana
 
 
