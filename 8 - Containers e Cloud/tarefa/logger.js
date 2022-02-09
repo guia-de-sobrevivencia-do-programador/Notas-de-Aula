@@ -1,6 +1,5 @@
 const { createLogger, format, transports } = require('winston');
 
-console.log(`${process.env.LOG_PATH || '.'}/nosso-log.log`)
 const logger = createLogger({
   level: 'info',
   format: format.combine(
