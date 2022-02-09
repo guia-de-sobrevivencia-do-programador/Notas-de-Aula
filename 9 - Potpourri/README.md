@@ -4,7 +4,7 @@
 * [Linters](./Linters)
 * Suite de Redes no Linux
 * Cronjobs e InCronjobs
-* [Window Manager](./Window Manager)
+* [Window Manager](./Window%20Manager)
 
 ## Responsáveis
 * Markdown - [Furquim](https://github.com/FvFurquim)
