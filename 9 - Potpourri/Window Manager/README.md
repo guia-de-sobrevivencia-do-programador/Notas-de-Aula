@@ -22,7 +22,7 @@ O usuário tem a liberdade de adicionar programas de outros DEs por exemplo usan
 
 # Window Manager (WM)
 
-Um WM ou gerenciador de janelas é o programa que vai controlar o posicionamento e a aparência das janelas em uma interface gráfica (GUI).
+Um WM ou gerenciador de janelas é o programa que vai controlar o posicionamento e a aparência das janelas em uma interface gráfica (GUI), por ser mais simples que uma DE um WM acaba utilizando menos memória RAM que um DE.
 
 O WM pode ser usado dentro de uma DE ou usada de forma independente na imagem abaixo podemos ver dois WM (sway e i3):
 
@@ -34,8 +34,6 @@ O WM pode ser usado dentro de uma DE ou usada de forma independente na imagem ab
 
 Os WMs podem ser classificados em 3 tipos:
 
-* [Stacking](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_de_empilhamento)
-* [Tiling](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_de_tiling)
-* [Dynamic](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_din%C3%A2micos)
-
-# Desktop Environment X Window Manager
+* [Stacking](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_de_empilhamento): É o tipo de organização mais comum para usuários de DEs, Windows e OS X, esse tipo de WM os programas ficam `flutuando` pela área de trabalho.
+* [Tiling](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_de_tiling): Esse tipo de WM tem uma organização `automática`, quando novas janelas são criadas elas automaticamentes são organizadas na área de trabalho, a organização das janelas vai depender do WM usado ou da configuração do WM.
+* [Dynamic](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_din%C3%A2micos): Esse tipo de WM abrange os dois tipos mostrados anteriormente o Stacking e o Tiling, O Dynamic consegue `transicionar` entre os modos de Stacking e Tiling, assim fica à escolha do usuário em qual modo ele quer que as janelas fiquem.
