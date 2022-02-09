@@ -7,7 +7,8 @@
 
 ## Entrega
 
-O arquivo a ser entregue é um arquivo `.zip` contendo as respostas das perguntas que seguem **e** o código da pasta `tarefa` alterado conforme as instruções de cada seção. **Não é necessário compactar a pasta node_modules**.
+O arquivo a ser entregue é um arquivo `.zip` contendo as respostas das perguntas que seguem **e** o código da pasta `tarefa` alterado conforme as instruções de cada seção. **Não é necessário incluir no arquivo `.zip` a pasta node_modules**.
+
 
 ## Seção 1 - Gerenciamento de dependências
 
