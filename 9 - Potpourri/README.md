@@ -127,7 +127,7 @@ Vai depender do programador pesquisar e escolher qual linter é melhor para seu 
 
 Antes de falar sobre a suite de ferramentas para redes em Linux, uma breve aula sobre redes:
 
-A internet é a rede mais famosa que conhecemos, mas é somente uma de varias redes que regem a conexão entre computadores.
+A Internet é a rede mais famosa que conhecemos, mas é somente uma de várias redes que regem a conexão entre computadores.
 
 Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada a internet ou a outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
 
