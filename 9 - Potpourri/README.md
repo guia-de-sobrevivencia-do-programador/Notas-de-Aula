@@ -36,6 +36,15 @@ O WM pode ser usado dentro de uma DE ou usada de forma independente na imagem ab
     <img src="./assets/Manjaro_exemplos_wm.png" alt="Manjaro Exemplos WM" width="400" height="200" />
 </p>
 
+Cada WM é feito em uma determinada linguagem, ter o conhecimento prévio dessa linguagem pode ajudar bastante para poder configurar o seu WM da maneira que desejear.
+
+Alguns exemplos:
+
+- `awesome` é bom ter um conhecimento em lua.
+- `dwm` é bom ter um conhecimento em C.
+- `qtile` é bom ter um conhecimento em python.
+- `xmonad` é bom ter um conhecimento em haskell.
+
 #### Tipos
 
 Os WMs podem ser classificados em 3 tipos:
@@ -53,6 +62,14 @@ Como visto antes uma DE é um WM com outras coisas que integram o desktop para q
 Enquanto o WM é só um gerenciador de tarefas, ou seja ele pode ou não ter coisas como um sistema de menu, notificações, gerenciador de clipboard, gerenciador de internet, gerenciador de login, etc... outros softwares que vão ficar responsáveis por gerenciar essas coisas. Mas como o WM vem sem nada o usuário pode escolher o que ele quer instalar e vai gastar menos memória RAM no seu computador.
 
 Para quem usa bastante o teclado vai ser uma boa opção já que quase nunca você vai precisar tirar suas mãos do teclado.
+
+### Complemento
+
+Como os WM não tem todos os programas necessários para ser tão funcional como uma DE alguns programas abaixo podem ser úteis na configuração de um WM:
+
+- Inicializador de programas: `dmenu` ou `rofi`
+- Panel: `polybar`
+- Notificações: `dunst`
 
 ## Linters
 
