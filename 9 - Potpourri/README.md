@@ -19,7 +19,7 @@ Cada distribuição de Linux pode vir ou não com uma DE, dependo da distribuiç
 Algumas distribuições permitem que você escolha qual DE você deseja utilizar antes mesmo de você baixar a distribuição. A figura acima mostra as 3 opções de DEs oferecidas oficialmente pela distribuição Linux [Manjaro](https://manjaro.org/download/).
 
 
-Alguns DEs famosos são: `KDE`, `GNOME`, `XFCE`, `MATE`, etc...
+Alguns exemplos de DEs famosos: [GNOME](https://www.gnome.org/), [KDE](https://kde.org/pt-br/), [MATE](https://mate-desktop.org/), [XFCE](https://xfce.org/) e [LXDE](http://www.lxde.org/).
 
 O usuário tem a liberdade de adicionar programas de outros DEs por exemplo usando `KDE` eu posso usar programas do `GNOME` (provavelmente o tema dos programas não vai ser o mesmo já que são de DEs diferentes)
 
