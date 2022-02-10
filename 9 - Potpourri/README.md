@@ -39,10 +39,10 @@ Cada WM é implementado em uma determinada linguagem. Ter conhecimento prévio d
 
 Alguns exemplos:
 
-- `awesome` é bom ter um conhecimento em lua.
-- `dwm` é bom ter um conhecimento em C.
-- `qtile` é bom ter um conhecimento em python.
-- `xmonad` é bom ter um conhecimento em haskell.
+- [awesome](https://awesomewm.org/) pode ser personalizado com código escrito na linguagem de programação Lua;
+- [dwm](https://dwm.suckless.org/) requer que seu código-fonte em C seja modificado para ser personalizado;
+- [qtile](http://www.qtile.org/) pode ser personalizado com código em Python;
+- [`xmonad`](https://xmonad.org/) pode ser personalizado com código em Haskell.
 
 #### Tipos
 
