@@ -88,7 +88,7 @@ A análise estática é feito pelos linters para analisar o código em questão 
 
 Uma das coisas mais básicas que o Linter pode oferecer são verificar erros de sintaxe.
 
-Erros de sintaxe são detectadas pelos compiladores em linguagens `compiladas` como c, c++, java, etc... Mas para linguagens `interpretadas` os erros apenas vão ser encontrados quando o código for executado, é aí que o Linter entra!
+Erros de sintaxe são detectadas pelos compiladores em linguagens `compiladas` como C, C++, Java, etc. Mas em linguagens *interpretadas*, os erros serão encontrados apenas quando o código for executado, e é aí que o uso de um Linter se torna importante.
 
 Um exemplo pode ser erros do `CSS` que vão apenas ser percebidos quando o site for acessado.
 
