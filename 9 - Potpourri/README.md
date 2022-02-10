@@ -35,7 +35,7 @@ O WM pode ser usado dentro de uma DE ou usada de forma independente. Na imagem a
     <img src="./assets/Manjaro_exemplos_wm.png" alt="Manjaro Exemplos WM" width="400" height="200" />
 </p>
 
-Cada WM é feito em uma determinada linguagem, ter o conhecimento prévio dessa linguagem pode ajudar bastante para poder configurar o seu WM da maneira que desejear.
+Cada WM é implementado em uma determinada linguagem. Ter conhecimento prévio dessa linguagem pode ajudar bastante para poder configurar o seu WM da maneira que desejar.
 
 Alguns exemplos:
 
