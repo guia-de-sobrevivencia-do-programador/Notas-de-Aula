@@ -193,7 +193,7 @@ Basta entrar em uma pasta e rodar:
 
 ```bash
 python3 -m http.server
-``
+```
 
 Que um servidor HTTP estará rodando na sua máquina local na porta `8000`. Também e possível escolher a porta em que o servidor vai rodar passando uma porta como argumento. O próximo comando roda um servidor na porta `8080`:
 
