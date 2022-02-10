@@ -135,7 +135,7 @@ Por que eu digo "pelo menos"? Porque uma mesma máquina pode ter mais de um ende
 
 Uma máquina também pode estar conectada a duas redes ao mesmo tempo. Essa máquina é chamada de *gateway*, pois vira o portão, ou *gateway*, entre uma rede e outra (mas pode ter somente um *gateway* por rede, e esse normalmente é o seu roteador, que conecta sua rede local à internet). Se uma máquina em uma dessas redes quiser se conectar a uma máquina da outra rede, a conexão entre essas duas máquinas vão passar por essa máquina configurada como *gateway*.
 
-Existem vários grupos de endereços que são reservados. Alguns desses grupos são reservados para redes locais, detalhados no RFC 1918. Essas são:
+Existem vários grupos de endereços que são reservados. Alguns desses grupos são reservados para redes locais, detalhados no [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918). Essas são:
 
 - `10.0.0.0/8`: do endereço `10.0.0.0` a `10.255.255.255`
 - `172.16.0.0/12`: do endereço `172.16.0.0` a `172.31.255.255`
