@@ -129,7 +129,7 @@ Antes de falar sobre a suite de ferramentas para redes em Linux, uma breve aula 
 
 A Internet é a rede mais famosa que conhecemos, mas é somente uma de várias redes que regem a conexão entre computadores.
 
-Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada a internet ou a outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
+Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada à Internet ou à outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
 
 Por que eu digo "pelo menos"? Porque uma mesma máquina pode ter mais de um endereço vinculado a ela, pois o que retém controle desse endereço não é a máquina ou o sistema operacional, mas sim os dispositivos de rede. Se você tiver um adaptador *WiFi* e um cabo conectados ao seu computador ao mesmo tempo, cada uma dessas entradas (ou *NICs* de *Network Interface Cards*) terão seu próprio endereço de IP distinto.
 
