@@ -62,7 +62,7 @@ Normalmente um WM atua exclusivamente como um gerenciador de janelas, ou seja, t
 
 Muitos WMs permitem que o usuário realize todas as operações de gerenciamento de janelas usando apenas o teclado. Usuários proficientes conseguem trabalhar em tais WMs sem tirar as mãos do teclado, o que acelera bastante o trabalho.
 
-### Complemento
+### Complementos
 
 Dependendo das necessidades do usuário, pode ser preciso complementar a WM com utilitários que forneçam algumas das funcionalidades adicionais encontradas em DEs:
 
