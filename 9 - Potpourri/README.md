@@ -60,7 +60,7 @@ Como visto anteriormente, uma DE é um WM com funcionalidades e programas adicio
 
 Normalmente um WM atua exclusivamente como um gerenciador de janelas, ou seja, tipicamente um WM não implementa coisas como um sistema de menu, notificações, gerenciador de *clipboard*, gerenciador de redes, gerenciador de *login*, etc. Outros softwares (opcionais) são responsáveis por gerenciar essas coisas. Como um WM oferece menos recursos, optar por usar apenas um WM pode economizar bastante memória RAM do seu computador.
 
-Para quem usa bastante o teclado vai ser uma boa opção já que quase nunca você vai precisar tirar suas mãos do teclado.
+Muitos WMs permitem que o usuário realize todas as operações de gerenciamento de janelas usando apenas o teclado. Usuários proficientes conseguem trabalhar em tais WMs sem tirar as mãos do teclado, o que acelera bastante o trabalho.
 
 ### Complemento
 
