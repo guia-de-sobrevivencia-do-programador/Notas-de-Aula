@@ -64,7 +64,7 @@ Para quem usa bastante o teclado vai ser uma boa opção já que quase nunca voc
 
 ### Complemento
 
-Como os WM não tem todos os programas necessários para ser tão funcional como uma DE alguns programas abaixo podem ser úteis na configuração de um WM:
+Dependendo das necessidades do usuário, pode ser preciso complementar a WM com utilitários que forneçam algumas das funcionalidades adicionais encontradas em DEs:
 
 - Inicializador de programas: [dmenu](https://tools.suckless.org/dmenu/) ou [rofi](https://github.com/davatorium/rofi)
 - Painel: [polybar](https://github.com/polybar/polybar)
