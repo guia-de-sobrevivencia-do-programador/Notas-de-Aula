@@ -10,7 +10,7 @@ Um *desktop environment* ("ambiente de área de trabalho" ou "ambiente de deskto
 
 Pode ser comparado com o que é visto no Windows a barra de ferramentas, barra de pesquisa, gerenciador de tarefas etc....
 
-Cada distribuição de Linux pode vir ou não com uma DE, dependo da distribuição ela te dá várias opções de DEs como pode ser visto na imagem abaixo:
+Há vários DEs diferentes que podem ser utilizados com o Linux e o usuário pode escolher aquele que melhor atender suas necessidades. Cada distribuição Linux normalmente opta por um DE para ser oferecido por padrão (ou opta por não oferecer um por padrão) e o personaliza para a distribuição.
 
 <p align="center">
     <img src="./assets/Manjaro_exemplos_de.png" alt="Manjaro Exemplos DE" width="400" height="200" />
