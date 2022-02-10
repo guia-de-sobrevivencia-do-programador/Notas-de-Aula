@@ -98,6 +98,7 @@ Convenções de código são de extrema importância quando se quer criar um có
 
 Ter uma convenção de código único facilita a leitura de um código, ao invés de ter estilos de código de vários desenvolvedores diferentes que iria dificultar a legibilidade do código.
 
+Uma lista de convenções de códigos para diferentes linguagens de programação e para projetos de desenvolvimento de software pode ser vista nesta página da Wikipédia: https://en.wikipedia.org/wiki/Coding_conventions#List_of_coding_standards .
 ### Problemas em potencial
 
 Um exemplo de problemas em potencial ou `code smells` são, por exemplo, funções grandes.
