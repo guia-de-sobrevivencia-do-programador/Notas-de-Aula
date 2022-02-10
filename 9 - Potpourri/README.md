@@ -58,7 +58,7 @@ Os WMs podem ser classificados em 3 tipos:
 
 Como visto antes uma DE é um WM com outras coisas que integram o desktop para que ele consiga ter bastantes funcionalidades.
 
-Enquanto o WM é só um gerenciador de tarefas, ou seja ele pode ou não ter coisas como um sistema de menu, notificações, gerenciador de clipboard, gerenciador de internet, gerenciador de login, etc... outros softwares que vão ficar responsáveis por gerenciar essas coisas. Mas como o WM vem sem nada o usuário pode escolher o que ele quer instalar e vai gastar menos memória RAM no seu computador.
+Normalmente um WM atua exclusivamente como um gerenciador de janelas, ou seja, tipicamente um WM não implementa coisas como um sistema de menu, notificações, gerenciador de *clipboard*, gerenciador de redes, gerenciador de *login*, etc. Outros softwares (opcionais) são responsáveis por gerenciar essas coisas. Como um WM oferece menos recursos, optar por usar apenas um WM pode economizar bastante memória RAM do seu computador.
 
 Para quem usa bastante o teclado vai ser uma boa opção já que quase nunca você vai precisar tirar suas mãos do teclado.
 
