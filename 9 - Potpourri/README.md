@@ -28,26 +28,72 @@ Com esses conhecimentos a gente pode começar a usar as ferramentas de redes.
 
 ### `ssh` e `scp`
 
-SSH (*Secure SHell*) é um programa que permite acesso remoto a uma outra maquina.
+#### SSH
+
+SSH (*Secure SHell*) é um programa que permite acesso remoto a uma shell em uma outra maquina.
+
+Para se conectar a um computador remoto, ele precisa estar rodando um servidor SSH e você precisa saber as credenciais de um usuário do sistema. Exemplo:
+
+```bash
+ssh user@10.0.0.225
+```
+
+Se o servidor não estiver rodando na sua porta padrão, você pode definir a porta através da opção `-p`. Outras opções mais interessantes podem ser descobertas no `man` do ssh como o `-L` e o `-D`.
+
+#### SCP
 
 SCP (*Ssh CoPy*) utiliza o protocolo SSH para copiar arquivos entre dois computadores.
 
-### `rsync`
+O uso é bem parecido com o SSH: você precisa de uma maquina rodando um servidor. Os parametros lembram bastante o próprio comando `cp` do Linux:
 
-RSync sincroniza duas pastas em duas máquinas diferentes, transferindo todos os arquivos desatualizados ou faltantes de uma maquina para a outra.
+```bash
+scp <origem> <destino>
+```
+
+Tanto a origem quanto o destino podem ser uma pasta em um computador remoto (`usuario@endereco:pasta/a/partir/da/raiz`, ex.: `user@10.0.0.225:Downloads/arquivo.pdf`) ou um arquivo local (`~/caminho/para/o/arquivo`, ex.: `/etc/passwd`).
 
 ### `ss`
 
 Ss (*Socket Statistics*) lista todos os processos atualmente vinculados a uma porta.
 
-### `nc`
+Algumas opções interessantes que são interessantes de usar com o SS: `-t` para listar somente conexões TCP; `-l` para listar somente as portas ouvindo por conexões (servidores); `-p` para listar o processo responsável por aquela porta e; `-n` para não tentar inferir o nome do serviço a partir do nome da porta.
 
-Nc (*NetCat*) te permite fazer conexões, mandar e receber manualmente dados através de uma conexão TCP ou UDP.
+O comando fica assim:
+
+```bash
+ss -tnlp
+```
 
 ### `python3 -m http.server`
 
 Esse comando python roda o módulo `http.server` como um programa, e cria um pequeno servidor HTTP pelo qual você consegue acessar e baixar arquivos que estão na sua máquina local.
 
+Basta entrar em uma pasta e rodar:
+
+```bash
+python3 -m http.server
+```
+
+Que um servidor HTTP estará rodando na sua maquina local na porta `8000`. Também e possível escolher a porta em que o servidor ira rodar passando uma porta como argumento. O próximo comando roda um servidor na porta `8080`:
+
+```bash
+python3 -m http.server 8080
+```
+
 ### `ngrok`
 
-Ngrok é uma ferramenta que disponibiliza um endereço na internet para outras pessoas em outras redes locais conseguir acessar seus serviços rodando dentro da sua rede local.
+Ngrok é uma ferramenta que disponibiliza um endereço na internet para outras pessoas em outras redes locais conseguir acessar seus serviços, que estão rodando dentro da sua rede local.
+
+Você pode expor uma porta, e ela pode estar rodando um servidor HTTP ou um serviço TCP qualquer (que não um servidor HTTP).
+
+Para expor um servidor HTTP, rode:
+
+```bash
+ngrok http 8000
+```
+
+E para expor um servico TCP qualquer, rode:
+
+```bash
+ngrok tcp 42000
+```
