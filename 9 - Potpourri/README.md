@@ -6,7 +6,7 @@ Nesta aula apresentamos algumas ferramentas que também são importantes no dia 
 
 ### Desktop Environment (DE)
 
-Uma DE permite que o usuário tenha uma experiência completa para a interface gráfica do usuário, ícones, barras de ferramentas, papéis de paredes e seu próprio gerenciador de janelas.
+Um *desktop environment* ("ambiente de área de trabalho" ou "ambiente de desktop", abreviado aqui como DE) é um conjunto de programas que implementam a metáfora da "área de trabalho" e que compartilham uma mesma interface gráfica de usuário (GUI), incluindo ícones, barras de ferramentas, papéis de paredes e até mesmo seu próprio *gerenciador de janelas*.
 
 Pode ser comparado com o que é visto no Windows a barra de ferramentas, barra de pesquisa, gerenciador de tarefas etc....
 
