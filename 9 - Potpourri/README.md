@@ -56,7 +56,7 @@ Os WMs podem ser classificados em 3 tipos:
 
 ### WM x DE
 
-Como visto antes uma DE é um WM com outras coisas que integram o desktop para que ele consiga ter bastantes funcionalidades.
+Como visto anteriormente, uma DE é um WM com funcionalidades e programas adicionais que se integram e se complementam para implementar a metáfora de ambiente área de trabalho.
 
 Normalmente um WM atua exclusivamente como um gerenciador de janelas, ou seja, tipicamente um WM não implementa coisas como um sistema de menu, notificações, gerenciador de *clipboard*, gerenciador de redes, gerenciador de *login*, etc. Outros softwares (opcionais) são responsáveis por gerenciar essas coisas. Como um WM oferece menos recursos, optar por usar apenas um WM pode economizar bastante memória RAM do seu computador.
 
