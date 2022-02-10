@@ -27,7 +27,7 @@ O [wiki do Arch Linux](https://wiki.archlinux.org/) (que, diga-se de passagem, p
 
 ### Window Manager (WM)
 
-Um WM ou gerenciador de janelas é o programa que vai controlar o posicionamento e a aparência das janelas em uma interface gráfica (GUI), por ser mais simples que uma DE, normalmente, um WM acaba utilizando menos memória RAM que um DE.
+Um WM ou gerenciador de janelas é o programa que controla o posicionamento e a aparência das janelas em uma interface gráfica (GUI). Por ser mais simples que uma DE completa, normalmente um WM usa menos memória RAM.
 
 O WM pode ser usado dentro de uma DE ou usada de forma independente na imagem abaixo podemos ver dois WM (sway e i3):
 
