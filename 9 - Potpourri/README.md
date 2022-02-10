@@ -23,7 +23,7 @@ Alguns exemplos de DEs famosos: [GNOME](https://www.gnome.org/), [KDE](https://k
 
 O usuário tem a liberdade de usar programas feito para um DE em outros DEs. Por exemplo, um usuário que esteja usando o `KDE` pode usar programas pensados para o `GNOME` e vice-versa, ainda que provavelmente o programa tenha um aspecto (*look and feel*) diferente do DE utilizado (o tema, ou seja, a escolha de cores, de ícones, etc. do programa será diferente do tema do DE usado).
 
-[Lista](https://wiki.archlinux.org/title/Desktop_environment_%28Portugu%C3%AAs%29#Lista_de_ambientes_de_desktop) de DEs disponíveis.
+O [wiki do Arch Linux](https://wiki.archlinux.org/) (que, diga-se de passagem, possui uma documentação excelente sobre tudo que relacionado à Linux) possui uma extensa [lista de DEs](https://wiki.archlinux.org/title/Desktop_environment_%28Portugu%C3%AAs%29#Lista_de_ambientes_de_desktop) para Linux.
 
 ### Window Manager (WM)
 
