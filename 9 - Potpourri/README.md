@@ -21,7 +21,7 @@ Algumas distribuições permitem que você escolha qual DE você deseja utilizar
 
 Alguns exemplos de DEs famosos: [GNOME](https://www.gnome.org/), [KDE](https://kde.org/pt-br/), [MATE](https://mate-desktop.org/), [XFCE](https://xfce.org/) e [LXDE](http://www.lxde.org/).
 
-O usuário tem a liberdade de adicionar programas de outros DEs por exemplo usando `KDE` eu posso usar programas do `GNOME` (provavelmente o tema dos programas não vai ser o mesmo já que são de DEs diferentes)
+O usuário tem a liberdade de usar programas feito para um DE em outros DEs. Por exemplo, um usuário que esteja usando o `KDE` pode usar programas pensados para o `GNOME` e vice-versa, ainda que provavelmente o programa tenha um aspecto (*look and feel*) diferente do DE utilizado (o tema, ou seja, a escolha de cores, de ícones, etc. do programa será diferente do tema do DE usado).
 
 [Lista](https://wiki.archlinux.org/title/Desktop_environment_%28Portugu%C3%AAs%29#Lista_de_ambientes_de_desktop) de DEs disponíveis.
 
