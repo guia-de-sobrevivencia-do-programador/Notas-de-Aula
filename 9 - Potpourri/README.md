@@ -66,9 +66,9 @@ Para quem usa bastante o teclado vai ser uma boa opção já que quase nunca voc
 
 Como os WM não tem todos os programas necessários para ser tão funcional como uma DE alguns programas abaixo podem ser úteis na configuração de um WM:
 
-- Inicializador de programas: `dmenu` ou `rofi`
-- Panel: `polybar`
-- Notificações: `dunst`
+- Inicializador de programas: [dmenu](https://tools.suckless.org/dmenu/) ou [rofi](https://github.com/davatorium/rofi)
+- Painel: [polybar](https://github.com/polybar/polybar)
+- Notificações: [dunst](https://github.com/dunst-project/dunst)
 
 ## Linters
 
