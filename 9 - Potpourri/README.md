@@ -29,7 +29,7 @@ O [wiki do Arch Linux](https://wiki.archlinux.org/) (que, diga-se de passagem, p
 
 Um WM ou gerenciador de janelas é o programa que controla o posicionamento e a aparência das janelas em uma interface gráfica (GUI). Por ser mais simples que uma DE completa, normalmente um WM usa menos memória RAM.
 
-O WM pode ser usado dentro de uma DE ou usada de forma independente na imagem abaixo podemos ver dois WM (sway e i3):
+O WM pode ser usado dentro de uma DE ou usada de forma independente. Na imagem abaixo podemos ver dois WMs: [sway](https://swaywm.org/) e [i3](https://i3wm.org/).
 
 <p align="center">
     <img src="./assets/Manjaro_exemplos_wm.png" alt="Manjaro Exemplos WM" width="400" height="200" />
