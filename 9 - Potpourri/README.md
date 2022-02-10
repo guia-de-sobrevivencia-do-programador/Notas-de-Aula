@@ -1,6 +1,6 @@
 # 9 - Potpourri
 
-Outras ferramentas e tópicos que não tivemos tempo de fazer uma aula própria.
+Nesta aula apresentamos algumas ferramentas que também são importantes no dia a dia do programador, mas que não puderam ser incluídos em uma aula própria durante o curso.
 
 ## Window manager
 
