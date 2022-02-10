@@ -1,9 +1,0 @@
-#!/bin/bash
-
-inatorizar() {
-	INVENCAO=$1                              #Pega o primeiro argumento e coloca em INVENCAO
-	echo $INVENCAO virou o ${INVENCAO}inator
-}
-
-read INPUT
-inatorizar $INPUT

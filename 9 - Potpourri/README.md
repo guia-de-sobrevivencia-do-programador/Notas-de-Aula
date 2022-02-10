@@ -10,7 +10,7 @@ Um *desktop environment* ("ambiente de área de trabalho" ou "ambiente de deskto
 
 Pode ser comparado com o que é visto no Windows a barra de ferramentas, barra de pesquisa, gerenciador de tarefas etc....
 
-Cada distribuição de Linux pode vir ou não com uma DE, dependo da distribuição ela te dá várias opções de DEs como pode ser visto na imagem abaixo:
+Há vários DEs diferentes que podem ser utilizados com o Linux e o usuário pode escolher aquele que melhor atender suas necessidades. Cada distribuição Linux normalmente opta por um DE para ser oferecido por padrão (ou opta por não oferecer um por padrão) e o personaliza para a distribuição.
 
 <p align="center">
     <img src="./assets/Manjaro_exemplos_de.png" alt="Manjaro Exemplos DE" width="400" height="200" />
@@ -42,7 +42,7 @@ Alguns exemplos:
 - [awesome](https://awesomewm.org/) pode ser personalizado com código escrito na linguagem de programação Lua;
 - [dwm](https://dwm.suckless.org/) requer que seu código-fonte em C seja modificado para ser personalizado;
 - [qtile](http://www.qtile.org/) pode ser personalizado com código em Python;
-- [`xmonad`](https://xmonad.org/) pode ser personalizado com código em Haskell.
+- [xmonad](https://xmonad.org/) pode ser personalizado com código em Haskell.
 
 #### Tipos
 
@@ -101,7 +101,7 @@ Ter uma convenção de código único facilita a leitura de um código, ao invé
 Uma lista de convenções de códigos para diferentes linguagens de programação e para projetos de desenvolvimento de software pode ser vista nesta página da Wikipédia: https://en.wikipedia.org/wiki/Coding_conventions#List_of_coding_standards .
 ### Problemas em potencial
 
-Um exemplo de problemas em potencial ou `code smells` são, por exemplo, funções grandes.
+Um exemplo de problemas em potencial ou *code smells* são, por exemplo, funções grandes.
 
 Dependendo de pessoa para pessoa funções grandes podem ser consideradas potenciais problemas, então é possível configurar o Linter para detectar funções que são maiores que um certo número de linhas e então o desenvolvedor pode verificar esses potenciais problemas e arrumar eles.
 
@@ -127,9 +127,9 @@ Vai depender do programador pesquisar e escolher qual linter é melhor para seu 
 
 Antes de falar sobre a suite de ferramentas para redes em Linux, uma breve aula sobre redes:
 
-A internet é a rede mais famosa que conhecemos, mas é somente uma de varias redes que regem a conexão entre computadores.
+A Internet é a rede mais famosa que conhecemos, mas é somente uma de várias redes que regem a conexão entre computadores.
 
-Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada a internet ou a outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
+Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada à Internet ou à outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
 
 Por que eu digo "pelo menos"? Porque uma mesma máquina pode ter mais de um endereço vinculado a ela, pois o que retém controle desse endereço não é a máquina ou o sistema operacional, mas sim os dispositivos de rede. Se você tiver um adaptador *WiFi* e um cabo conectados ao seu computador ao mesmo tempo, cada uma dessas entradas (ou *NICs* de *Network Interface Cards*) terão seu próprio endereço de IP distinto.
 
@@ -312,4 +312,3 @@ Podemos também referenciar algumas coisas relacionadas aos eventos nos comandos
 Um exemplo seria mover um arquivo para um subdiretório `Files` no Desktop do usuário assim que o arquivo aparece lá: `/home/$$USER/Desktop IN_MOVED_TO mv /home/$$USER/Desktop/$# /home/$$USER/Desktop/Files/`
 
 O incrontab possui algumas outras possibilidades de configuração que podem ser encotradas no seu manual: `man 5 incrontab`
-

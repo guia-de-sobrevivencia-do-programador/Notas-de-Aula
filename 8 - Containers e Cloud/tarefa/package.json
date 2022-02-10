@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "nkzren",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "ip": "^1.1.5",
+    "winston": "^3.5.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
