@@ -42,7 +42,7 @@ Alguns exemplos:
 - [awesome](https://awesomewm.org/) pode ser personalizado com código escrito na linguagem de programação Lua;
 - [dwm](https://dwm.suckless.org/) requer que seu código-fonte em C seja modificado para ser personalizado;
 - [qtile](http://www.qtile.org/) pode ser personalizado com código em Python;
-- [`xmonad`](https://xmonad.org/) pode ser personalizado com código em Haskell.
+- [xmonad](https://xmonad.org/) pode ser personalizado com código em Haskell.
 
 #### Tipos
 
@@ -101,7 +101,7 @@ Ter uma convenção de código único facilita a leitura de um código, ao invé
 Uma lista de convenções de códigos para diferentes linguagens de programação e para projetos de desenvolvimento de software pode ser vista nesta página da Wikipédia: https://en.wikipedia.org/wiki/Coding_conventions#List_of_coding_standards .
 ### Problemas em potencial
 
-Um exemplo de problemas em potencial ou `code smells` são, por exemplo, funções grandes.
+Um exemplo de problemas em potencial ou *code smells* são, por exemplo, funções grandes.
 
 Dependendo de pessoa para pessoa funções grandes podem ser consideradas potenciais problemas, então é possível configurar o Linter para detectar funções que são maiores que um certo número de linhas e então o desenvolvedor pode verificar esses potenciais problemas e arrumar eles.
 
