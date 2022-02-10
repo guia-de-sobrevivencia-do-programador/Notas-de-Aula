@@ -218,4 +218,3 @@ E para expor um servico TCP qualquer, rode:
 ```bash
 ngrok tcp 42000
 ```
-
