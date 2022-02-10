@@ -16,7 +16,7 @@ Cada distribuição de Linux pode vir ou não com uma DE, dependo da distribuiç
     <img src="./assets/Manjaro_exemplos_de.png" alt="Manjaro Exemplos DE" width="400" height="200" />
 </p>
 
-Essa imagem dá a opção para o usuário baixar a distribuição [Manjaro](https://manjaro.org/download/) com 3 opções oficiais de DEs.
+Algumas distribuições permitem que você escolha qual DE você deseja utilizar antes mesmo de você baixar a distribuição. A figura acima mostra as 3 opções de DEs oferecidas oficialmente pela distribuição Linux [Manjaro](https://manjaro.org/download/).
 
 Geralmente uma DE possui outros aplicativos que ajudam a compôr a interface gráfica do usuário.
 
