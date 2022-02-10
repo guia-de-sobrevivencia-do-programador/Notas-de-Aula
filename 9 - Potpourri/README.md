@@ -1,20 +1,141 @@
 # 9 - Potpourri
 
-Outras ferramentas e tópicos que não tivemos tempo de fazer uma aula própria.
+Nesta aula apresentamos algumas ferramentas que também são importantes no dia a dia do programador, mas que não puderam ser incluídos em uma aula própria durante o curso.
+
+## Window manager
+
+### Desktop Environment (DE)
+
+Um *desktop environment* ("ambiente de área de trabalho" ou "ambiente de desktop", abreviado aqui como DE) é um conjunto de programas que implementam a metáfora da "área de trabalho" e que compartilham uma mesma interface gráfica de usuário (GUI), incluindo ícones, barras de ferramentas, papéis de paredes e até mesmo seu próprio *gerenciador de janelas*.
+
+Pode ser comparado com o que é visto no Windows a barra de ferramentas, barra de pesquisa, gerenciador de tarefas etc....
+
+Há vários DEs diferentes que podem ser utilizados com o Linux e o usuário pode escolher aquele que melhor atender suas necessidades. Cada distribuição Linux normalmente opta por um DE para ser oferecido por padrão (ou opta por não oferecer um por padrão) e o personaliza para a distribuição.
+
+<p align="center">
+    <img src="./assets/Manjaro_exemplos_de.png" alt="Manjaro Exemplos DE" width="400" height="200" />
+</p>
+
+Algumas distribuições permitem que você escolha qual DE você deseja utilizar antes mesmo de você baixar a distribuição. A figura acima mostra as 3 opções de DEs oferecidas oficialmente pela distribuição Linux [Manjaro](https://manjaro.org/download/).
+
+
+Alguns exemplos de DEs famosos: [GNOME](https://www.gnome.org/), [KDE](https://kde.org/pt-br/), [MATE](https://mate-desktop.org/), [XFCE](https://xfce.org/) e [LXDE](http://www.lxde.org/).
+
+O usuário tem a liberdade de usar programas feito para um DE em outros DEs. Por exemplo, um usuário que esteja usando o `KDE` pode usar programas pensados para o `GNOME` e vice-versa, ainda que provavelmente o programa tenha um aspecto (*look and feel*) diferente do DE utilizado (o tema, ou seja, a escolha de cores, de ícones, etc. do programa será diferente do tema do DE usado).
+
+O [wiki do Arch Linux](https://wiki.archlinux.org/) (que, diga-se de passagem, possui uma documentação excelente sobre tudo que relacionado à Linux) possui uma extensa [lista de DEs](https://wiki.archlinux.org/title/Desktop_environment_%28Portugu%C3%AAs%29#Lista_de_ambientes_de_desktop) para Linux.
+
+### Window Manager (WM)
+
+Um WM ou gerenciador de janelas é o programa que controla o posicionamento e a aparência das janelas em uma interface gráfica (GUI). Por ser mais simples que uma DE completa, normalmente um WM usa menos memória RAM.
+
+O WM pode ser usado dentro de uma DE ou usada de forma independente. Na imagem abaixo podemos ver dois WMs: [sway](https://swaywm.org/) e [i3](https://i3wm.org/).
+
+<p align="center">
+    <img src="./assets/Manjaro_exemplos_wm.png" alt="Manjaro Exemplos WM" width="400" height="200" />
+</p>
+
+Cada WM é implementado em uma determinada linguagem. Ter conhecimento prévio dessa linguagem pode ajudar bastante para poder configurar o seu WM da maneira que desejar.
+
+Alguns exemplos:
+
+- [awesome](https://awesomewm.org/) pode ser personalizado com código escrito na linguagem de programação Lua;
+- [dwm](https://dwm.suckless.org/) requer que seu código-fonte em C seja modificado para ser personalizado;
+- [qtile](http://www.qtile.org/) pode ser personalizado com código em Python;
+- [`xmonad`](https://xmonad.org/) pode ser personalizado com código em Haskell.
+
+#### Tipos
+
+Os WMs podem ser classificados em 3 tipos:
+
+* [Stacking](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_de_empilhamento): É o tipo de organização mais comum para usuários de DEs, Windows e OS X, esse tipo de WM os programas ficam `flutuando` pela área de trabalho.
+
+* [Tiling](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_de_tiling): Esse tipo de WM tem uma organização `automática`. Quando novas janelas são criadas elas automaticamentes são organizadas na área de trabalho de uma forma que as janelas não vão se sobrepor, a organização das janelas vai depender do WM usado ou da configuração do WM.
+
+* [Dynamic](https://wiki.archlinux.org/title/Window_manager_%28Portugu%C3%AAs%29#Gerenciadores_de_janela_din%C3%A2micos): Esse tipo de WM abrange os dois tipos mostrados anteriormente o Stacking e o Tiling, O Dynamic consegue `transicionar` entre os modos de Stacking e Tiling, assim fica à escolha do usuário em qual modo ele quer que as janelas fiquem.
+
+### WM x DE
+
+Como visto anteriormente, uma DE é um WM com funcionalidades e programas adicionais que se integram e se complementam para implementar a metáfora de ambiente área de trabalho.
+
+Normalmente um WM atua exclusivamente como um gerenciador de janelas, ou seja, tipicamente um WM não implementa coisas como um sistema de menu, notificações, gerenciador de *clipboard*, gerenciador de redes, gerenciador de *login*, etc. Outros softwares (opcionais) são responsáveis por gerenciar essas coisas. Como um WM oferece menos recursos, optar por usar apenas um WM pode economizar bastante memória RAM do seu computador.
+
+Muitos WMs permitem que o usuário realize todas as operações de gerenciamento de janelas usando apenas o teclado. Usuários proficientes conseguem trabalhar em tais WMs sem tirar as mãos do teclado, o que acelera bastante o trabalho.
+
+### Complementos
+
+Dependendo das necessidades do usuário, pode ser preciso complementar a WM com utilitários que forneçam algumas das funcionalidades adicionais encontradas em DEs:
+
+- Inicializador de programas: [dmenu](https://tools.suckless.org/dmenu/) ou [rofi](https://github.com/davatorium/rofi)
+- Painel: [polybar](https://github.com/polybar/polybar)
+- Notificações: [dunst](https://github.com/dunst-project/dunst)
+
+## Linters
+
+### O que é um linter?
+
+Linter é uma ferramenta para ajudar no desenvolvimento do seu código. O Linter analisa o código especificado procurando por problemas, podem ser eles problemas técnicos ou problemas de qualidade de código, sendo assim capazes de diagnosticar e arrumar problemas que podem passar despercebidos pelo programador.
+
+O resultado será um código mais legível, consistente e mais fácil de manter, dessa forma também estarão contribuindo para ajudar programadores mais inexperientes à aprender sobre qualidade de código.
+
+Além disso alguns Linters também conseguem manter o código mais seguro e perfomático, mas isso não é uma regra.
+
+### Análise Estática
+
+A análise estática é feito pelos linters para analisar o código em questão sem executar ele, checando por problemas, bugs, vazamento de memória e outros problemas.
+
+### Erros de Sintaxe
+
+Uma das coisas mais básicas que o Linter pode oferecer são verificar erros de sintaxe.
+
+Erros de sintaxe são detectadas pelos compiladores em linguagens `compiladas` como C, C++, Java, etc. Mas em linguagens *interpretadas*, os erros serão encontrados apenas quando o código for executado, e é aí que o uso de um Linter se torna importante.
+
+Um exemplo pode ser erros do `CSS` que vão apenas ser percebidos quando o site for acessado.
+
+### Convenções de código
+
+Convenções de código são de extrema importância quando se quer criar um código para ser mantido ou um cógido que vai ser usado por muitas pessoas.
+
+Ter uma convenção de código único facilita a leitura de um código, ao invés de ter estilos de código de vários desenvolvedores diferentes que iria dificultar a legibilidade do código.
+
+Uma lista de convenções de códigos para diferentes linguagens de programação e para projetos de desenvolvimento de software pode ser vista nesta página da Wikipédia: https://en.wikipedia.org/wiki/Coding_conventions#List_of_coding_standards .
+### Problemas em potencial
+
+Um exemplo de problemas em potencial ou `code smells` são, por exemplo, funções grandes.
+
+Dependendo de pessoa para pessoa funções grandes podem ser consideradas potenciais problemas, então é possível configurar o Linter para detectar funções que são maiores que um certo número de linhas e então o desenvolvedor pode verificar esses potenciais problemas e arrumar eles.
+
+### Performace
+
+A performace, já vista em aulas passadas especificamente em perfilamento, é de suma importância para a o desenvolvimento de um aplicativo.
+
+Muitos linters também incluem verificação de performace, eles podem adicionar diferentes tipos de performace e para novos programadores pode ajudar bastante no desenvolvimento e no aprendizado.
+
+### Segurança
+
+A segurança é um dos maiores problemas no desenvolvimento de um código ou o maior problema que os devem se preocupar.
+
+Não se aplica para todos os linters, mas existem linters específicos que podem oferecer verificações de segurança durante o desenvolvimento de um aplicativo.
+
+### Exemplos
+
+Para quem quiser dar uma olhada nos linters existentes e quais linguagens de programação eles conseguem suportar existe um [repositorio](https://megalinter.github.io/5.7.0/all_linters/) com uma variedade de linters especificando sua licença, linguagem, versão, repositório, etc... Existem outros repositórios com indicações de linters como [esse](https://github.com/caramelomartins/awesome-linters).
+
+Vai depender do programador pesquisar e escolher qual linter é melhor para seu uso no dia-a-dia.
 
 ## Suite de redes Linux
 
 Antes de falar sobre a suite de ferramentas para redes em Linux, uma breve aula sobre redes:
 
-A internet é a rede mais famosa que conhecemos, mas é somente uma de varias redes que regem a conexão entre computadores.
+A Internet é a rede mais famosa que conhecemos, mas é somente uma de várias redes que regem a conexão entre computadores.
 
-Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada a internet ou a outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
+Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada à Internet ou à outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
 
 Por que eu digo "pelo menos"? Porque uma mesma máquina pode ter mais de um endereço vinculado a ela, pois o que retém controle desse endereço não é a máquina ou o sistema operacional, mas sim os dispositivos de rede. Se você tiver um adaptador *WiFi* e um cabo conectados ao seu computador ao mesmo tempo, cada uma dessas entradas (ou *NICs* de *Network Interface Cards*) terão seu próprio endereço de IP distinto.
 
 Uma máquina também pode estar conectada a duas redes ao mesmo tempo. Essa máquina é chamada de *gateway*, pois vira o portão, ou *gateway*, entre uma rede e outra (mas pode ter somente um *gateway* por rede, e esse normalmente é o seu roteador, que conecta sua rede local à internet). Se uma máquina em uma dessas redes quiser se conectar a uma máquina da outra rede, a conexão entre essas duas máquinas vão passar por essa máquina configurada como *gateway*.
 
-Existem vários grupos de endereços que são reservados. Alguns desses grupos são reservados para redes locais, detalhados no RFC 1918. Essas são:
+Existem vários grupos de endereços que são reservados. Alguns desses grupos são reservados para redes locais, detalhados no [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918). Essas são:
 
 - `10.0.0.0/8`: do endereço `10.0.0.0` a `10.255.255.255`
 - `172.16.0.0/12`: do endereço `172.16.0.0` a `172.31.255.255`
