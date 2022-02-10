@@ -8,11 +8,11 @@ Antes de falar sobre a suite de ferramentas para redes em Linux, uma breve aula 
 
 A internet é a rede mais famosa que conhecemos, mas é somente uma de varias redes que regem a conexão entre computadores.
 
-Cada rede tem seus próprios endereços de IPs, e pode ou não estar conectada a internet ou a outra rede. Esses endereços são o que identificam uma maquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
+Cada rede tem seus próprios endereços IPs, e pode ou não estar conectada a internet ou a outra rede. Esses endereços são o que identificam uma máquina ou um nó na rede. Cada máquina em uma rede tem pelo menos um endereço, e cada endereço é único dentro dessa rede.
 
-Por que eu digo "pelo menos"? Porque uma mesma maquina pode ter mais de um endereço vinculado a ela, pois o que retem controle desse endereço não e a maquina ou o sistema operacional, mas sim os dispositivos de rede. Se você tiver um adaptador *WiFi* e um cabo conectados ao seu computador ao mesmo tempo, cada uma dessas entradas (ou *NICs* de *Network Interface Cards*) terão seu próprio endereço de IP distinto.
+Por que eu digo "pelo menos"? Porque uma mesma máquina pode ter mais de um endereço vinculado a ela, pois o que retém controle desse endereço não é a máquina ou o sistema operacional, mas sim os dispositivos de rede. Se você tiver um adaptador *WiFi* e um cabo conectados ao seu computador ao mesmo tempo, cada uma dessas entradas (ou *NICs* de *Network Interface Cards*) terão seu próprio endereço de IP distinto.
 
-Uma maquina também pode estar conectada a duas redes ao mesmo tempo. Essa maquina é chamada de *gateway*, pois vira o portão, ou *gateway*, entre uma rede e outra (mas pode ter somente um *gateway* por rede, e esse normalmente é o seu roteador, que conecta sua rede local à internet). Se uma máquina em uma dessas redes quiser se conectar a uma maquina da outra rede, a conexão entre essas duas máquinas ira passar por essa máquina configurada como *gateway*.
+Uma máquina também pode estar conectada a duas redes ao mesmo tempo. Essa máquina é chamada de *gateway*, pois vira o portão, ou *gateway*, entre uma rede e outra (mas pode ter somente um *gateway* por rede, e esse normalmente é o seu roteador, que conecta sua rede local à internet). Se uma máquina em uma dessas redes quiser se conectar a uma máquina da outra rede, a conexão entre essas duas máquinas vai passar por essa máquina configurada como *gateway*.
 
 Existem vários grupos de endereços que são reservados. Alguns desses grupos são reservados para redes locais, detalhados no RFC 1918. Essas são:
 
@@ -22,7 +22,7 @@ Existem vários grupos de endereços que são reservados. Alguns desses grupos s
 
 Esses endereços (em notação *CIDR*) não podem aparecer na internet. Quem controla a distribuição de endereços da internet é a IANA (*Internet Assigned Numbers Authority*). Ela que fala quem esta responsável por quais grupos de redes.
 
-Em uma maquina, podem ter vários programas que utilizam a internet ao mesmo tempo. O sistema operacional faz o controle de qual programa é responsável por qual conexão através da associação de portas a programas. Os programas podem pedir por uma porta ao sistema operacional, e quando alguém quiser usar tal programa, ele vai ter que especificar a porta (alem do endereço IP) em cada conexão para acessar aquele programa ou serviço rodando naquela máquina.
+Em uma máquina, podem ter vários programas que utilizam a internet ao mesmo tempo. O sistema operacional faz o controle de qual programa é responsável por qual conexão através da associação de portas a programas. Os programas podem pedir por uma porta ao sistema operacional, e quando alguém quiser usar tal programa, ele vai ter que especificar a porta (além do endereço IP) em cada conexão para acessar aquele programa ou serviço rodando naquela máquina.
 
 Com esses conhecimentos a gente pode começar a usar as ferramentas de redes.
 
@@ -30,7 +30,7 @@ Com esses conhecimentos a gente pode começar a usar as ferramentas de redes.
 
 #### SSH
 
-SSH (*Secure SHell*) é um programa que permite acesso remoto a uma shell em uma outra maquina.
+SSH (*Secure SHell*) é um programa que permite acesso remoto a uma shell em uma outra máquina.
 
 Para se conectar a um computador remoto, ele precisa estar rodando um servidor SSH e você precisa saber as credenciais de um usuário do sistema. Exemplo:
 
@@ -44,7 +44,7 @@ Se o servidor não estiver rodando na sua porta padrão, você pode definir a po
 
 SCP (*Ssh CoPy*) utiliza o protocolo SSH para copiar arquivos entre dois computadores.
 
-O uso é bem parecido com o SSH: você precisa de uma maquina rodando um servidor. Os parametros lembram bastante o próprio comando `cp` do Linux:
+O uso é bem parecido com o SSH: você precisa de uma máquina rodando um servidor. Os parâmetros lembram bastante o próprio comando `cp` do Linux:
 
 ```bash
 scp <origem> <destino>
@@ -74,7 +74,7 @@ Basta entrar em uma pasta e rodar:
 python3 -m http.server
 ```
 
-Que um servidor HTTP estará rodando na sua maquina local na porta `8000`. Também e possível escolher a porta em que o servidor ira rodar passando uma porta como argumento. O próximo comando roda um servidor na porta `8080`:
+Que um servidor HTTP estará rodando na sua máquina local na porta `8000`. Também e possível escolher a porta em que o servidor vai rodar passando uma porta como argumento. O próximo comando roda um servidor na porta `8080`:
 
 ```bash
 python3 -m http.server 8080
