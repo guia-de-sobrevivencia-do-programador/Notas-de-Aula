@@ -1,6 +1,8 @@
 const express = require('express')
 const ip = require('ip')
 
+const logger = require('./logger')
+
 const app = express()
 const port = 3000
 
@@ -9,5 +11,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`App rodando na porta: ${port}`)
+  logger.info(`App rodando na porta: ${port}`)
 })
