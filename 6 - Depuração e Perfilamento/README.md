@@ -90,7 +90,7 @@ Durante a execução de um programa existe uma `stack` que armazena as chamadas 
 
 Usando como exemplo o código de [soma de vetores](./addvec/addvec.c) quando a execução acontece primeiro é chamada a função `main()` depois é chamada a função `add_vec()`, na stack isso é representada como dois frames:
 
-![frame](./assets/frames.png)
+![frame](./assets/frame.png)
 
 Na imagem acima conseguimos ver que estamos na função `add_vec()` dentro da função `main()`.
 
