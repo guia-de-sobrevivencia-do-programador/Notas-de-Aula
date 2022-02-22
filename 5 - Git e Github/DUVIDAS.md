@@ -33,3 +33,6 @@ Branches permitem que você identifique um ponto de mudança no seu repositório
 
 - Qual a diferença entre `git merge` e `git rebase`?
 
+O `git merge` cria um novo commit que contém todas as mudanças das duas branches envolvidas, mantendo todo o histórico das branches exatamente da mesma forma. Geralmente é a forma mais segura de aplicar commits de uma branch em outra.
+
+O `git rebase` move todos os commits de uma branch e aplica em outra, reescrevendo o histórico de commits. Devido à reescrita, pode causar problemas com o repositório remoto quando a mesma branch é utilizada por mais de um usuário. A vantagem do rebase é que o histórico de commits fica mais linear se comparado ao merge, então é mais fácil de visualizar as mudanças no histórico.
