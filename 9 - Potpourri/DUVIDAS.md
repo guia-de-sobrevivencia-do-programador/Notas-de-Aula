@@ -10,7 +10,7 @@ Aqui registramos e vamos responder algumas perguntas que foram feitas durante a 
 
 Sim! É possível ter vários *Desktop Environments* e *Window Managers* no mesmo computador. Vale a pena experimentar todos e ver qual você gosta mais.
 
-#### Dúvida 2
+#### Dúvida 2 - Markdown
 
 - O html é filho do markdown?
 
