@@ -13,8 +13,3 @@ Uma máquina virtual "imita" o hardware inteiro para que o guest ache que está 
 - É possível usar o docker no wsl?
 
 Sim é possível.
-
-## Dúvida 3
-
-- Como a gente transita de uma imagem para outra? (Transitar pelas imagens do docker)
-
