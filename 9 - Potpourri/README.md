@@ -218,3 +218,97 @@ E para expor um servico TCP qualquer, rode:
 ```bash
 ngrok tcp 42000
 ```
+
+## Cronjobs e InCronjobs
+
+Cron e InCron são ótimas ferramentas para automação. Com eles é possível executar comandos ou scripts em um determinado horário ou se alguma determinada ação é tomada dentro de um diretório.
+
+### Cron
+
+É um escalonador de [*jobs*](https://en.wikipedia.org/wiki/Job_control_(Unix)) que executa comandos em horários específicos determinados no seu arquivo de configuração. Existem várias implementações de cron, como cronie e fcron.
+
+Confira a documentação da implementação de cron que deseja usar para instruções de como iniciar o seu daemon, que é necessário para que haja o monitoramento. Caso já venha instalado com o seu sistema, provavelmente esse passo não é necessário.
+
+
+#### Configuração
+
+Geralmente o arquivo de configuração se encontra no diretório `/etc` ou em um subdiretório como `/etc/cron.d`, mas também pode ser acessado usando o comando `crontab -e`.
+
+Algumas implementações de cron colocam comentários para ilustrar o seu funcionamento nas configurações. Ele deve parecer com isso:
+
+```
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of the month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                   7 is also Sunday on some systems)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * * <command to execute>
+```
+
+Como é ilustrado acima, cada job é delimitado por uma linha no arquivo onde devemos preencher 6 campos: minuto, hora, dia do mês, mês, dia da semana e comando que deverá ser executado. O símbolo `*` representa qualquer número, ou seja, `10 5 * * * ~/script.sh` seria "No minuto 10, da hora 5, de todo dia do mês, todo mês e todo dia da semana execute o script ~/script.sh". Apesar de não ser comum, você também pode encontrar alguma implementação de cron que possua um campo para segundos.
+
+Outros símbolos:
+
+- `/` : Indica que o comando deve ser executado "a cada" tanto tempo. Por exemplo, `*/5 * * * *` significa "a cada 5 minutos".
+
+- `,` : Usado para determinar mais de um período. Por exemplo, `* 3,4,5 * * *` significa "3,4 e 5 horas".
+
+
+Combinando todos esses símbolos podemos conseguir comportamentos mais complexos. Por exemplo, `*/5 0,12 * 12 1 echo "o natal tá chegando!" >> ~/mensagens_importantes.txt` determina que durante dezembro, a cada 5 minutos das horas 0 e 12 das segunda-feiras o comando será executado.
+
+### InCron
+
+Ao invés de monitorar a hora, como o cron, o incron monitora diretórios ou arquivos por modificações determinadas no seu arquivo de configuração.
+
+Confira a documentação da implementação de incron que deseja usar para instruções de como iniciar o seu daemon, que é necessário para que haja o monitoramento. Caso já venha instalado com o seu sistema, provavelmente esse passo não é necessário.
+
+#### Configuração
+
+Para editar o arquivo de configurações, basta executar o comando `incrontab -e`
+
+A estrutura de uma linha de configuração do incrontab é da seguinte forma, onde "caminho" é onde se encontra o diretório ou arquivo a ser monitorado, "máscara" é o tipo de ação a ser monitorada e "comando" é o que deve ser executado:
+
+```
+<caminho> <máscara> <comando>
+```
+
+Tipos de máscara:
+
+`IN_ACCESS`: quando o arquivo monitorado é acessado ou lido
+
+`IN_ATTRIB`: quando algum metadado do arquivo monitorado é alterado
+
+`IN_CLOSE_WRITE`: quando o arquivo monitorado é fechado depois de ser aberto para ser escrito
+
+`IN_CLOSE_NOWRITE`: quando o arquivo monitorado é fechado depois de ser aberto para outra operação que não a de escrever
+
+`IN_CREATE`: quando um arquivo ou diretório é criado dentro diretório monitorado
+
+`IN_DELETE`: quando um arquivo ou diretório é removido dentro diretório monitorado
+
+`IN_DELETE_SELF`: quando o próprio arquivo ou diretório monitorado é removido
+
+`IN_MODIFY`: quando o arquivo monitorado é modificado
+
+`IN_MOVE_SELF`: quando o próprio arquivo ou diretório monitorado é movido
+
+`IN_MOVED_FROM`: quando um arquivo ou diretório é movido de dentro para fora do diretório monitorado
+
+`IN_MOVED_TO`: quando um arquivo ou diretório é movido de fora para dentro do diretório monitorado
+
+`IN_OPEN`: quando o arquivo ou diretório monitorado é aberto
+
+Podemos também referenciar algumas coisas relacionadas aos eventos nos comandos:
+
+- `$$`: é necessário usar esse símbolo para usar o $ como usaria em outras situações. Para acessar a variável de ambiente user, por exemplo `$$USER`
+
+- `$@`: o caminho que está sendo monitorado
+ 
+- `$#`: nome do arquivo ou diretório que acionou o evento
+
+Um exemplo seria mover um arquivo para um subdiretório `Files` no Desktop do usuário assim que o arquivo aparece lá: `/home/$$USER/Desktop IN_MOVED_TO mv /home/$$USER/Desktop/$# /home/$$USER/Desktop/Files/`
+
+O incrontab possui algumas outras possibilidades de configuração que podem ser encotradas no seu manual: `man 5 incrontab`
