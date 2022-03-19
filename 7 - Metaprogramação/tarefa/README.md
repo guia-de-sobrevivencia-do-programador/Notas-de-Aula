@@ -30,6 +30,11 @@ Esta seção tem como objetivo apresentar alguns conceitos de integração cont�
 3. Modifique o código do teste para que ele falhe (exemplo: `expect(resultado).toBe("isso_nem_eh_um_numero")`).
 4. Tente fazer um commit. Ele deve falhar. Tire um *screenshot* do resultado.
 5. Adicione o seu script no arquivo zip da tarefa.
+  * **R**: Exemplo de script:
+  ```
+  #! /bin/bash
+  npm run test
+  ```
 
 ## Seção 3 - Testes
 
