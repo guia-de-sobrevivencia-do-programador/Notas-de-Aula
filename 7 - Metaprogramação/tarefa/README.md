@@ -31,7 +31,7 @@ Esta seção tem como objetivo apresentar alguns conceitos de integração cont�
 4. Tente fazer um commit. Ele deve falhar. Tire um *screenshot* do resultado.
 ![screenshot do resultado](./secao2ex4.png)
 5. Adicione o seu script no arquivo zip da tarefa.
-  * **R**: Há um exemplo de script no repositório: `pre-commit`
+  * **R**: Há um exemplo de script no repositório: [pre-commit](./pre-commit)
 
 ## Seção 3 - Testes
 
